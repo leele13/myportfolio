@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu&family=Noto+Sans+KR:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px "Gaegu";
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #262626;
+}
+a:hover {
+  color: wihte;
+  text-decoration: underline;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1 {
+  font-size: 0;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+p {
+  font-size: 18px;
+  line-height: 2;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 10px;
+  background-color: orange;
+}
+
+.logo-main-menu {
+  height: 100px;
+  background-color: white;
+}
+@media (min-width: 1440px) {
+  .logo-main-menu {
+    height: 120px;
+  }
+}
+.logo-main-menu .logo-main-menu-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-main-menu .logo-main-menu-box .logo a {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  background-color: red;
+}
+@media (min-width: 1440px) {
+  .logo-main-menu .logo-main-menu-box .logo a {
+    width: 150px;
+    height: 120px;
+  }
+}
+@media (min-width: 1440px) {
+  .logo-main-menu .logo-main-menu-box .logo a img {
+    height: 100%;
+  }
+}
+.logo-main-menu .logo-main-menu-box .mainmenu .gnb {
+  display: none;
+}
+@media (min-width: 1440px) {
+  .logo-main-menu .logo-main-menu-box .mainmenu .gnb {
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+}
+.logo-main-menu .logo-main-menu-box .mainmenu .gnb a {
+  text-align: center;
+  color: #39B2C5;
+}
+@media (min-width: 1440px) {
+  .logo-main-menu .logo-main-menu-box .mainmenu .gnb a {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+}
+@media (min-width: 1440px) {
+  .logo-main-menu .logo-main-menu-box .mobile-menu {
+    display: none;
+  }
+}
+.logo-main-menu .logo-main-menu-box .mobile-menu .mobile-btn {
+  width: 50px;
+}
+.logo-main-menu .logo-main-menu-box .mobile-menu .mobile-btn span {
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #39B2C5;
+}
+.logo-main-menu .logo-main-menu-box .mobile-menu .mobile-btn span:nth-child(2) {
+  width: 90%;
+  margin: 10px auto;
+}/*# sourceMappingURL=index.css.map */

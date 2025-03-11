@@ -1,0 +1,100 @@
+@import "./style.scss";
+@import "./reset.scss";
+@import "./mixin.scss";
+
+.container {
+    width: $width-wide;
+    max-width: $break-large;
+    margin: 0 auto;
+    padding: 0 10px;
+    background-color: orange;
+}
+
+.logo-main-menu{
+    height: 100px;
+    background-color: white;
+
+    @include responsive(large-screens) {
+        height: 120px;
+    }
+
+    .logo-main-menu-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+
+            a {
+                width: 100px;
+                height: 100px;
+                padding: 10px;
+                background-color: red;
+
+                @include responsive(large-screens) {
+                    width: 150px;
+                    height: 120px;
+                }
+
+                img {
+
+                    @include responsive(large-screens) {
+                        height: 100%;
+                        // background-color: aqua;
+                    }
+                }
+            }
+        }
+        .mainmenu {
+    
+            .gnb {
+                display: none;
+    
+                @include responsive(large-screens) {
+                    display: block;
+                    display: flex;
+                    align-items: center;
+                }
+    
+                a {
+                    text-align: center;
+                    color: $font-color-main;
+
+                    @include responsive(large-screens) {
+                        width: 120px;
+                        height: 120px;
+                        line-height: 120px;
+                        font-size: 26px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    
+        .mobile-menu {   
+    
+            @include responsive(large-screens) {
+                display: none;
+            }
+
+            .mobile-btn {
+                width: 50px;
+
+                span {
+                    display: block;
+                    width: $width-wide;
+                    height: 10px;
+                    border-radius: 10px;
+                    background-color: $font-color-main;
+
+                    &:nth-child(2) {
+                        width: 90%;
+                        margin: 10px auto;
+                    }
+                }
+
+            }
+        }
+    }
+
+}

@@ -1,0 +1,42 @@
+@import "./style.scss";
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font:  16px $font-main;
+}
+ul,
+ol {
+    list-style: none;
+}
+a {
+    display: block;
+    text-decoration: none;
+    color: $font-color-sub2;
+    &:hover {
+        color: wihte;
+        text-decoration: underline;
+    }
+}
+img {
+    display: block;
+    width: 100%;
+}
+h1 {
+    font-size: 0;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+    font-weight: normal;
+}
+p {
+    font-size: 18px;
+    line-height: 2;
+}
