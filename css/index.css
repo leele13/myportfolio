@@ -380,29 +380,252 @@ main .about-me .about-me-title h2 {
     font-size: 48px;
   }
 }
+main .about-me .introduce-box {
+  height: 1440px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box {
+    height: 1300px;
+  }
+}
 main .about-me .introduce-box .desk-img-box {
-  margin-top: 40px;
+  margin-top: 35px;
 }
-main .about-me .introduce-box .desk-img-box .file-me-folders {
-  background-color: red;
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box {
+    margin-top: 100px;
+  }
 }
-main .about-me .introduce-box .desk-img-box .file-me-folders .file-me-box {
-  width: 220px;
-  margin: 0 auto;
+main .about-me .introduce-box .desk-img-box .file-me-desk {
+  position: relative;
+  width: 100%;
+  height: 450px;
 }
-main .about-me .introduce-box .desk-img-box .file-me-folders .file-me-box .file {
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box {
+    position: absolute;
+    left: 25%;
+    top: 5%;
+    width: 460px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box .file {
   height: 330px;
 }
-main .about-me .introduce-box .desk-img-box .file-me-folders .file-me-box .me {
-  width: 125px;
-  height: 125px;
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box .file {
+    height: 715px;
+  }
 }
-main .about-me .introduce-box .desk-img-box .file-me-folders .file-me-box h3 {
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box .me {
+  position: absolute;
+  left: 50%;
+  top: 33%;
+  transform: translateX(-50%);
+  width: 125px;
+  background-color: #DCE8EF;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box .me {
+    width: 316px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translateX(-50%);
+  width: 125px;
   font-family: "Noto Sans KR";
 }
-main .about-me .introduce-box .desk-img-box .file-me-folders .file-me-box h3 span {
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 {
+    position: absolute;
+    bottom: 12%;
+    width: 300px;
+    font-size: 30px;
+    text-align: left;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 span {
   font-family: "Gaegu";
 }
-main .about-me .introduce-box .desk-img-box .desk {
-  height: 530px;
+main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper {
+  position: absolute;
+  top: 220PX;
+  width: 100%;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper {
+    position: absolute;
+    top: 480PX;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
+  width: 100%;
+  height: 200px;
+  background: url(../images/desk.svg) no-repeat center;
+  background-size: contain;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
+    height: 530px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .cup {
+  position: absolute;
+  left: 11%;
+  bottom: 20%;
+  width: 40px;
+  height: 55px;
+  z-index: 1;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .cup {
+    position: absolute;
+    left: 7%;
+    bottom: -90%;
+    width: 100px;
+    height: 150px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .pencil {
+  position: absolute;
+  right: 25%;
+  bottom: 18%;
+  width: 20px;
+  height: 65px;
+  transform: rotate(-60deg);
+  z-index: 2;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .pencil {
+    position: absolute;
+    left: 35%;
+    bottom: -110%;
+    width: 40px;
+    height: 200px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .pencil:last-child {
+  position: absolute;
+  right: 11%;
+  bottom: 22%;
+  transform: rotate(-20deg);
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .pencil:last-child {
+    position: absolute;
+    left: 43%;
+    bottom: -90%;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box {
+  position: relative;
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders li {
+  margin-bottom: 50px;
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 240px;
+  padding: 0 35px;
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders li div h3 {
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders li div h3 {
+    font-size: 24px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders li div p {
+  font-size: 13px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders li div p {
+    font-size: 18px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box {
+  position: absolute;
+  top: 0;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box {
+    position: absolute;
+    top: -95px;
+    right: 4%;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box .str-txt p {
+  font-size: 20px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box .str-txt p {
+    font-size: 28px;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box {
+  position: absolute;
+  top: 320px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box {
+    position: absolute;
+    left: 44%;
+    top: -270px;
+    width: 330px;
+  }
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box img {
+    display: none;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box .folder-second {
+  display: none;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box .folder-second {
+    display: block;
+    height: 400px;
+  }
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box .endeavor-txt {
+    position: absolute;
+    top: 33%;
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
+  position: absolute;
+  top: 640px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    width: 467px;
+  }
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box .vision-txt {
+    position: absolute;
+    top: 38%;
+  }
 }/*# sourceMappingURL=index.css.map */

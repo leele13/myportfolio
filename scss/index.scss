@@ -329,7 +329,7 @@ main {
         }
     } // intro
     
-    /* === about me === */
+/* === about me === */
     .about-me {
         background: linear-gradient($aboutme-bg-color1 20%, $aboutme-bg-color2 55%, $aboutme-bg-color3);
 
@@ -347,40 +347,262 @@ main {
         }
 
         .introduce-box {
+            height: 1440px;
+
+            @include responsive(large-screens) {
+                height: 1300px;
+            }
             
             .desk-img-box {
-                margin-top: 40px;
+                margin-top: 35px;
+                // background-color: red;
+
+                @include responsive(large-screens) {
+                    margin-top: 100px;
+                }
                 
-                .file-me-folders {
-                    background-color: red;
+                .file-me-desk {
+                    position: relative;
+                    width: $width-wide;
+                    height: 450px;
+                    // background-color: red;
 
                     .file-me-box {
-                        width: 220px;
-                        margin: 0 auto;
+                        position: absolute;
+                        left: 50%; 
+                        width: $width-wide;
+                        transform: translateX(-50%);
+                        text-align: center;
+                        z-index: 1;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 25%; top: 5%;
+                            width: 460px;
+                        }
 
                         .file {
                             height: 330px;
+
+                            @include responsive(large-screens) {
+                                height: 715px;
+                            }
                             
                         }
     
                         .me {
+                            position: absolute;
+                            left: 50%; top: 33% ;
+                            transform: translateX(-50%);
                             width: 125px;
-                            height: 125px;
-                            // z-index: 5;
+                            background-color: #DCE8EF;
+
+                            @include responsive(large-screens) {
+                                width: 316px;
+                                // height: 125px;
+                            }
                         }
     
                         h3 {
+                            position: absolute;
+                            left: 50%; bottom: 15% ;
+                            transform: translateX(-50%);
+                            width: 125px;
                             font-family: $font-sub;
+
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                bottom: 12% ;
+                                width: 300px;
+                                font-size: 30px;
+                                text-align: left;
+                            }
     
                             span {
                                 font-family: $font-main;
                             }
                         }
                     }
+
+                    .desk-wrapper {
+                        position: absolute;
+                        top: 220PX;
+                        width: $width-wide;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            top: 480PX;
+                        }
+
+                        .desk-img {
+                            width: $width-wide;
+                            height: 200px;
+                            background: url(../images/desk.svg) no-repeat center;
+                            background-size: contain;
+
+                            @include responsive(large-screens) {
+                                height: 530px;
+                            }
+                        }
+                    }
+
+                    .desk-obj {
+                        
+                        .cup {
+                            position: absolute;
+                            left: 11%; bottom: 20%;
+                            width: 40px;
+                            height: 55px;
+                            z-index: 1;
+
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                left: 7%; bottom: -90%;
+                                width: 100px;
+                                height: 150px;
+                            }
+                        }
+
+                        .pencil {
+                            position: absolute;
+                            right: 25%; bottom: 18%;
+                            width: 20px;
+                            height: 65px;
+                            transform: rotate(-60deg);
+                            z-index: 2;
+
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                left: 35%; bottom: -110%;
+                                width: 40px;
+                                height: 200px;
+                            }
+
+                            &:last-child {
+                                position: absolute;
+                                right: 11%; bottom: 22%;
+                                transform: rotate(-20deg);
+
+                                @include responsive(large-screens) {
+                                    position: absolute;
+                                    left: 43%; bottom: -90%;
+                                }
+                            }
+                        }
+                    }
                 }
 
-                .desk {
-                    height: 530px;
+                .folder-box {
+                    position: relative;
+
+                    .folders {
+
+                        li { // str-box,  endeavor-box, vision-box
+                            margin-bottom: 50px;
+
+                            div { //str-txt, endeavor-txt, vision-txt
+                                position: absolute;
+                                left: 50%; top: 50%;
+                                transform: translate(-50%, -50%);
+                                width: $width-wide;
+                                height: 240px;
+                                padding: 0 35px;
+                                // background-color: red;
+
+                                h3 {
+                                    font-size: 16px;
+                                    padding-bottom: 10px;
+
+                                    @include responsive(large-screens) {
+                                        font-size: 24px;
+                                    }
+                                }
+
+                                p {
+                                    font-size: 13px;
+
+                                    @include responsive(large-screens) {
+                                        font-size: 18px;
+                                    }
+                                }
+                            }
+                        } // str-box,  endeavor-box, vision-box
+
+                        .str-box {
+                            position: absolute;
+                            top: 0;
+
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                top: -95px; right: 4%;
+                            }
+
+                            .str-txt {
+
+                                p {
+                                    font-size: 20px;
+
+                                    @include responsive(large-screens) {
+                                        font-size: 28px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .endeavor-box {
+                            position: absolute;
+                            top: 320px;
+
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                left: 44%; top: -270px;
+                                width: 330px;
+                                // height: 300px;
+                            }
+
+                            img {
+                                
+                                @include responsive(large-screens) {
+                                    display: none;
+                                }
+                            }
+
+                            .folder-second {
+                                display: none;
+
+                                @include responsive(large-screens) {
+                                    display: block;
+                                    height: 400px;
+                                }
+                            }
+
+                            .endeavor-txt {
+
+                                @include responsive(large-screens) {
+                                    position: absolute;
+                                    top: 33%;
+                                }
+                            }
+                        }
+
+                        .vision-box {
+                            position: absolute;
+                            top:  640px;
+
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                left: 50%; top: 150px;
+                                width: 467px;
+                            }
+
+                            .vision-txt {
+                                @include responsive(large-screens) {
+                                    position: absolute;
+                                    top: 38%;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
