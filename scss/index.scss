@@ -97,7 +97,6 @@
                         margin: 5px auto;
                     }
                 }
-
             }
         }
     } // logo-main-menu-box
@@ -334,15 +333,12 @@ main {
         background: linear-gradient($aboutme-bg-color1 20%, $aboutme-bg-color2 55%, $aboutme-bg-color3);
 
         .about-me-title {
+            padding-top: 30px;
+            color: $font-color-main;
 
-            h2 {
-                padding-top: 30px;
-                color: $font-color-main;
-
-                @include responsive(large-screens) {
-                    padding-top: 50px;
-                    font-size: 48px;
-                }
+            @include responsive(large-screens) {
+                padding-top: 50px;
+                font-size: 48px;
             }
         }
 
@@ -606,5 +602,142 @@ main {
                 }
             }
         }
-    }
+    } // about me
+
+/* === skill === */
+    .skill {
+        position: relative;
+        background: linear-gradient($skill-bg-color1, $skill-bg-color2 48%, $skill-bg-color3 87%);
+
+        .skill-title {
+            padding-top: 30px;
+            margin-bottom: 80px;
+            color: $font-color-sub;
+
+            @include responsive(large-screens) {
+                padding-top: 50px;
+                font-size: 48px;
+            }
+        }
+
+        .circle-container {
+
+            .circle-wrapper {
+                display: none;
+
+                @include responsive(large-screens) {
+                    position: absolute;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 400px; height: 400px;
+                    display: block;
+                    background-color: aqua;
+                }
+
+                .circle {                    
+    
+                    @include responsive(large-screens) {
+                        position: relative;
+                        width: 400px; height: 400px;
+                        border-radius: 200px;                    
+                        background-color: #DCE8EF;
+                    }
+                }
+            }
+
+            .icon-list {
+                font-family: $font-sub;
+                padding: 0 50px;
+
+                height: 1000px;  // 임시 임시 임시 임시 임시 임시 임시 
+
+                @include responsive(large-screens) {
+                    position: absolute;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 400px; height: 400px;
+                    background-color: yellow
+                }
+
+                li {
+                    display: grid;
+                    grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
+                    grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
+                    grid-gap: 5px 10px;
+                    align-items: center;
+                    margin-bottom: 25px;
+
+                    background-color: red;
+
+                    @include responsive(large-screens) {
+                        position: absolute;
+                        // top: 0;
+                        left: 50%; top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 150px; height: 150px;
+                        border-radius: 200px;      
+                        transform-origin: 0 0; // 회전의 기준점 설정              
+                        // background-color: #DCE8EF;
+
+
+                        // 각 아이콘의 각도에 따라 rotate를 적용
+        // &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
+        // &:nth-child(2) { transform: rotate(45deg) translate(300px) rotate(-45deg); }
+        // &:nth-child(3) { transform: rotate(90deg) translate(300px) rotate(-90deg); }
+        // &:nth-child(4) { transform: rotate(135deg) translate(300px) rotate(-135deg); }
+        // &:nth-child(5) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
+        // &:nth-child(6) { transform: rotate(225deg) translate(300px) rotate(-225deg); }
+        // &:nth-child(7) { transform: rotate(270deg) translate(300px) rotate(-270deg); }
+        // &:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); }
+
+    //     &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
+    // &:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); }
+    // &:nth-child(3) { transform: rotate(72deg) translate(300px) rotate(-72deg); }
+    // &:nth-child(4) { transform: rotate(108deg) translate(300px) rotate(-108deg); }
+    // &:nth-child(5) { transform: rotate(144deg) translate(300px) rotate(-144deg); }
+    // &:nth-child(6) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
+    // &:nth-child(7) { transform: rotate(216deg) translate(300px) rotate(-216deg); }
+    // &:nth-child(8) { transform: rotate(252deg) translate(300px) rotate(-252deg); }
+    // &:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); }
+    // &:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); }
+        
+    &:nth-child(1) { transform: rotate(0deg) translate(50%, 50%) rotate(0deg); }
+&:nth-child(2) { transform: rotate(36deg) translate(50%, 50%) rotate(-36deg); }
+&:nth-child(3) { transform: rotate(72deg) translate(50%, 50%) rotate(-72deg); }
+&:nth-child(4) { transform: rotate(108deg) translate(50%, 50%) rotate(-108deg); }
+&:nth-child(5) { transform: rotate(144deg) translate(50%, 50%) rotate(-144deg); }
+&:nth-child(6) { transform: rotate(180deg) translate(50%, 50%) rotate(-180deg); }
+&:nth-child(7) { transform: rotate(216deg) translate(50%, 50%) rotate(-216deg); }
+&:nth-child(8) { transform: rotate(252deg) translate(50%, 50%) rotate(-252deg); }
+&:nth-child(9) { transform: rotate(288deg) translate(50%, 50%) rotate(-288deg); }
+&:nth-child(10) { transform: rotate(324deg) translate(50%, 50%) rotate(-324deg); }
+                    }
+
+                    .icon {
+                        width: 50px; height: 50px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+
+                    .gauge {
+                        position: relative;
+                        width: $width-wide;
+                        height: 14px;
+                        grid-column: 1 / -1; /* div를 전체 열을 차지하게 하기 */
+                        border-radius: 7px;
+                        background-color: orange;
+
+                        .gauge-txt {
+                            position: absolute;
+                            left: 5%; top: -2px;
+                            font-size: 12px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    } // skill
 } // main
