@@ -739,5 +739,33 @@ main {
                 }
             }
         }
+
+        .building-box {
+            
+            .building {
+                background: url(../images/building.svg) repeat-x bottom;
+            }
+        }
     } // skill
+
+/* === skill === */
+    .portfolio {
+        height: 1500px;
+        background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+
+        .portfolio-title {
+            padding-top: 30px;
+            color: $font-color-sub;
+
+            @include responsive(large-screens) {
+                padding-top: 50px;
+                font-size: 48px;
+            }
+        }
+
+        .portfolio-box {
+            border: 2px solid #262626;
+            background-color: rgba($color: #DCE8EF, $alpha: 0.1);
+        }
+    }
 } // main

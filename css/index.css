@@ -139,6 +139,7 @@ main {
   /* === intro === */
   /* === about me === */
   /* === skill === */
+  /* === skill === */
 }
 main .intro {
   position: relative;
@@ -758,4 +759,25 @@ main .skill .circle-container .icon-list li .gauge .gauge-txt {
   top: -2px;
   font-size: 12px;
   font-weight: bold;
+}
+main .skill .building-box .building {
+  background: url(../images/building.svg) repeat-x bottom;
+}
+main .portfolio {
+  height: 1500px;
+  background: linear-gradient(#3D3344, #896EA1 50%, #262626);
+}
+main .portfolio .portfolio-title {
+  padding-top: 30px;
+  color: #F8E7BE;
+}
+@media (min-width: 1440px) {
+  main .portfolio .portfolio-title {
+    padding-top: 50px;
+    font-size: 48px;
+  }
+}
+main .portfolio .portfolio-box {
+  border: 2px solid #262626;
+  background-color: rgba(220, 232, 239, 0.1);
 }/*# sourceMappingURL=index.css.map */
