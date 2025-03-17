@@ -611,7 +611,7 @@ main {
 
         .skill-title {
             padding-top: 30px;
-            margin-bottom: 80px;
+            margin: 0 10px 80px;
             color: $font-color-sub;
 
             @include responsive(large-screens) {
@@ -750,8 +750,13 @@ main {
 
 /* === skill === */
     .portfolio {
-        height: 1500px;
+        position: relative;
+        height: 640px;
         background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+
+        @include responsive(large-screens) {
+            height: 1040px;
+        }
 
         .portfolio-title {
             padding-top: 30px;
@@ -764,8 +769,258 @@ main {
         }
 
         .portfolio-box {
+            margin-top: 35px;
             border: 2px solid #262626;
-            background-color: rgba($color: #DCE8EF, $alpha: 0.1);
+            background-color: #FFFAEE;
+
+            @include responsive(large-screens) {
+                height: 750px;
+                padding: 20px 70px;
+                background-color: rgba($color: #DCE8EF, $alpha: 0.1);
+            }
+
+            .img-desc-box {
+
+                @include responsive(large-screens) {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 25px;
+                }
+
+                .img-box {
+                    width: 77.77777777777778%; height: 245px;
+                    margin: 25px auto;
+                    overflow: hidden;  
+
+                    @include responsive(large-screens) {
+                        width: 600px; height: 600px;
+                        margin: 25px 0;
+                    }
+                }
+
+                .desc-btn-box {
+                    width: 77.77777777777778%;
+                    margin: 25px auto;
+
+                    @include responsive(large-screens) {
+                        width: 580px; 
+                        margin: 25px 0;
+                    }
+
+                    .txt-box {
+                        color: $font-color-sub2;
+                        
+
+                        @include responsive(large-screens) {
+                            height: 530px;
+                            color: $font-color-sub3;
+                        }
+                        
+                        .desc-title {
+                            font-size: 20px;
+                            font-weight: normal;
+
+                            @include responsive(large-screens) {
+                                font-size: 40px;
+                            }
+
+                            span {
+                                font-size: 18px;
+
+                                @include responsive(large-screens) {
+                                    font-size: 36px;
+                                }
+                            }
+                        }
+
+                        p {
+                            font-size: 12px;
+                            margin: 25px 0;
+
+                            @include responsive(large-screens) {
+                                font-size: 20px;
+                                margin-top: 60px;
+                            }
+                        }
+                    }
+
+                    .btn-box {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        
+                        button {
+                            width: 82px; height: 26px;
+                            line-height: 26px;
+                            font-family: $font-sub;
+                            font-size: 12px;
+                            border: none;
+                            border: 1px solid #262626;
+                            border-radius: 5px;
+                            color: $font-color-sub2;
+                            background-color: #DCE8EF;
+                            cursor: pointer;
+
+                            @include responsive(large-screens) {
+                                width: 150px; height: 70px;
+                                line-height: 70px;
+                                font-size: 20px;
+                                border-radius: 10px;
+                                color: $font-color-sub3;
+                                background-color: #E28787;
+                            }
+
+                            &:hover {
+                                font-weight: bold;
+                                color: $font-color-sub;
+                                background-color: #E28787;
+
+                                @include responsive(large-screens) {
+                                    color: $font-color-main;
+                                    font-size: 20px;
+                                    background-color: #DCE8EF;
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+        } // portfolio-box
+
+        .arrow {
+            display: none;
+
+            @include responsive(large-screens) {
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                width: 1660px;
+                display: block;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+            }
+            
+
+            div { // lf-arrow, rt-arrow
+                width: 96px; height: 96px;
+                border-radius: 48px;
+                background-color: rgba($color: #A286BA, $alpha: 0.7);
+
+                img {
+                    opacity: 0.9;
+                }
+
+                &:hover {
+                    background-color: rgba($color: #a887c0, $alpha: 0.9);
+                    border: 1px solid #3D3344;
+
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            
         }
-    }
+    } // portfolio
 } // main
+
+
+/* ===== footer ===== */
+
+/* === contact === */
+footer {
+
+    .contact {
+        height: 1000px;
+        background-color: #353434;
+
+        .moon {
+
+            img {
+                position: relative;
+                top: 120px; left: 50%;
+                transform: translateX(-50%);
+                width: 32.77777777777778%;
+                border-radius: 50%;
+    
+                box-shadow:  // x-offset y-offset blur-radius spread-radius color
+                0px 4px 20px 40px rgba(255, 255, 255, 0.1), // 첫 번째 그림자
+                0px 3px 30px 10px rgba(239, 202, 123, 0.25), // 두 번째 그림자
+                0px 5px 27px 10px rgba(102, 167, 198, 0.25); // 세 번째 그림자
+
+                @include responsive(large-screens) {
+                    width: 27.77777777777778%;
+                }
+            }
+        }
+
+        .tree-box {
+            position: relative;
+            height: 264px;
+            top: 294px;
+            background-color: yellow;
+            // display: flex;
+
+            // ul { // left-trees, right-trees
+            //     display: flex;
+            //     width: 47.5%;
+
+            //     li {
+            //         margin-top: auto;
+            //     }
+            // }
+
+            ul {
+
+                li {
+
+                    &:nth-child(3),
+                    &:nth-child(4),
+                    &:nth-child(5),
+                    &:nth-child(8),
+                    &:nth-child(9) {
+                        display: none;
+                    }
+                }
+            }
+
+            .left-trees {
+
+                .tree1 {
+                    position: absolute;
+                    left: 0; bottom: 0;
+                    width: 30%; height: 185px;
+                }
+
+                .tree2 {
+                    position: absolute;
+                    left: 20%; bottom: 0;
+                    width: 24.44444444444444%; height: 143px;
+                }
+            }
+
+            .right-trees {
+
+                .tree6 {
+                    position: absolute;
+                    left: 50%; bottom: 0;
+                    width: 33.61111111111111%; height: 202px;
+                }
+
+                .tree7 {
+                    position: absolute;
+                    right: 0; bottom: 0;
+                    width: 37.5%; height: 265px;
+                }
+            }
+        }
+
+
+
+        
+
+        
+    }
+}
