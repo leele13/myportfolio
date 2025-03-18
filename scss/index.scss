@@ -121,12 +121,12 @@ main {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 30px;
+            font-size: $mobile-title-main;
             color: $font-color-main;
             z-index: 3;
 
             @include responsive(large-screens) {
-                font-size: 60px;
+                font-size: $desktop-content-main;
             }
         }
 
@@ -217,9 +217,9 @@ main {
     
             .sun {
                 position: absolute;
-                top: 50%; left: 51%;
-                transform: translate(-51%, -50%);
-                width: 320px; height: 295px;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                width: 88.88888888888889%; height: 295px;
                 
     
                 @include responsive(large-screens) {
@@ -250,7 +250,7 @@ main {
             .f-lf-cloud1 {
                 position: absolute;
                 top: 67%; left: -17%;
-                width: 465px; height: 250px;
+                width: 129.1666666666667%; height: 250px;
                 transform: rotate(5deg);
                 z-index: 1;
                 // display: none;
@@ -275,7 +275,7 @@ main {
             .f-lf-cloud2 {
                 position: absolute;
                 top: 53%; left: -40%;
-                width: 472px; height: 215px;
+                width: 131.1111111111111%; height: 215px;
                 transform: rotate(15deg);   
     
                 @include responsive(large-screens) {
@@ -294,7 +294,7 @@ main {
             .f-rt-cloud1 {
                 position: absolute;
                 top: 48%; left: 25%;
-                width: 565px; height: 300px;
+                width: 156.9444444444444%; height: 300px;
                 transform: rotate(12deg);  
                 z-index: 2;
 
@@ -490,11 +490,23 @@ main {
 
                 .folder-box {
                     position: relative;
+                    width: 100%;
+                    height: 1000px;
+                    // background-color: lightgreen;
+
+                    @include responsive(large-screens) {
+                        height: 600px;
+                    }
 
                     .folders {
 
                         li { // str-box,  endeavor-box, vision-box
-                            margin-bottom: 50px;
+                            position: absolute;
+                            width: 100%;
+                            height: 250px;
+                            max-height: 300px;
+                            margin-bottom: 50px; left: 50%;
+                            transform: translateX(-50%);
 
                             div { //str-txt, endeavor-txt, vision-txt
                                 position: absolute;
@@ -526,11 +538,16 @@ main {
 
                         .str-box {
                             position: absolute;
-                            top: 0;
+                            top: 0; 
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                top: -95px; right: 4%;
+                                top: -95px; 
+                                // right: -100%;
+                                left: 82%;
+                            width: 340px;
+
+                            // transform: translateX(-50%);
                             }
 
                             .str-txt {
@@ -551,9 +568,8 @@ main {
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                left: 44%; top: -270px;
+                                left: 54%; top: -270px;
                                 width: 330px;
-                                // height: 300px;
                             }
 
                             img {
@@ -576,7 +592,7 @@ main {
 
                                 @include responsive(large-screens) {
                                     position: absolute;
-                                    top: 33%;
+                                    top: 53%;
                                 }
                             }
                         }
@@ -587,15 +603,8 @@ main {
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                left: 50%; top: 150px;
+                                left: 65%; top: 150px;
                                 width: 467px;
-                            }
-
-                            .vision-txt {
-                                @include responsive(large-screens) {
-                                    position: absolute;
-                                    top: 38%;
-                                }
                             }
                         }
                     }
@@ -606,6 +615,7 @@ main {
 
 /* === skill === */
     .skill {
+        height: 1000px;
         position: relative;
         background: linear-gradient($skill-bg-color1, $skill-bg-color2 48%, $skill-bg-color3 87%);
 
@@ -701,16 +711,16 @@ main {
     // &:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); }
     // &:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); }
         
-    &:nth-child(1) { transform: rotate(0deg) translate(50%, 50%) rotate(0deg); }
-&:nth-child(2) { transform: rotate(36deg) translate(50%, 50%) rotate(-36deg); }
-&:nth-child(3) { transform: rotate(72deg) translate(50%, 50%) rotate(-72deg); }
-&:nth-child(4) { transform: rotate(108deg) translate(50%, 50%) rotate(-108deg); }
-&:nth-child(5) { transform: rotate(144deg) translate(50%, 50%) rotate(-144deg); }
-&:nth-child(6) { transform: rotate(180deg) translate(50%, 50%) rotate(-180deg); }
-&:nth-child(7) { transform: rotate(216deg) translate(50%, 50%) rotate(-216deg); }
-&:nth-child(8) { transform: rotate(252deg) translate(50%, 50%) rotate(-252deg); }
-&:nth-child(9) { transform: rotate(288deg) translate(50%, 50%) rotate(-288deg); }
-&:nth-child(10) { transform: rotate(324deg) translate(50%, 50%) rotate(-324deg); }
+                    &:nth-child(1) { transform: rotate(0deg) translate(50%, 50%) rotate(0deg); }
+                    &:nth-child(2) { transform: rotate(36deg) translate(50%, 50%) rotate(-36deg); }
+                    &:nth-child(3) { transform: rotate(72deg) translate(50%, 50%) rotate(-72deg); }
+                    &:nth-child(4) { transform: rotate(108deg) translate(50%, 50%) rotate(-108deg); }
+                    &:nth-child(5) { transform: rotate(144deg) translate(50%, 50%) rotate(-144deg); }
+                    &:nth-child(6) { transform: rotate(180deg) translate(50%, 50%) rotate(-180deg); }
+                    &:nth-child(7) { transform: rotate(216deg) translate(50%, 50%) rotate(-216deg); }
+                    &:nth-child(8) { transform: rotate(252deg) translate(50%, 50%) rotate(-252deg); }
+                    &:nth-child(9) { transform: rotate(288deg) translate(50%, 50%) rotate(-288deg); }
+                    &:nth-child(10) { transform: rotate(324deg) translate(50%, 50%) rotate(-324deg); }
                     }
 
                     .icon {
@@ -931,96 +941,260 @@ main {
 
 /* === contact === */
 footer {
-
+    
     .contact {
-        height: 1000px;
+        position: relative;
+        height: 640px;
         background-color: #353434;
 
-        .moon {
-
-            img {
-                position: relative;
-                top: 120px; left: 50%;
-                transform: translateX(-50%);
-                width: 32.77777777777778%;
-                border-radius: 50%;
-    
-                box-shadow:  // x-offset y-offset blur-radius spread-radius color
-                0px 4px 20px 40px rgba(255, 255, 255, 0.1), // 첫 번째 그림자
-                0px 3px 30px 10px rgba(239, 202, 123, 0.25), // 두 번째 그림자
-                0px 5px 27px 10px rgba(102, 167, 198, 0.25); // 세 번째 그림자
-
-                @include responsive(large-screens) {
-                    width: 27.77777777777778%;
-                }
-            }
+        @include responsive(large-screens) {
+            height: 1080px;
         }
 
-        .tree-box {
-            position: relative;
-            height: 264px;
-            top: 294px;
-            background-color: yellow;
-            // display: flex;
+        .moon-trees {
 
-            // ul { // left-trees, right-trees
-            //     display: flex;
-            //     width: 47.5%;
+            .moon {
+                height: 276px;
 
-            //     li {
-            //         margin-top: auto;
-            //     }
-            // }
-
-            ul {
-
-                li {
-
-                    &:nth-child(3),
-                    &:nth-child(4),
-                    &:nth-child(5),
-                    &:nth-child(8),
-                    &:nth-child(9) {
-                        display: none;
+                @include responsive(large-screens) {
+                    height: 330px;
+                }
+    
+                img {
+                    position: relative;
+                    top: 120px; left: 50%;
+                    transform: translateX(-50%);
+                    width: 32.77777777777778%;
+                    border-radius: 50%;
+        
+                    box-shadow:  // x-offset y-offset blur-radius spread-radius color
+                    0px 4px 20px 40px rgba(255, 255, 255, 0.1), // 첫 번째 그림자
+                    0px 3px 30px 10px rgba(239, 202, 123, 0.25), // 두 번째 그림자
+                    0px 5px 27px 10px rgba(102, 167, 198, 0.25); // 세 번째 그림자
+    
+                    @include responsive(large-screens) {
+                        width: 27.77777777777778%;
                     }
                 }
             }
+    
+            .tree-box {
+                position: relative;
+                height: 264px;
+                bottom: 0;
+                overflow: hidden;
+                // background-color: yellow;
 
-            .left-trees {
-
-                .tree1 {
-                    position: absolute;
-                    left: 0; bottom: 0;
-                    width: 30%; height: 185px;
+                @include responsive(large-screens) {
+                    height: 544px;
                 }
+    
+                ul {
+                    li {
+    
+                        &:nth-child(3),
+                        &:nth-child(4),
+                        &:nth-child(5),
+                        &:nth-child(8),
+                        &:nth-child(9) {
+                            display: none;
 
-                .tree2 {
-                    position: absolute;
-                    left: 20%; bottom: 0;
-                    width: 24.44444444444444%; height: 143px;
+                            @include responsive(large-screens) {
+                                display: block;
+                            }
+                        }
+
+                        img {
+                            height: inherit;
+                        }
+                    }
+                }
+    
+                .left-trees {
+    
+                    .tree1 {
+                        position: absolute;
+                        left: -4%; bottom: -15px;
+                        width: 33%; height: 200px;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: -4%; bottom: -15px;
+                            width: 247px; height: 427px;
+                        }
+                    }
+    
+                    .tree2 {
+                        position: absolute;
+                        left: 15%; bottom: -16px;
+                        width: 30%; height: 146px;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 6%; bottom: -16px;
+                            width: 203px; height: 330px;
+
+                        }
+                    }
+
+                    .tree3 {
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 15%; bottom: -16px;
+                            width: 169px; height: 298px;
+                        }
+                    }
+
+                    .tree4 {
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 22%; bottom: -16px;
+                            width: 147px; height: 232px;
+                        }
+                    }
+
+                    .tree5 {
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 28%; bottom: -23px;
+                            width: 148px; height: 218px;
+                        }
+                    }
+                }
+    
+                .right-trees {
+    
+                    .tree6 {
+                        position: absolute;
+                        right: 20%; bottom: -17px;
+                        width: 33.61111111111111%; height: 202px;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            right: 24%; bottom: -35px;
+                            width: 212px; height: 340px;
+                        }
+                    }
+    
+                    .tree7 {
+                        position: absolute;
+                        right: -3%; bottom: -25px;
+                        width: 37.5%; height: 260px;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            right: 15%; bottom: -30px;
+                            width: 241px; height: 405px;
+                        }
+                    }
+
+                    .tree8 {
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            right: 6%; bottom: -18px;
+                            width: 249px; height: 415px;
+                        }
+                    }
+
+                    .tree9 {
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            right: -4%; bottom: -20px;
+                            width: 278px; height: 544px;
+                        }
+                    }
                 }
             }
+        } // moon-trees
 
-            .right-trees {
+        .contact-box {
+            position: absolute;
+            bottom: 0;
+            width: $width-wide; height: 100px;
+            background-color: #262626;
+            overflow: hidden;
 
-                .tree6 {
-                    position: absolute;
-                    left: 50%; bottom: 0;
-                    width: 33.61111111111111%; height: 202px;
+            @include responsive(large-screens) {
+                height: 240px;
+            }
+
+            .contact-txt {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100px;
+                color: $font-color-sub3;
+
+                @include responsive(large-screens) {
+                    height: 240px;
                 }
 
-                .tree7 {
-                    position: absolute;
-                    right: 0; bottom: 0;
-                    width: 37.5%; height: 265px;
+                .contact-title {
+                    font-size: 30px;
+
+                    @include responsive(large-screens) {
+                        width: 445px;
+                        font-size: 75px;
+                    }
+                }
+
+                .reverse-moon {
+                    display: none;
+
+                    @include responsive(large-screens) {
+                        display: block;
+                        margin-top: 140px;
+                        width: 340px; height: 192px;
+                    }
+
+                    img {
+                        border-radius: 50%;
+                        box-shadow:  // x-offset y-offset blur-radius spread-radius color
+                        0px 4px 20px 40px rgba(255, 255, 255, 0.1), // 첫 번째 그림자
+                        0px 3px 30px 10px rgba(239, 202, 123, 0.25), // 두 번째 그림자
+                        0px 5px 27px 10px rgba(102, 167, 198, 0.25); // 세 번째 그림자
+                        opacity: 0.5;
+                    }
+                }
+
+                .mail-thanks-box {
+                    line-height: 1.7;
+
+                    @include responsive(large-screens) {
+                        width: 445px;
+                    }
+
+                    span {
+                        font-size: 10px;
+                        font-family: $font-sub;
+
+                        @include responsive(large-screens) {
+                            font-size: 26px;
+                        }
+
+                        a {
+                            display: inline-block;
+                            color: $font-color-sub3;
+                        }
+                    }
+    
+                    strong {
+                        display: block;
+                        font-size: 18px;
+                        font-family: $font-main;
+
+                        @include responsive(large-screens) {
+                            font-size: 50px;
+                            margin-top: 15px;
+                        }
+                    }
                 }
             }
         }
-
-
-
-        
-
-        
-    }
-}
+    } // contact
+} // footer

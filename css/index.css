@@ -157,13 +157,13 @@ main .intro h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 30px;
+  font-size: calc(30px + 0.5vw);
   color: #39B2C5;
   z-index: 3;
 }
 @media (min-width: 1440px) {
   main .intro h2 {
-    font-size: 60px;
+    font-size: calc(60px + 0.2vw);
   }
 }
 main .intro .intro-img img:nth-child(3), main .intro .intro-img img:nth-child(4), main .intro .intro-img img:nth-child(8), main .intro .intro-img img:nth-child(9), main .intro .intro-img img:last-child {
@@ -256,9 +256,9 @@ main .intro .intro-img .lf-cloud2 {
 main .intro .intro-img .sun {
   position: absolute;
   top: 50%;
-  left: 51%;
-  transform: translate(-51%, -50%);
-  width: 320px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88.8888888889%;
   height: 295px;
 }
 @media (min-width: 1440px) {
@@ -289,7 +289,7 @@ main .intro .intro-img .f-lf-cloud1 {
   position: absolute;
   top: 67%;
   left: -17%;
-  width: 465px;
+  width: 129.1666666667%;
   height: 250px;
   transform: rotate(5deg);
   z-index: 1;
@@ -316,7 +316,7 @@ main .intro .intro-img .f-lf-cloud2 {
   position: absolute;
   top: 53%;
   left: -40%;
-  width: 472px;
+  width: 131.1111111111%;
   height: 215px;
   transform: rotate(15deg);
 }
@@ -340,7 +340,7 @@ main .intro .intro-img .f-rt-cloud1 {
   position: absolute;
   top: 48%;
   left: 25%;
-  width: 565px;
+  width: 156.9444444444%;
   height: 300px;
   transform: rotate(12deg);
   z-index: 2;
@@ -533,9 +533,22 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .pencil:last
 }
 main .about-me .introduce-box .desk-img-box .folder-box {
   position: relative;
+  width: 100%;
+  height: 1000px;
+}
+@media (min-width: 1440px) {
+  main .about-me .introduce-box .desk-img-box .folder-box {
+    height: 600px;
+  }
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders li {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  max-height: 300px;
   margin-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
   position: absolute;
@@ -571,7 +584,8 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box {
   main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box {
     position: absolute;
     top: -95px;
-    right: 4%;
+    left: 82%;
+    width: 340px;
   }
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box .str-txt p {
@@ -589,7 +603,7 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box {
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box {
     position: absolute;
-    left: 44%;
+    left: 54%;
     top: -270px;
     width: 330px;
   }
@@ -611,7 +625,7 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box .
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .folder-box .folders .endeavor-box .endeavor-txt {
     position: absolute;
-    top: 33%;
+    top: 53%;
   }
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
@@ -621,18 +635,13 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
     position: absolute;
-    left: 50%;
+    left: 65%;
     top: 150px;
     width: 467px;
   }
 }
-@media (min-width: 1440px) {
-  main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box .vision-txt {
-    position: absolute;
-    top: 38%;
-  }
-}
 main .skill {
+  height: 1000px;
   position: relative;
   background: linear-gradient(#66A7C6, #0E4163 48%, #3D3344 87%);
 }
@@ -938,10 +947,24 @@ main .portfolio .arrow div:hover img {
 /* ===== footer ===== */
 /* === contact === */
 footer .contact {
-  height: 1000px;
+  position: relative;
+  height: 640px;
   background-color: #353434;
 }
-footer .contact .moon img {
+@media (min-width: 1440px) {
+  footer .contact {
+    height: 1080px;
+  }
+}
+footer .contact .moon-trees .moon {
+  height: 276px;
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .moon {
+    height: 330px;
+  }
+}
+footer .contact .moon-trees .moon img {
   position: relative;
   top: 120px;
   left: 50%;
@@ -951,44 +974,220 @@ footer .contact .moon img {
   box-shadow: 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 0px 5px 27px 10px rgba(102, 167, 198, 0.25);
 }
 @media (min-width: 1440px) {
-  footer .contact .moon img {
+  footer .contact .moon-trees .moon img {
     width: 27.7777777778%;
   }
 }
-footer .contact .tree-box {
+footer .contact .moon-trees .tree-box {
   position: relative;
   height: 264px;
-  top: 294px;
-  background-color: yellow;
+  bottom: 0;
+  overflow: hidden;
 }
-footer .contact .tree-box ul li:nth-child(3), footer .contact .tree-box ul li:nth-child(4), footer .contact .tree-box ul li:nth-child(5), footer .contact .tree-box ul li:nth-child(8), footer .contact .tree-box ul li:nth-child(9) {
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box {
+    height: 544px;
+  }
+}
+footer .contact .moon-trees .tree-box ul li:nth-child(3), footer .contact .moon-trees .tree-box ul li:nth-child(4), footer .contact .moon-trees .tree-box ul li:nth-child(5), footer .contact .moon-trees .tree-box ul li:nth-child(8), footer .contact .moon-trees .tree-box ul li:nth-child(9) {
   display: none;
 }
-footer .contact .tree-box .left-trees .tree1 {
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box ul li:nth-child(3), footer .contact .moon-trees .tree-box ul li:nth-child(4), footer .contact .moon-trees .tree-box ul li:nth-child(5), footer .contact .moon-trees .tree-box ul li:nth-child(8), footer .contact .moon-trees .tree-box ul li:nth-child(9) {
+    display: block;
+  }
+}
+footer .contact .moon-trees .tree-box ul li img {
+  height: inherit;
+}
+footer .contact .moon-trees .tree-box .left-trees .tree1 {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: -4%;
+  bottom: -15px;
+  width: 33%;
+  height: 200px;
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .left-trees .tree1 {
+    position: absolute;
+    left: -4%;
+    bottom: -15px;
+    width: 247px;
+    height: 427px;
+  }
+}
+footer .contact .moon-trees .tree-box .left-trees .tree2 {
+  position: absolute;
+  left: 15%;
+  bottom: -16px;
   width: 30%;
-  height: 185px;
+  height: 146px;
 }
-footer .contact .tree-box .left-trees .tree2 {
-  position: absolute;
-  left: 20%;
-  bottom: 0;
-  width: 24.4444444444%;
-  height: 143px;
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .left-trees .tree2 {
+    position: absolute;
+    left: 6%;
+    bottom: -16px;
+    width: 203px;
+    height: 330px;
+  }
 }
-footer .contact .tree-box .right-trees .tree6 {
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .left-trees .tree3 {
+    position: absolute;
+    left: 15%;
+    bottom: -16px;
+    width: 169px;
+    height: 298px;
+  }
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .left-trees .tree4 {
+    position: absolute;
+    left: 22%;
+    bottom: -16px;
+    width: 147px;
+    height: 232px;
+  }
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .left-trees .tree5 {
+    position: absolute;
+    left: 28%;
+    bottom: -23px;
+    width: 148px;
+    height: 218px;
+  }
+}
+footer .contact .moon-trees .tree-box .right-trees .tree6 {
   position: absolute;
-  left: 50%;
-  bottom: 0;
+  right: 20%;
+  bottom: -17px;
   width: 33.6111111111%;
   height: 202px;
 }
-footer .contact .tree-box .right-trees .tree7 {
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .right-trees .tree6 {
+    position: absolute;
+    right: 24%;
+    bottom: -35px;
+    width: 212px;
+    height: 340px;
+  }
+}
+footer .contact .moon-trees .tree-box .right-trees .tree7 {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: -3%;
+  bottom: -25px;
   width: 37.5%;
-  height: 265px;
+  height: 260px;
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .right-trees .tree7 {
+    position: absolute;
+    right: 15%;
+    bottom: -30px;
+    width: 241px;
+    height: 405px;
+  }
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .right-trees .tree8 {
+    position: absolute;
+    right: 6%;
+    bottom: -18px;
+    width: 249px;
+    height: 415px;
+  }
+}
+@media (min-width: 1440px) {
+  footer .contact .moon-trees .tree-box .right-trees .tree9 {
+    position: absolute;
+    right: -4%;
+    bottom: -20px;
+    width: 278px;
+    height: 544px;
+  }
+}
+footer .contact .contact-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #262626;
+  overflow: hidden;
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box {
+    height: 240px;
+  }
+}
+footer .contact .contact-box .contact-txt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  color: #FEF3DB;
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt {
+    height: 240px;
+  }
+}
+footer .contact .contact-box .contact-txt .contact-title {
+  font-size: 30px;
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt .contact-title {
+    width: 445px;
+    font-size: 75px;
+  }
+}
+footer .contact .contact-box .contact-txt .reverse-moon {
+  display: none;
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt .reverse-moon {
+    display: block;
+    margin-top: 140px;
+    width: 340px;
+    height: 192px;
+  }
+}
+footer .contact .contact-box .contact-txt .reverse-moon img {
+  border-radius: 50%;
+  box-shadow: 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 0px 5px 27px 10px rgba(102, 167, 198, 0.25);
+  opacity: 0.5;
+}
+footer .contact .contact-box .contact-txt .mail-thanks-box {
+  line-height: 1.7;
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt .mail-thanks-box {
+    width: 445px;
+  }
+}
+footer .contact .contact-box .contact-txt .mail-thanks-box span {
+  font-size: 10px;
+  font-family: "Noto Sans KR";
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt .mail-thanks-box span {
+    font-size: 26px;
+  }
+}
+footer .contact .contact-box .contact-txt .mail-thanks-box span a {
+  display: inline-block;
+  color: #FEF3DB;
+}
+footer .contact .contact-box .contact-txt .mail-thanks-box strong {
+  display: block;
+  font-size: 18px;
+  font-family: "Gaegu";
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt .mail-thanks-box strong {
+    font-size: 50px;
+    margin-top: 15px;
+  }
 }/*# sourceMappingURL=index.css.map */
