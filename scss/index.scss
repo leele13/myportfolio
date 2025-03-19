@@ -518,7 +518,7 @@ main {
                                 // background-color: red;
 
                                 h3 {
-                                    font-size: 16px;
+                                    font-size: $mobile-h3-cal-font;
                                     padding-bottom: 10px;
 
                                     @include responsive(large-screens) {
@@ -527,10 +527,14 @@ main {
                                 }
 
                                 p {
-                                    font-size: 13px;
+                                    height: 180px;
+                                    font-size: $mobile-cal-font;
+                                    overflow: scroll;
 
                                     @include responsive(large-screens) {
+                                        height: 288px;
                                         font-size: 18px;
+                                        overflow: hidden;
                                     }
                                 }
                             }
@@ -615,9 +619,12 @@ main {
 
 /* === skill === */
     .skill {
-        height: 1000px;
         position: relative;
         background: linear-gradient($skill-bg-color1, $skill-bg-color2 48%, $skill-bg-color3 87%);
+
+        @include responsive(large-screens) {
+            height: 1000px;
+        }
 
         .skill-title {
             padding-top: 30px;
@@ -641,7 +648,7 @@ main {
                     transform: translate(-50%, -50%);
                     width: 400px; height: 400px;
                     display: block;
-                    background-color: aqua;
+                    // background-color: aqua;
                 }
 
                 .circle {                    
@@ -659,17 +666,9 @@ main {
                 font-family: $font-sub;
                 padding: 0 50px;
 
-                height: 1000px;  // 임시 임시 임시 임시 임시 임시 임시 
+                // height: 1000px;  // 임시 임시 임시 임시 임시 임시 임시 
 
-                @include responsive(large-screens) {
-                    position: absolute;
-                    left: 50%; top: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 400px; height: 400px;
-                    background-color: yellow
-                }
-
-                li {
+                .item {
                     display: grid;
                     grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
                     grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
@@ -681,46 +680,26 @@ main {
 
                     @include responsive(large-screens) {
                         position: absolute;
-                        // top: 0;
-                        left: 50%; top: 50%;
-                        transform: translate(-50%, -50%);
+                        left: calc(50% - 75px);
+                        top: 42.5%;
+                        transform: translateX(-50%);
                         width: 150px; height: 150px;
                         border-radius: 200px;      
-                        transform-origin: 0 0; // 회전의 기준점 설정              
+                        transform-origin: center center; // 회전의 기준점 설정              
+                        // transform-origin: 0 0; // 회전의 기준점 설정              
                         // background-color: #DCE8EF;
 
-
                         // 각 아이콘의 각도에 따라 rotate를 적용
-        // &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
-        // &:nth-child(2) { transform: rotate(45deg) translate(300px) rotate(-45deg); }
-        // &:nth-child(3) { transform: rotate(90deg) translate(300px) rotate(-90deg); }
-        // &:nth-child(4) { transform: rotate(135deg) translate(300px) rotate(-135deg); }
-        // &:nth-child(5) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
-        // &:nth-child(6) { transform: rotate(225deg) translate(300px) rotate(-225deg); }
-        // &:nth-child(7) { transform: rotate(270deg) translate(300px) rotate(-270deg); }
-        // &:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); }
-
-    //     &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
-    // &:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); }
-    // &:nth-child(3) { transform: rotate(72deg) translate(300px) rotate(-72deg); }
-    // &:nth-child(4) { transform: rotate(108deg) translate(300px) rotate(-108deg); }
-    // &:nth-child(5) { transform: rotate(144deg) translate(300px) rotate(-144deg); }
-    // &:nth-child(6) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
-    // &:nth-child(7) { transform: rotate(216deg) translate(300px) rotate(-216deg); }
-    // &:nth-child(8) { transform: rotate(252deg) translate(300px) rotate(-252deg); }
-    // &:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); }
-    // &:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); }
-        
-                    &:nth-child(1) { transform: rotate(0deg) translate(50%, 50%) rotate(0deg); }
-                    &:nth-child(2) { transform: rotate(36deg) translate(50%, 50%) rotate(-36deg); }
-                    &:nth-child(3) { transform: rotate(72deg) translate(50%, 50%) rotate(-72deg); }
-                    &:nth-child(4) { transform: rotate(108deg) translate(50%, 50%) rotate(-108deg); }
-                    &:nth-child(5) { transform: rotate(144deg) translate(50%, 50%) rotate(-144deg); }
-                    &:nth-child(6) { transform: rotate(180deg) translate(50%, 50%) rotate(-180deg); }
-                    &:nth-child(7) { transform: rotate(216deg) translate(50%, 50%) rotate(-216deg); }
-                    &:nth-child(8) { transform: rotate(252deg) translate(50%, 50%) rotate(-252deg); }
-                    &:nth-child(9) { transform: rotate(288deg) translate(50%, 50%) rotate(-288deg); }
-                    &:nth-child(10) { transform: rotate(324deg) translate(50%, 50%) rotate(-324deg); }
+                            &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
+                            &:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); }
+                            &:nth-child(3) { transform: rotate(72deg) translate(300px) rotate(-72deg); }
+                            &:nth-child(4) { transform: rotate(108deg) translate(300px) rotate(-108deg); }
+                            &:nth-child(5) { transform: rotate(144deg) translate(300px) rotate(-144deg); }
+                            &:nth-child(6) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
+                            &:nth-child(7) { transform: rotate(216deg) translate(300px) rotate(-216deg); }
+                            &:nth-child(8) { transform: rotate(252deg) translate(300px) rotate(-252deg); }
+                            &:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); }
+                            &:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); }
                     }
 
                     .icon {
@@ -753,7 +732,15 @@ main {
         .building-box {
             
             .building {
+                width: 100%; height: 205px;
                 background: url(../images/building.svg) repeat-x bottom;
+                opacity: 0.1;
+
+                @include responsive(large-screens) {
+                    position: absolute;
+                    bottom: 0;
+                    height: 400px;
+                }
             }
         }
     } // skill
@@ -859,17 +846,16 @@ main {
                         justify-content: space-between;
                         align-items: center;
                         
-                        button {
-                            width: 82px; height: 26px;
+                        a {
+                            width: 22.77777777777778%; height: 26px;
                             line-height: 26px;
-                            font-family: $font-sub;
+                            text-align: center;
                             font-size: 12px;
-                            border: none;
+                            font-family: $font-sub;
                             border: 1px solid #262626;
                             border-radius: 5px;
                             color: $font-color-sub2;
                             background-color: #DCE8EF;
-                            cursor: pointer;
 
                             @include responsive(large-screens) {
                                 width: 150px; height: 70px;

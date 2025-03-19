@@ -560,7 +560,7 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
   padding: 0 35px;
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders li div h3 {
-  font-size: 16px;
+  font-size: calc(16px + 0.5vw);
   padding-bottom: 10px;
 }
 @media (min-width: 1440px) {
@@ -569,11 +569,15 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders li div h3 {
   }
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders li div p {
-  font-size: 13px;
+  height: 180px;
+  font-size: calc(13px + 0.4vw);
+  overflow: scroll;
 }
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .folder-box .folders li div p {
+    height: 288px;
     font-size: 18px;
+    overflow: hidden;
   }
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box {
@@ -641,9 +645,13 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
   }
 }
 main .skill {
-  height: 1000px;
   position: relative;
   background: linear-gradient(#66A7C6, #0E4163 48%, #3D3344 87%);
+}
+@media (min-width: 1440px) {
+  main .skill {
+    height: 1000px;
+  }
 }
 main .skill .skill-title {
   padding-top: 30px;
@@ -668,7 +676,6 @@ main .skill .circle-container .circle-wrapper {
     width: 400px;
     height: 400px;
     display: block;
-    background-color: aqua;
   }
 }
 @media (min-width: 1440px) {
@@ -683,20 +690,8 @@ main .skill .circle-container .circle-wrapper {
 main .skill .circle-container .icon-list {
   font-family: "Noto Sans KR";
   padding: 0 50px;
-  height: 1000px;
 }
-@media (min-width: 1440px) {
-  main .skill .circle-container .icon-list {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    background-color: yellow;
-  }
-}
-main .skill .circle-container .icon-list li {
+main .skill .circle-container .icon-list .item {
   display: grid;
   grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
   grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
@@ -706,55 +701,55 @@ main .skill .circle-container .icon-list li {
   background-color: red;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li {
+  main .skill .circle-container .icon-list .item {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: calc(50% - 75px);
+    top: 42.5%;
+    transform: translateX(-50%);
     width: 150px;
     height: 150px;
     border-radius: 200px;
-    transform-origin: 0 0;
+    transform-origin: center center;
   }
-  main .skill .circle-container .icon-list li:nth-child(1) {
-    transform: rotate(0deg) translate(50%, 50%) rotate(0deg);
+  main .skill .circle-container .icon-list .item:nth-child(1) {
+    transform: rotate(0deg) translate(300px) rotate(0deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(2) {
-    transform: rotate(36deg) translate(50%, 50%) rotate(-36deg);
+  main .skill .circle-container .icon-list .item:nth-child(2) {
+    transform: rotate(36deg) translate(300px) rotate(-36deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(3) {
-    transform: rotate(72deg) translate(50%, 50%) rotate(-72deg);
+  main .skill .circle-container .icon-list .item:nth-child(3) {
+    transform: rotate(72deg) translate(300px) rotate(-72deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(4) {
-    transform: rotate(108deg) translate(50%, 50%) rotate(-108deg);
+  main .skill .circle-container .icon-list .item:nth-child(4) {
+    transform: rotate(108deg) translate(300px) rotate(-108deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(5) {
-    transform: rotate(144deg) translate(50%, 50%) rotate(-144deg);
+  main .skill .circle-container .icon-list .item:nth-child(5) {
+    transform: rotate(144deg) translate(300px) rotate(-144deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(6) {
-    transform: rotate(180deg) translate(50%, 50%) rotate(-180deg);
+  main .skill .circle-container .icon-list .item:nth-child(6) {
+    transform: rotate(180deg) translate(300px) rotate(-180deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(7) {
-    transform: rotate(216deg) translate(50%, 50%) rotate(-216deg);
+  main .skill .circle-container .icon-list .item:nth-child(7) {
+    transform: rotate(216deg) translate(300px) rotate(-216deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(8) {
-    transform: rotate(252deg) translate(50%, 50%) rotate(-252deg);
+  main .skill .circle-container .icon-list .item:nth-child(8) {
+    transform: rotate(252deg) translate(300px) rotate(-252deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(9) {
-    transform: rotate(288deg) translate(50%, 50%) rotate(-288deg);
+  main .skill .circle-container .icon-list .item:nth-child(9) {
+    transform: rotate(288deg) translate(300px) rotate(-288deg);
   }
-  main .skill .circle-container .icon-list li:nth-child(10) {
-    transform: rotate(324deg) translate(50%, 50%) rotate(-324deg);
+  main .skill .circle-container .icon-list .item:nth-child(10) {
+    transform: rotate(324deg) translate(300px) rotate(-324deg);
   }
 }
-main .skill .circle-container .icon-list li .icon {
+main .skill .circle-container .icon-list .item .icon {
   width: 50px;
   height: 50px;
 }
-main .skill .circle-container .icon-list li p {
+main .skill .circle-container .icon-list .item p {
   font-size: 14px;
 }
-main .skill .circle-container .icon-list li .gauge {
+main .skill .circle-container .icon-list .item .gauge {
   position: relative;
   width: 100%;
   height: 14px;
@@ -762,7 +757,7 @@ main .skill .circle-container .icon-list li .gauge {
   border-radius: 7px;
   background-color: orange;
 }
-main .skill .circle-container .icon-list li .gauge .gauge-txt {
+main .skill .circle-container .icon-list .item .gauge .gauge-txt {
   position: absolute;
   left: 5%;
   top: -2px;
@@ -770,7 +765,17 @@ main .skill .circle-container .icon-list li .gauge .gauge-txt {
   font-weight: bold;
 }
 main .skill .building-box .building {
+  width: 100%;
+  height: 205px;
   background: url(../images/building.svg) repeat-x bottom;
+  opacity: 0.1;
+}
+@media (min-width: 1440px) {
+  main .skill .building-box .building {
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+  }
 }
 main .portfolio {
   position: relative;
@@ -875,21 +880,20 @@ main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box {
   justify-content: space-between;
   align-items: center;
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box button {
-  width: 82px;
+main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
+  width: 22.7777777778%;
   height: 26px;
   line-height: 26px;
-  font-family: "Noto Sans KR";
+  text-align: center;
   font-size: 12px;
-  border: none;
+  font-family: "Noto Sans KR";
   border: 1px solid #262626;
   border-radius: 5px;
   color: #262626;
   background-color: #DCE8EF;
-  cursor: pointer;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box button {
+  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
     width: 150px;
     height: 70px;
     line-height: 70px;
@@ -899,13 +903,13 @@ main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box button {
     background-color: #E28787;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box button:hover {
+main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a:hover {
   font-weight: bold;
   color: #F8E7BE;
   background-color: #E28787;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box button:hover {
+  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a:hover {
     color: #39B2C5;
     font-size: 20px;
     background-color: #DCE8EF;
