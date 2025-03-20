@@ -2,6 +2,45 @@
 @import "./reset.scss";
 @import "./mixin.scss";
 
+
+@keyframes lf-move {
+    0% {
+        transform: translateX(0); /* 현재 위치에서 시작 */
+    }
+    100% {
+        transform: translateX(100vw); /* 화면의 너비만큼 이동 */
+    }
+}
+
+
+@keyframes rt-move {
+    0% {
+        transform: translateX(0); /* 현재 위치에서 시작 */
+    }
+    100% {
+        transform: translateX(-100vw); /* 화면의 너비만큼 이동 */
+    }
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
 .container {
     width: $width-wide;
     max-width: $break-large;
@@ -151,11 +190,16 @@ main {
                 position: absolute;
                 top: 10%; right: 30%;
                 width: 37px; height: 35px;
+
+                animation: rt-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     left: 15%;
                     width: 87px; height: 83px;
+
+                    animation: rt-move 30s linear infinite;
+
                 }
             }
     
@@ -163,11 +207,16 @@ main {
                 position: absolute;
                 top: 15%; right: 12%;
                 width: 25px; height: 23px;
+
+                animation: rt-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     left: 28%;
                     width: 58px; height: 55px;
+
+                    animation: rt-move 30s linear infinite;
+
                 }
             }
             
@@ -178,6 +227,8 @@ main {
                     position: absolute;
                     top: 10%; right: 23%;
                     width: 160px; height: 75px;
+
+                    animation: rt-move 30s linear infinite;
                 }
             }
     
@@ -188,6 +239,8 @@ main {
                     position: absolute;
                     top: 17%; right: 12%;
                     width: 134px; height: 79px;
+
+                    animation: rt-move 30s linear infinite;
                 }
             }
     
@@ -195,11 +248,15 @@ main {
                 position: absolute;
                 top: 15%; left: 10%;
                 width: 60px; height: 29px;
+
+                animation: lf-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 34%;
                     width: 140px; height: 81px;
+
+                    animation: lf-move 30s linear infinite;
                 }
             }
     
@@ -207,21 +264,30 @@ main {
                 position: absolute;
                 top: 7%; left: 25%;
                 width: 52px; height: 31px;
+
+                animation: lf-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 27%; left: 20%;
                     width: 160px; height: 75px;
+
+                    animation: lf-move 30s linear infinite;
                 }
             }
     
             .sun {
                 position: absolute;
-                top: 50%; left: 50%;
-                transform: translate(-50%, -50%);
+                // top: 50%; left: 50%;
+                // transform: translate(-50%, -50%);
+                // top: 25%; left: 25%;
+                // transform: translate(-25%, -25%);
                 width: 88.88888888888889%; height: 295px;
+                // transform-origin: center;
+                // transform-origin: 0; /* 또는 원하는 위치로 설정 */
+
+                animation: spin 5s linear infinite, pulse 1.5s infinite;
                 
-    
                 @include responsive(large-screens) {
                     width: 724px; height: 682px;
                 }
@@ -234,6 +300,8 @@ main {
                     position: absolute;
                     top: 35%; right: 20%;
                     width: 60px; height: 57px;
+
+                    animation: lf-move 30s linear infinite;
                 }
             }
     
@@ -244,6 +312,8 @@ main {
                     position: absolute;
                     top: 30%; right: 7%;
                     width: 90px; height: 86px;
+
+                    animation: lf-move 30s linear infinite;
                 }
             }
             
@@ -254,7 +324,9 @@ main {
                 transform: rotate(5deg);
                 z-index: 1;
                 // display: none;
-    
+                
+                animation: rt-move 5s ease-in forwards;
+
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 58%; left: -39%;
@@ -266,10 +338,7 @@ main {
                     position: absolute;
                     top: 57%; left: -29%;
                     transform: rotate(10deg); 
-
                 }
-
-                
             }
     
             .f-lf-cloud2 {
@@ -277,6 +346,8 @@ main {
                 top: 53%; left: -40%;
                 width: 131.1111111111111%; height: 215px;
                 transform: rotate(15deg);   
+
+                animation: rt-move 5s ease-in forwards;
     
                 @include responsive(large-screens) {
                     position: absolute;
@@ -298,6 +369,7 @@ main {
                 transform: rotate(12deg);  
                 z-index: 2;
 
+                animation: lf-move 5s ease-in forwards;
     
                 @include responsive(large-screens) {
                     position: absolute;
@@ -323,6 +395,7 @@ main {
                     width: 700px; height: 500px;
                     transform: rotate(-30deg); 
 
+                    animation: lf-move 5s ease-in forwards;
                 }
             }
         }
@@ -765,123 +838,128 @@ main {
             }
         }
 
-        .portfolio-box {
-            margin-top: 35px;
-            border: 2px solid #262626;
-            background-color: #FFFAEE;
+        .portfolio-desc-box {
+            // display: flex;
 
-            @include responsive(large-screens) {
-                height: 750px;
-                padding: 20px 70px;
-                background-color: rgba($color: #DCE8EF, $alpha: 0.1);
-            }
-
-            .img-desc-box {
-
+            .portfolio-box {
+                margin-top: 35px;
+                border: 2px solid #262626;
+                background-color: #FFFAEE;
+    
                 @include responsive(large-screens) {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 25px;
+                    height: 750px;
+                    padding: 20px 70px;
+                    background-color: rgba($color: #DCE8EF, $alpha: 0.1);
                 }
-
-                .img-box {
-                    width: 77.77777777777778%; height: 245px;
-                    margin: 25px auto;
-                    overflow: hidden;  
-
+    
+                .img-desc-box {
+    
                     @include responsive(large-screens) {
-                        width: 600px; height: 600px;
-                        margin: 25px 0;
-                    }
-                }
-
-                .desc-btn-box {
-                    width: 77.77777777777778%;
-                    margin: 25px auto;
-
-                    @include responsive(large-screens) {
-                        width: 580px; 
-                        margin: 25px 0;
-                    }
-
-                    .txt-box {
-                        color: $font-color-sub2;
-                        
-
-                        @include responsive(large-screens) {
-                            height: 530px;
-                            color: $font-color-sub3;
-                        }
-                        
-                        .desc-title {
-                            font-size: 20px;
-                            font-weight: normal;
-
-                            @include responsive(large-screens) {
-                                font-size: 40px;
-                            }
-
-                            span {
-                                font-size: 18px;
-
-                                @include responsive(large-screens) {
-                                    font-size: 36px;
-                                }
-                            }
-                        }
-
-                        p {
-                            font-size: 12px;
-                            margin: 25px 0;
-
-                            @include responsive(large-screens) {
-                                font-size: 20px;
-                                margin-top: 60px;
-                            }
-                        }
-                    }
-
-                    .btn-box {
                         display: flex;
                         justify-content: space-between;
-                        align-items: center;
-                        
-                        a {
-                            width: 22.77777777777778%; height: 26px;
-                            line-height: 26px;
-                            text-align: center;
-                            font-size: 12px;
-                            font-family: $font-sub;
-                            border: 1px solid #262626;
-                            border-radius: 5px;
+                        margin-top: 25px;
+                    }
+    
+                    .img-box {
+                        width: 77.77777777777778%; height: 245px;
+                        margin: 25px auto;
+                        overflow: hidden;  
+    
+                        @include responsive(large-screens) {
+                            width: 600px; height: 600px;
+                            margin: 25px 0;
+                        }
+                    }
+    
+                    .desc-btn-box {
+                        width: 77.77777777777778%;
+                        margin: 25px auto;
+    
+                        @include responsive(large-screens) {
+                            width: 580px; 
+                            margin: 25px 0;
+                        }
+    
+                        .txt-box {
                             color: $font-color-sub2;
-                            background-color: #DCE8EF;
-
+                            
+    
                             @include responsive(large-screens) {
-                                width: 150px; height: 70px;
-                                line-height: 70px;
-                                font-size: 20px;
-                                border-radius: 10px;
+                                height: 530px;
                                 color: $font-color-sub3;
-                                background-color: #E28787;
                             }
-
-                            &:hover {
-                                font-weight: bold;
-                                color: $font-color-sub;
-                                background-color: #E28787;
-
+                            
+                            .desc-title {
+                                font-size: 20px;
+                                font-weight: normal;
+    
                                 @include responsive(large-screens) {
-                                    color: $font-color-main;
+                                    font-size: 40px;
+                                }
+    
+                                span {
+                                    font-size: 18px;
+    
+                                    @include responsive(large-screens) {
+                                        font-size: 36px;
+                                    }
+                                }
+                            }
+    
+                            p {
+                                font-size: 12px;
+                                margin: 25px 0;
+    
+                                @include responsive(large-screens) {
                                     font-size: 20px;
-                                    background-color: #DCE8EF;
+                                    margin-top: 60px;
+                                }
+                            }
+                        }
+    
+                        .btn-box {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            
+                            a {
+                                width: 22.77777777777778%; height: 26px;
+                                line-height: 26px;
+                                text-align: center;
+                                font-size: 12px;
+                                font-family: $font-sub;
+                                border: 1px solid #262626;
+                                border-radius: 5px;
+                                color: $font-color-sub2;
+                                background-color: #DCE8EF;
+    
+                                @include responsive(large-screens) {
+                                    width: 150px; height: 70px;
+                                    line-height: 70px;
+                                    font-size: 20px;
+                                    border-radius: 10px;
+                                    color: $font-color-sub3;
+                                    background-color: #E28787;
+                                }
+    
+                                &:hover {
+                                    font-weight: bold;
+                                    color: $font-color-sub;
+                                    background-color: #E28787;
+    
+                                    @include responsive(large-screens) {
+                                        color: $font-color-main;
+                                        font-size: 20px;
+                                        background-color: #DCE8EF;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            } 
-        } // portfolio-box
+                } 
+            } // portfolio-box
+        } // portfolio-desc-box
+
 
         .arrow {
             display: none;

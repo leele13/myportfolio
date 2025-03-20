@@ -47,6 +47,38 @@ p {
   line-height: 2;
 }
 
+@keyframes lf-move {
+  0% {
+    transform: translateX(0); /* 현재 위치에서 시작 */
+  }
+  100% {
+    transform: translateX(100vw); /* 화면의 너비만큼 이동 */
+  }
+}
+@keyframes rt-move {
+  0% {
+    transform: translateX(0); /* 현재 위치에서 시작 */
+  }
+  100% {
+    transform: translateX(-100vw); /* 화면의 너비만큼 이동 */
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
 .container {
   width: 100%;
   max-width: 1440px;
@@ -180,6 +212,7 @@ main .intro .intro-img .lf-bird1 {
   right: 30%;
   width: 37px;
   height: 35px;
+  animation: rt-move 10s linear infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .lf-bird1 {
@@ -187,6 +220,7 @@ main .intro .intro-img .lf-bird1 {
     left: 15%;
     width: 87px;
     height: 83px;
+    animation: rt-move 30s linear infinite;
   }
 }
 main .intro .intro-img .lf-bird2 {
@@ -195,6 +229,7 @@ main .intro .intro-img .lf-bird2 {
   right: 12%;
   width: 25px;
   height: 23px;
+  animation: rt-move 10s linear infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .lf-bird2 {
@@ -202,6 +237,7 @@ main .intro .intro-img .lf-bird2 {
     left: 28%;
     width: 58px;
     height: 55px;
+    animation: rt-move 30s linear infinite;
   }
 }
 @media (min-width: 1440px) {
@@ -211,6 +247,7 @@ main .intro .intro-img .lf-bird2 {
     right: 23%;
     width: 160px;
     height: 75px;
+    animation: rt-move 30s linear infinite;
   }
 }
 @media (min-width: 1440px) {
@@ -220,6 +257,7 @@ main .intro .intro-img .lf-bird2 {
     right: 12%;
     width: 134px;
     height: 79px;
+    animation: rt-move 30s linear infinite;
   }
 }
 main .intro .intro-img .lf-cloud1 {
@@ -228,6 +266,7 @@ main .intro .intro-img .lf-cloud1 {
   left: 10%;
   width: 60px;
   height: 29px;
+  animation: lf-move 10s linear infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .lf-cloud1 {
@@ -235,6 +274,7 @@ main .intro .intro-img .lf-cloud1 {
     top: 34%;
     width: 140px;
     height: 81px;
+    animation: lf-move 30s linear infinite;
   }
 }
 main .intro .intro-img .lf-cloud2 {
@@ -243,6 +283,7 @@ main .intro .intro-img .lf-cloud2 {
   left: 25%;
   width: 52px;
   height: 31px;
+  animation: lf-move 10s linear infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .lf-cloud2 {
@@ -251,15 +292,14 @@ main .intro .intro-img .lf-cloud2 {
     left: 20%;
     width: 160px;
     height: 75px;
+    animation: lf-move 30s linear infinite;
   }
 }
 main .intro .intro-img .sun {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 88.8888888889%;
   height: 295px;
+  animation: spin 5s linear infinite, pulse 1.5s infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .sun {
@@ -274,6 +314,7 @@ main .intro .intro-img .sun {
     right: 20%;
     width: 60px;
     height: 57px;
+    animation: lf-move 30s linear infinite;
   }
 }
 @media (min-width: 1440px) {
@@ -283,6 +324,7 @@ main .intro .intro-img .sun {
     right: 7%;
     width: 90px;
     height: 86px;
+    animation: lf-move 30s linear infinite;
   }
 }
 main .intro .intro-img .f-lf-cloud1 {
@@ -293,6 +335,7 @@ main .intro .intro-img .f-lf-cloud1 {
   height: 250px;
   transform: rotate(5deg);
   z-index: 1;
+  animation: rt-move 5s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-lf-cloud1 {
@@ -319,6 +362,7 @@ main .intro .intro-img .f-lf-cloud2 {
   width: 131.1111111111%;
   height: 215px;
   transform: rotate(15deg);
+  animation: rt-move 5s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-lf-cloud2 {
@@ -344,6 +388,7 @@ main .intro .intro-img .f-rt-cloud1 {
   height: 300px;
   transform: rotate(12deg);
   z-index: 2;
+  animation: lf-move 5s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-rt-cloud1 {
@@ -368,6 +413,7 @@ main .intro .intro-img .f-rt-cloud1 {
     width: 700px;
     height: 500px;
     transform: rotate(-30deg);
+    animation: lf-move 5s ease-in forwards;
   }
 }
 main .about-me {
@@ -797,90 +843,90 @@ main .portfolio .portfolio-title {
     font-size: 48px;
   }
 }
-main .portfolio .portfolio-box {
+main .portfolio .portfolio-desc-box .portfolio-box {
   margin-top: 35px;
   border: 2px solid #262626;
   background-color: #FFFAEE;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box {
+  main .portfolio .portfolio-desc-box .portfolio-box {
     height: 750px;
     padding: 20px 70px;
     background-color: rgba(220, 232, 239, 0.1);
   }
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .img-box {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .img-box {
   width: 77.7777777778%;
   height: 245px;
   margin: 25px auto;
   overflow: hidden;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .img-box {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .img-box {
     width: 600px;
     height: 600px;
     margin: 25px 0;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box {
   width: 77.7777777778%;
   margin: 25px auto;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box {
     width: 580px;
     margin: 25px 0;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box {
   color: #262626;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box {
     height: 530px;
     color: #FEF3DB;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title {
   font-size: 20px;
   font-weight: normal;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title {
     font-size: 40px;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title span {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title span {
   font-size: 18px;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title span {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title span {
     font-size: 36px;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box p {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box p {
   font-size: 12px;
   margin: 25px 0;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .txt-box p {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box p {
     font-size: 20px;
     margin-top: 60px;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
   width: 22.7777777778%;
   height: 26px;
   line-height: 26px;
@@ -893,7 +939,7 @@ main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
   background-color: #DCE8EF;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
     width: 150px;
     height: 70px;
     line-height: 70px;
@@ -903,13 +949,13 @@ main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
     background-color: #E28787;
   }
 }
-main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a:hover {
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box a:hover {
   font-weight: bold;
   color: #F8E7BE;
   background-color: #E28787;
 }
 @media (min-width: 1440px) {
-  main .portfolio .portfolio-box .img-desc-box .desc-btn-box .btn-box a:hover {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box a:hover {
     color: #39B2C5;
     font-size: 20px;
     background-color: #DCE8EF;
