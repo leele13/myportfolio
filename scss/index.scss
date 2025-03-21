@@ -3,25 +3,10 @@
 @import "./mixin.scss";
 
 
-@keyframes lf-move {
-    0% {
-        transform: translateX(0); /* 현재 위치에서 시작 */
-    }
-    100% {
-        transform: translateX(100vw); /* 화면의 너비만큼 이동 */
-    }
-}
-
-
-@keyframes rt-move {
-    0% {
-        transform: translateX(0); /* 현재 위치에서 시작 */
-    }
-    100% {
-        transform: translateX(-100vw); /* 화면의 너비만큼 이동 */
-    }
-}
-
+@include lf-move-ani;
+@include rt-move-ani;
+@include lf-slide-ani;
+@include rt-slide-ani;
 
 @keyframes spin {
     from {
@@ -278,8 +263,8 @@ main {
     
             .sun {
                 position: absolute;
-                // top: 50%; left: 50%;
-                // transform: translate(-50%, -50%);
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
                 // top: 25%; left: 25%;
                 // transform: translate(-25%, -25%);
                 width: 88.88888888888889%; height: 295px;
@@ -443,6 +428,10 @@ main {
                         transform: translateX(-50%);
                         text-align: center;
                         z-index: 1;
+                        opacity: 0;
+
+                        transition: all 3s;
+                        animation: none;
 
                         @include responsive(large-screens) {
                             position: absolute;
@@ -559,6 +548,11 @@ main {
                             }
                         }
                     }
+                    
+                    .file-me-box-ani {
+                        animation: lf-slide 2s;
+                        opacity: 1;
+                    }
                 }
 
                 .folder-box {
@@ -580,6 +574,8 @@ main {
                             max-height: 300px;
                             margin-bottom: 50px; left: 50%;
                             transform: translateX(-50%);
+
+                            animation: lf-slide 2s;
 
                             div { //str-txt, endeavor-txt, vision-txt
                                 position: absolute;

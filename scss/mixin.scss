@@ -15,3 +15,47 @@
         }
     }
 }
+
+@mixin lf-move-ani{
+    @keyframes lf-move {
+        0% {
+            transform: translateX(0); /* 현재 위치에서 시작 */
+        }
+        100% {
+            transform: translateX(100vw); /* 화면의 너비만큼 이동 */
+        }
+    }
+}
+
+@mixin rt-move-ani {
+    @keyframes rt-move {
+        0% {
+            transform: translateX(0);/* 현재 위치에서 시작 */
+        }
+        100% {
+            transform: translateX(-100vw);/* 화면의 너비만큼 이동 */
+        }
+    }
+}
+
+@mixin lf-slide-ani {
+    @keyframes lf-slide {
+        0% {
+            transform: translateX(-100%); /* 현재 위치에서 시작 */
+        }
+        100% {
+            transform: translateX(-50%); /* 화면의 너비만큼 이동 */
+        }
+    }
+}
+
+@mixin rt-slide-ani {
+    @keyframes rt-slide {
+        0% {
+            transform: translateX(100%); /* 현재 위치에서 시작 */
+        }
+        100% {
+            transform: translateX(50%); /* 화면의 너비만큼 이동 */
+        }
+    }
+}

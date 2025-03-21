@@ -63,6 +63,22 @@ p {
     transform: translateX(-100vw); /* 화면의 너비만큼 이동 */
   }
 }
+@keyframes lf-slide {
+  0% {
+    transform: translateX(-100%); /* 현재 위치에서 시작 */
+  }
+  100% {
+    transform: translateX(-50%); /* 화면의 너비만큼 이동 */
+  }
+}
+@keyframes rt-slide {
+  0% {
+    transform: translateX(100%); /* 현재 위치에서 시작 */
+  }
+  100% {
+    transform: translateX(50%); /* 화면의 너비만큼 이동 */
+  }
+}
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -297,6 +313,9 @@ main .intro .intro-img .lf-cloud2 {
 }
 main .intro .intro-img .sun {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 88.8888888889%;
   height: 295px;
   animation: spin 5s linear infinite, pulse 1.5s infinite;
@@ -457,6 +476,9 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box {
   transform: translateX(-50%);
   text-align: center;
   z-index: 1;
+  opacity: 0;
+  transition: all 3s;
+  animation: none;
 }
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box {
@@ -577,6 +599,10 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .pencil:last
     bottom: -90%;
   }
 }
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box-ani {
+  animation: lf-slide 2s;
+  opacity: 1;
+}
 main .about-me .introduce-box .desk-img-box .folder-box {
   position: relative;
   width: 100%;
@@ -595,6 +621,7 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders li {
   margin-bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
+  animation: lf-slide 2s;
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
   position: absolute;
