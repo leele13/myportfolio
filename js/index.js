@@ -106,7 +106,6 @@ window.onload = function() {
         console.log(window.scrollY);
         // console.log(aboutMe.offsetTop);
         if (window.scrollY >= aboutMe.offsetTop && !fileMe.classList.contains("file-me-box-ani")) {
-            fileMe.style.display = "block";
             fileMe.classList.add("file-me-box-ani");
         }
     });
