@@ -310,7 +310,7 @@ main {
                 z-index: 1;
                 // display: none;
                 
-                animation: rt-move 5s ease-in forwards;
+                animation: rt-move 4s ease-in forwards;
 
                 @include responsive(large-screens) {
                     position: absolute;
@@ -332,7 +332,7 @@ main {
                 width: 131.1111111111111%; height: 215px;
                 transform: rotate(15deg);   
 
-                animation: rt-move 5s ease-in forwards;
+                animation: rt-move 4s ease-in forwards;
     
                 @include responsive(large-screens) {
                     position: absolute;
@@ -354,7 +354,7 @@ main {
                 transform: rotate(12deg);  
                 z-index: 2;
 
-                animation: lf-move 5s ease-in forwards;
+                animation: lf-move 4s ease-in forwards;
     
                 @include responsive(large-screens) {
                     position: absolute;
@@ -380,7 +380,7 @@ main {
                     width: 700px; height: 500px;
                     transform: rotate(-30deg); 
 
-                    animation: lf-move 5s ease-in forwards;
+                    animation: lf-move 4s ease-in forwards;
                 }
             }
         }
@@ -549,10 +549,12 @@ main {
                         }
                     }
                     
-                    .file-me-box-ani {
+                    .file-me-box-ani {  // 애니메이션 적용을 위한 클래스
                         animation: lf-slide 2s;
                         opacity: 1;
                     }
+
+
                 }
 
                 .folder-box {
@@ -574,8 +576,9 @@ main {
                             max-height: 300px;
                             margin-bottom: 50px; left: 50%;
                             transform: translateX(-50%);
+                            // opacity: 0;
 
-                            animation: lf-slide 2s;
+                            // animation: none;
 
                             div { //str-txt, endeavor-txt, vision-txt
                                 position: absolute;
@@ -682,6 +685,17 @@ main {
                         }
                     }
                 }
+
+                .folder-box-ani { // 애니메이션 적용을 위한 클래스
+
+                    .folders-ani {
+
+                        li.folder-ani {
+                            animation: lf-slide 2s;
+                            opacity: 1;
+                        }
+                    }
+                }
             }
         }
     } // about me
@@ -785,7 +799,7 @@ main {
                         height: 14px;
                         grid-column: 1 / -1; /* div를 전체 열을 차지하게 하기 */
                         border-radius: 7px;
-                        background-color: orange;
+                        // background-color: orange;
 
                         .gauge-txt {
                             position: absolute;

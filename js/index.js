@@ -101,12 +101,59 @@ window.onload = function() {
 
     const aboutMe = document.getElementsByClassName("about-me-title")[0];
     const fileMe = document.getElementsByClassName("file-me-box")[0];
+    const folderBox = document.querySelector(".folder-box > .folders > li");
+    console.log(folderBox.classList.contains("folder-ani"));
+
+        console.log(folderBox.clientHeight);
 
     window.addEventListener('scroll', function() {
-        console.log(window.scrollY);
+        // console.log(window.scrollY);
+        // console.log(folderBox.scrollY);
         // console.log(aboutMe.offsetTop);
         if (window.scrollY >= aboutMe.offsetTop && !fileMe.classList.contains("file-me-box-ani")) {
             fileMe.classList.add("file-me-box-ani");
+        } 
+
+        
+        if (window.scrollY >= aboutMe.offsetTop + 250 && !folderBox.classList.contains("folder-ani")) {
+            folderBox.classList.add("folder-ani");
         }
     });
+
+
+
+
+
+
+    // 스킬부분 이벤트
+
+    // let item = document.getElementsByClassName("item")[0];
+    let    itemValue = document.getElementsByClassName("gauge")[0];
+
+    let progressStartValue = 0,    
+        progressEndValue = 85,    
+        speed = 100;
+
+    let progress = setInterval(() => {
+    if (progressStartValue < progressEndValue) {
+        progressStartValue++;
+        itemValue.textContent = `${progressStartValue}%`;
+        let gradientWidth = (progressStartValue / progressEndValue) * 100; // 비율을 계산하여 100%로 설정
+        itemValue.style.background = `linear-gradient(to right, yellow ${gradientWidth}%, orange ${gradientWidth}%)`;
+    } else {
+        clearInterval(progress);
+    }
+}, speed);
+
+
+    // let progress = setInterval(() => {
+    //     progressStartValue++;
+    //     itemValue.textContent = `${progressStartValue}%`
+    //     let gradientWidth = progressStartValue + progressEndValue ;
+    //     itemValue.style.background = `linear-gradient(to right, yellow ${gradientWidth}%, orange ${gradientWidth}%)`;
+
+    //     if(progressStartValue == progressEndValue){
+    //         clearInterval(progress);
+    //     } 
+    // }, speed);
 };

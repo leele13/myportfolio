@@ -354,7 +354,7 @@ main .intro .intro-img .f-lf-cloud1 {
   height: 250px;
   transform: rotate(5deg);
   z-index: 1;
-  animation: rt-move 5s ease-in forwards;
+  animation: rt-move 4s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-lf-cloud1 {
@@ -381,7 +381,7 @@ main .intro .intro-img .f-lf-cloud2 {
   width: 131.1111111111%;
   height: 215px;
   transform: rotate(15deg);
-  animation: rt-move 5s ease-in forwards;
+  animation: rt-move 4s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-lf-cloud2 {
@@ -407,7 +407,7 @@ main .intro .intro-img .f-rt-cloud1 {
   height: 300px;
   transform: rotate(12deg);
   z-index: 2;
-  animation: lf-move 5s ease-in forwards;
+  animation: lf-move 4s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-rt-cloud1 {
@@ -432,7 +432,7 @@ main .intro .intro-img .f-rt-cloud1 {
     width: 700px;
     height: 500px;
     transform: rotate(-30deg);
-    animation: lf-move 5s ease-in forwards;
+    animation: lf-move 4s ease-in forwards;
   }
 }
 main .about-me {
@@ -621,7 +621,6 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders li {
   margin-bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
-  animation: lf-slide 2s;
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
   position: absolute;
@@ -716,6 +715,10 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
     top: 150px;
     width: 467px;
   }
+}
+main .about-me .introduce-box .desk-img-box .folder-box-ani .folders-ani li.folder-ani {
+  animation: lf-slide 2s;
+  opacity: 1;
 }
 main .skill {
   position: relative;
@@ -828,7 +831,6 @@ main .skill .circle-container .icon-list .item .gauge {
   height: 14px;
   grid-column: 1/-1; /* div를 전체 열을 차지하게 하기 */
   border-radius: 7px;
-  background-color: orange;
 }
 main .skill .circle-container .icon-list .item .gauge .gauge-txt {
   position: absolute;
