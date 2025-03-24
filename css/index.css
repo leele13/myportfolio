@@ -126,7 +126,6 @@ p {
   width: 80px;
   height: 80px;
   padding: 10px;
-  background-color: red;
 }
 @media (min-width: 1440px) {
   .logo-main-menu .logo-main-menu-box .logo a {
@@ -236,7 +235,7 @@ main .intro .intro-img .lf-bird1 {
     left: 15%;
     width: 87px;
     height: 83px;
-    animation: rt-move 30s linear infinite;
+    animation: rt-move 20s linear infinite;
   }
 }
 main .intro .intro-img .lf-bird2 {
@@ -253,7 +252,7 @@ main .intro .intro-img .lf-bird2 {
     left: 28%;
     width: 58px;
     height: 55px;
-    animation: rt-move 30s linear infinite;
+    animation: rt-move 20s linear infinite;
   }
 }
 @media (min-width: 1440px) {
@@ -263,7 +262,7 @@ main .intro .intro-img .lf-bird2 {
     right: 23%;
     width: 160px;
     height: 75px;
-    animation: rt-move 30s linear infinite;
+    animation: rt-move 20s linear infinite;
   }
 }
 @media (min-width: 1440px) {
@@ -273,7 +272,7 @@ main .intro .intro-img .lf-bird2 {
     right: 12%;
     width: 134px;
     height: 79px;
-    animation: rt-move 30s linear infinite;
+    animation: rt-move 20s linear infinite;
   }
 }
 main .intro .intro-img .lf-cloud1 {
@@ -290,7 +289,7 @@ main .intro .intro-img .lf-cloud1 {
     top: 34%;
     width: 140px;
     height: 81px;
-    animation: lf-move 30s linear infinite;
+    animation: lf-move 20s linear infinite;
   }
 }
 main .intro .intro-img .lf-cloud2 {
@@ -308,23 +307,28 @@ main .intro .intro-img .lf-cloud2 {
     left: 20%;
     width: 160px;
     height: 75px;
-    animation: lf-move 30s linear infinite;
+    animation: lf-move 20s linear infinite;
   }
 }
-main .intro .intro-img .sun {
+main .intro .intro-img .sun-box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 88.8888888889%;
   height: 295px;
-  animation: spin 5s linear infinite, pulse 1.5s infinite;
 }
 @media (min-width: 1440px) {
-  main .intro .intro-img .sun {
+  main .intro .intro-img .sun-box {
     width: 724px;
     height: 682px;
   }
+}
+main .intro .intro-img .sun-box .sun {
+  display: block;
+  width: 100%;
+  height: 100%;
+  animation: spin 5s linear infinite, pulse 1.5s infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .rt-bird1 {
@@ -333,7 +337,7 @@ main .intro .intro-img .sun {
     right: 20%;
     width: 60px;
     height: 57px;
-    animation: lf-move 30s linear infinite;
+    animation: lf-move 20s linear infinite;
   }
 }
 @media (min-width: 1440px) {
@@ -343,7 +347,7 @@ main .intro .intro-img .sun {
     right: 7%;
     width: 90px;
     height: 86px;
-    animation: lf-move 30s linear infinite;
+    animation: lf-move 20s linear infinite;
   }
 }
 main .intro .intro-img .f-lf-cloud1 {
@@ -613,7 +617,7 @@ main .about-me .introduce-box .desk-img-box .folder-box {
     height: 600px;
   }
 }
-main .about-me .introduce-box .desk-img-box .folder-box .folders li {
+main .about-me .introduce-box .desk-img-box .folder-box .folders .box {
   position: absolute;
   width: 100%;
   height: 250px;
@@ -621,8 +625,26 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders li {
   margin-bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0;
+  animation: none;
 }
-main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
+@keyframes lf-slide {
+  0% {
+    transform: translateX(-150%); /* 현재 위치에서 시작 */
+  }
+  100% {
+    transform: translateX(-50%); /* 화면의 너비만큼 이동 */
+  }
+}
+@keyframes rt-slide {
+  0% {
+    transform: translateX(0%); /* 현재 위치에서 시작 */
+  }
+  100% {
+    transform: translateX(-50%); /* 화면의 너비만큼 이동 */
+  }
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .box div {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -631,22 +653,22 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders li div {
   height: 240px;
   padding: 0 35px;
 }
-main .about-me .introduce-box .desk-img-box .folder-box .folders li div h3 {
+main .about-me .introduce-box .desk-img-box .folder-box .folders .box div h3 {
   font-size: calc(16px + 0.5vw);
   padding-bottom: 10px;
 }
 @media (min-width: 1440px) {
-  main .about-me .introduce-box .desk-img-box .folder-box .folders li div h3 {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .box div h3 {
     font-size: 24px;
   }
 }
-main .about-me .introduce-box .desk-img-box .folder-box .folders li div p {
+main .about-me .introduce-box .desk-img-box .folder-box .folders .box div p {
   height: 180px;
   font-size: calc(13px + 0.4vw);
   overflow: scroll;
 }
 @media (min-width: 1440px) {
-  main .about-me .introduce-box .desk-img-box .folder-box .folders li div p {
+  main .about-me .introduce-box .desk-img-box .folder-box .folders .box div p {
     height: 288px;
     font-size: 18px;
     overflow: hidden;
@@ -716,8 +738,12 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .vision-box {
     width: 467px;
   }
 }
-main .about-me .introduce-box .desk-img-box .folder-box-ani .folders-ani li.folder-ani {
-  animation: lf-slide 2s;
+main .about-me .introduce-box .desk-img-box .folder-box .folders .lf-slide {
+  animation: lf-slide 2s forwards;
+  opacity: 1;
+}
+main .about-me .introduce-box .desk-img-box .folder-box .folders .rt-slide {
+  animation: rt-slide 2s forwards;
   opacity: 1;
 }
 main .skill {
@@ -854,12 +880,12 @@ main .skill .building-box .building {
 }
 main .portfolio {
   position: relative;
-  height: 640px;
+  height: 2000px;
   background: linear-gradient(#3D3344, #896EA1 50%, #262626);
 }
 @media (min-width: 1440px) {
   main .portfolio {
-    height: 1040px;
+    height: 3000px;
   }
 }
 main .portfolio .portfolio-title {

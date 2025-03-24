@@ -101,23 +101,33 @@ window.onload = function() {
 
     const aboutMe = document.getElementsByClassName("about-me-title")[0];
     const fileMe = document.getElementsByClassName("file-me-box")[0];
-    const folderBox = document.querySelector(".folder-box > .folders > li");
-    console.log(folderBox.classList.contains("folder-ani"));
+    const strBox = document.querySelector(".str-box");
+    const endeavorBox = document.querySelector('.endeavor-box');
+    const visionBox = document.querySelector('.vision-box');
+    // const folderBox = document.getElementsByClassName("box");
+    console.log(strBox.classList.contains("box-slide-ani"));
 
-        console.log(folderBox.clientHeight);
-
-    window.addEventListener('scroll', function() {
-        // console.log(window.scrollY);
+    window.addEventListener('scroll', () => {
+        console.log(window.scrollY);
         // console.log(folderBox.scrollY);
         // console.log(aboutMe.offsetTop);
         if (window.scrollY >= aboutMe.offsetTop && !fileMe.classList.contains("file-me-box-ani")) {
             fileMe.classList.add("file-me-box-ani");
-        } 
+        };
 
         
-        if (window.scrollY >= aboutMe.offsetTop + 250 && !folderBox.classList.contains("folder-ani")) {
-            folderBox.classList.add("folder-ani");
+        if (window.scrollY >= aboutMe.offsetTop + 250) {
+            if (!strBox.classList.contains("lf-slide")) {
+                strBox.classList.add("lf-slide");
+            }
+            if (!endeavorBox.classList.contains("rt-slide")) {
+                endeavorBox.classList.add("rt-slide");
+            }
+            if (!visionBox.classList.contains("lf-slide")) {
+                visionBox.classList.add("lf-slide");
+            }
         }
+    
     });
 
 

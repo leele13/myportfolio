@@ -58,7 +58,7 @@
                 width: 80px;
                 height: 80px;
                 padding: 10px;
-                background-color: red;
+                // background-color: red;
 
                 @include responsive(large-screens) {
                     width: 150px;
@@ -183,7 +183,7 @@ main {
                     left: 15%;
                     width: 87px; height: 83px;
 
-                    animation: rt-move 30s linear infinite;
+                    animation: rt-move 20s linear infinite;
 
                 }
             }
@@ -200,7 +200,7 @@ main {
                     left: 28%;
                     width: 58px; height: 55px;
 
-                    animation: rt-move 30s linear infinite;
+                    animation: rt-move 20s linear infinite;
 
                 }
             }
@@ -213,7 +213,7 @@ main {
                     top: 10%; right: 23%;
                     width: 160px; height: 75px;
 
-                    animation: rt-move 30s linear infinite;
+                    animation: rt-move 20s linear infinite;
                 }
             }
     
@@ -225,7 +225,7 @@ main {
                     top: 17%; right: 12%;
                     width: 134px; height: 79px;
 
-                    animation: rt-move 30s linear infinite;
+                    animation: rt-move 20s linear infinite;
                 }
             }
     
@@ -241,7 +241,7 @@ main {
                     top: 34%;
                     width: 140px; height: 81px;
 
-                    animation: lf-move 30s linear infinite;
+                    animation: lf-move 20s linear infinite;
                 }
             }
     
@@ -257,24 +257,28 @@ main {
                     top: 27%; left: 20%;
                     width: 160px; height: 75px;
 
-                    animation: lf-move 30s linear infinite;
+                    animation: lf-move 20s linear infinite;
                 }
             }
-    
-            .sun {
+
+            .sun-box {
                 position: absolute;
                 top: 50%; left: 50%;
                 transform: translate(-50%, -50%);
-                // top: 25%; left: 25%;
-                // transform: translate(-25%, -25%);
                 width: 88.88888888888889%; height: 295px;
-                // transform-origin: center;
-                // transform-origin: 0; /* 또는 원하는 위치로 설정 */
+                // background-color: red;
 
-                animation: spin 5s linear infinite, pulse 1.5s infinite;
-                
                 @include responsive(large-screens) {
                     width: 724px; height: 682px;
+                }
+
+                .sun {
+                    display: block;
+                    // transform-origin: center;
+                    // transform-origin: 0; /* 또는 원하는 위치로 설정 */
+                    width: 100%; height: 100%;
+    
+                    animation: spin 5s linear infinite, pulse 1.5s infinite;
                 }
             }
     
@@ -286,7 +290,7 @@ main {
                     top: 35%; right: 20%;
                     width: 60px; height: 57px;
 
-                    animation: lf-move 30s linear infinite;
+                    animation: lf-move 20s linear infinite;
                 }
             }
     
@@ -298,7 +302,7 @@ main {
                     top: 30%; right: 7%;
                     width: 90px; height: 86px;
 
-                    animation: lf-move 30s linear infinite;
+                    animation: lf-move 20s linear infinite;
                 }
             }
             
@@ -553,8 +557,6 @@ main {
                         animation: lf-slide 2s;
                         opacity: 1;
                     }
-
-
                 }
 
                 .folder-box {
@@ -569,16 +571,22 @@ main {
 
                     .folders {
 
-                        li { // str-box,  endeavor-box, vision-box
+                        .box { // str-box,  endeavor-box, vision-box
                             position: absolute;
                             width: 100%;
                             height: 250px;
                             max-height: 300px;
                             margin-bottom: 50px; left: 50%;
                             transform: translateX(-50%);
-                            // opacity: 0;
+                            opacity: 0;
 
-                            // animation: none;
+                            @include lf-slide-ani(-150%, -50%);
+                            animation: none;
+                            // animation: lf-slide 2s;
+
+                            &:nth-child(2) {
+                                @include rt-slide-ani (0%, -50%);
+                            }
 
                             div { //str-txt, endeavor-txt, vision-txt
                                 position: absolute;
@@ -683,19 +691,32 @@ main {
                                 width: 467px;
                             }
                         }
-                    }
-                }
-
-                .folder-box-ani { // 애니메이션 적용을 위한 클래스
-
-                    .folders-ani {
-
-                        li.folder-ani {
-                            animation: lf-slide 2s;
+                        
+                        .lf-slide { // 이벤트 적용을 위한 클래스
+                            animation: lf-slide 2s forwards; // 왼쪽에서 슬라이드
                             opacity: 1;
+
+                        }
+                        
+                        .rt-slide { // 이벤트 적용을 위한 클래스 
+                            animation: rt-slide 2s forwards; // 오른쪽에서 슬라이드
+                            opacity: 1;
+
                         }
                     }
                 }
+
+
+                // .folder-box-ani { // 애니메이션 적용을 위한 클래스
+
+                //     .folders-ani {
+
+                //         .box-slide-ani {
+                //             animation: lf-slide 2s;
+                //             opacity: 1;
+                //         }
+                //     }
+                // }
             }
         }
     } // about me
@@ -831,11 +852,15 @@ main {
 /* === skill === */
     .portfolio {
         position: relative;
-        height: 640px;
+        // height: 640px;
+
+        height: 2000px;
         background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
 
         @include responsive(large-screens) {
-            height: 1040px;
+            // height: 1040px;
+
+            height: 3000px;
         }
 
         .portfolio-title {
