@@ -314,7 +314,7 @@ main {
                 z-index: 1;
                 // display: none;
                 
-                animation: rt-move 4s ease-in forwards;
+                animation: rt-move 3s ease-in forwards;
 
                 @include responsive(large-screens) {
                     position: absolute;
@@ -336,7 +336,7 @@ main {
                 width: 131.1111111111111%; height: 215px;
                 transform: rotate(15deg);   
 
-                animation: rt-move 4s ease-in forwards;
+                animation: rt-move 3s ease-in forwards;
     
                 @include responsive(large-screens) {
                     position: absolute;
@@ -358,7 +358,7 @@ main {
                 transform: rotate(12deg);  
                 z-index: 2;
 
-                animation: lf-move 4s ease-in forwards;
+                animation: lf-move 3s ease-in forwards;
     
                 @include responsive(large-screens) {
                     position: absolute;
@@ -384,7 +384,7 @@ main {
                     width: 700px; height: 500px;
                     transform: rotate(-30deg); 
 
-                    animation: lf-move 4s ease-in forwards;
+                    animation: lf-move 3s ease-in forwards;
                 }
             }
         }
@@ -588,6 +588,12 @@ main {
                                 @include rt-slide-ani (0%, -50%);
                             }
 
+                            img,
+                            div {
+                                opacity: 0;
+                                transition: opacity 1.5s;
+                            }
+
                             div { //str-txt, endeavor-txt, vision-txt
                                 position: absolute;
                                 left: 50%; top: 50%;
@@ -772,15 +778,23 @@ main {
 
                 // height: 1000px;  // 임시 임시 임시 임시 임시 임시 임시 
 
+                // @include responsive(large-screens) {
+                //     height: 1000px; 
+                // }
+
                 .item {
+                    position: relative; // 추가된 부분
                     display: grid;
                     grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
                     grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
                     grid-gap: 5px 10px;
                     align-items: center;
                     margin-bottom: 25px;
+                    border-radius: 14px;
 
-                    background-color: red;
+                    z-index: 1;
+
+                    // background-color: red;
 
                     @include responsive(large-screens) {
                         position: absolute;
@@ -808,10 +822,24 @@ main {
 
                     .icon {
                         width: 50px; height: 50px;
+                        cursor: pointer;
+
+                        @include responsive(large-screens) {
+                            position: absolute;
+                            left: 50%; top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 90px; height: 90px;
+                        }
                     }
 
                     p {
                         font-size: 14px;
+                        opacity: 0;
+                        color: $font-color-sub3;
+
+                        @include responsive(large-screens) {
+                            display: none;  // 자바스크립트로 서클에 집어넣을 예정
+                        }
                     }
 
                     .gauge {
@@ -824,10 +852,27 @@ main {
 
                         .gauge-txt {
                             position: absolute;
-                            left: 5%; top: -2px;
+                            left: 0; top: -2px;
+                            // width: $width-wide;
+                            height: 100%;
                             font-size: 12px;
                             font-weight: bold;
+                            line-height: 14px;
+                            padding-left: 15px;
+                            border-radius: 7px;
+                            opacity: 0;
+                            background: linear-gradient(to right, #FFF200 20%, #FBB92F 50%, #FA9F45);
+                            transition: width 0.5s linear;
                         }
+                    }
+
+                    p-desktop-style { // p에 적용할 속성 
+                        // position: absolute;
+                        // left: 50%; top: 50%;
+                        // transform: translate(-50%, -50%);
+                        color: red;
+                        font-size: 24px;
+                        font-family: $font-sub;
                     }
                 }
             }

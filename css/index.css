@@ -358,7 +358,7 @@ main .intro .intro-img .f-lf-cloud1 {
   height: 250px;
   transform: rotate(5deg);
   z-index: 1;
-  animation: rt-move 4s ease-in forwards;
+  animation: rt-move 3s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-lf-cloud1 {
@@ -385,7 +385,7 @@ main .intro .intro-img .f-lf-cloud2 {
   width: 131.1111111111%;
   height: 215px;
   transform: rotate(15deg);
-  animation: rt-move 4s ease-in forwards;
+  animation: rt-move 3s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-lf-cloud2 {
@@ -411,7 +411,7 @@ main .intro .intro-img .f-rt-cloud1 {
   height: 300px;
   transform: rotate(12deg);
   z-index: 2;
-  animation: lf-move 4s ease-in forwards;
+  animation: lf-move 3s ease-in forwards;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .f-rt-cloud1 {
@@ -436,7 +436,7 @@ main .intro .intro-img .f-rt-cloud1 {
     width: 700px;
     height: 500px;
     transform: rotate(-30deg);
-    animation: lf-move 4s ease-in forwards;
+    animation: lf-move 3s ease-in forwards;
   }
 }
 main .about-me {
@@ -644,6 +644,11 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .box {
     transform: translateX(-50%); /* 화면의 너비만큼 이동 */
   }
 }
+main .about-me .introduce-box .desk-img-box .folder-box .folders .box img,
+main .about-me .introduce-box .desk-img-box .folder-box .folders .box div {
+  opacity: 0;
+  transition: opacity 1.5s;
+}
 main .about-me .introduce-box .desk-img-box .folder-box .folders .box div {
   position: absolute;
   left: 50%;
@@ -794,13 +799,15 @@ main .skill .circle-container .icon-list {
   padding: 0 50px;
 }
 main .skill .circle-container .icon-list .item {
+  position: relative;
   display: grid;
   grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
   grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
   grid-gap: 5px 10px;
   align-items: center;
   margin-bottom: 25px;
-  background-color: red;
+  border-radius: 14px;
+  z-index: 1;
 }
 @media (min-width: 1440px) {
   main .skill .circle-container .icon-list .item {
@@ -847,9 +854,27 @@ main .skill .circle-container .icon-list .item {
 main .skill .circle-container .icon-list .item .icon {
   width: 50px;
   height: 50px;
+  cursor: pointer;
+}
+@media (min-width: 1440px) {
+  main .skill .circle-container .icon-list .item .icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+  }
 }
 main .skill .circle-container .icon-list .item p {
   font-size: 14px;
+  opacity: 0;
+  color: #FEF3DB;
+}
+@media (min-width: 1440px) {
+  main .skill .circle-container .icon-list .item p {
+    display: none;
+  }
 }
 main .skill .circle-container .icon-list .item .gauge {
   position: relative;
@@ -860,10 +885,22 @@ main .skill .circle-container .icon-list .item .gauge {
 }
 main .skill .circle-container .icon-list .item .gauge .gauge-txt {
   position: absolute;
-  left: 5%;
+  left: 0;
   top: -2px;
+  height: 100%;
   font-size: 12px;
   font-weight: bold;
+  line-height: 14px;
+  padding-left: 15px;
+  border-radius: 7px;
+  opacity: 0;
+  background: linear-gradient(to right, #FFF200 20%, #FBB92F 50%, #FA9F45);
+  transition: width 0.5s linear;
+}
+main .skill .circle-container .icon-list .item p-desktop-style {
+  color: red;
+  font-size: 24px;
+  font-family: "Noto Sans KR";
 }
 main .skill .building-box .building {
   width: 100%;
