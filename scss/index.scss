@@ -26,6 +26,14 @@
     }
 }
 
+@keyframes fill {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+
 .container {
     width: $width-wide;
     max-width: $break-large;
@@ -907,26 +915,77 @@ main {
 
                             @include responsive(large-screens) {
                                 background: none;
+                                display: none;
                             }
                         }
-
-                        // &::before { //  스타이롤 정상적용되면 이건 삭제예정
-                        //     position: absolute;
-                        //     content: '';
-                        //     width: 140px; height: 140px;
-                        //     border-radius: 50%;  
-                        //     background-color: rgba($color: #3D3344, $alpha: 0.8);
-                        // }
                     }
 
-                    .gauge-style { // 이벤트시 적용할 스타일 
+                    .progress-circle {
+                        display: none;
 
-                        div {
-                            width: 140px; height: 140px;
-                            border-radius: 50%;  
-                            background-color: rgba($color: #3D3344, $alpha: 0.8);
+                        @include responsive(large-screens) {                            
+                            position: absolute;
+                            top: -3px; /* 아이템의 배경 위로 올리기 */
+                            left: -3px; /* 아이템의 배경 위로 올리기 */
+                            width: calc($width-wide + 6px); /* 배경보다 크게 설정 */
+                            height: calc($width-wide + 6px); /* 배경보다 크게 설정 */ 
+                            display: block; 
+                            border-radius: 50%;
+                            overflow: hidden;
+                            z-index: 0; // 아이템의 배경 아래에 위치
+                        }
+
+                        svg {
+                            @include responsive(large-screens) {
+                                width: 100%;
+                                height: 100%;                            
+                            }
+
+                            circle {
+
+                                @include responsive(large-screens) {                            
+                                    fill: none;
+                                    stroke: url(#gradient);
+                                    stroke-width: 5;
+                                    stroke-dasharray: 283; // 원의 둘레
+                                    stroke-dashoffset: 283; // 초기값
+                                    transition: stroke-dashoffset 0.5s ease-in; // 애니메이션 효과
+                                }
+                            }
                         }
                     }
+                }
+
+                .item-style { // 이벤트시 적용할 스타일 
+
+                    span.item-data {
+
+                        @include responsive(large-screens) {                            
+                            position: absolute;
+                            left: 10px; top: 10px;
+                            width: 130px; height: 130px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 35px;
+                            border-radius: 50%;  
+                            color: $font-color-sub3;
+                            background-color: rgba($color: #3D3344, $alpha: 0.8);
+                        }                        
+                    }
+                }
+            }
+
+            .progress-svg {
+                display: none;
+
+                @include responsive(large-screens) {                            
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0; /* 아이템의 배경 아래에 위치 */                    
                 }
             }
         }

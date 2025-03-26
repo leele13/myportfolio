@@ -81,161 +81,83 @@ window.onload = function() {
         }
     });
 
-
-
-
-
-
-    // 스킬부분 이벤트
-
-    // let gauge = document.getElementsByClassName("gauge")[0];
-    // let gaugeSpan = gauge.getElementsByClassName('gauge-txt')[0];
-
-    // let progressStartValue = 0,
-    //     progressEndValue = gaugeSpan.dataset.width,    
-    //     speed = 100;
-
-    // let progress = setInterval(()=> {
-    //     progressStartValue++;
-
-    //     if (progressStartValue == progressEndValue) {
-    //         clearInterval(progress);
-    //     }
-    // }, speed);
-
+    // skill부분 이벤트
     const items = document.querySelectorAll('.item');
 
     items.forEach((item) => {
         const spans = item.querySelectorAll('.gauge > span');
+        const percentage = parseInt(spans[0].dataset.width, 10); // 데이터에서 퍼센트 가져오기
+        const progressCircle = item.querySelector('.progress-circle .progress'); // 각 아이템의 프로그레스 바 선택
+        const radius = progressCircle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+        const offset = circumference - (percentage / 100 * circumference);
         const pElement = item.querySelector('p');
         const circleContainer = document.getElementsByClassName('circle')[0];
 
-        // let gauge = document.getElementsByClassName("gauge")[0];
-        // let gaugeSpan = gauge.querySelector('span');
-        // let progressEndValue = parseInt(gaugeSpan.dataset.width, 10);
-        // let progressEndValue = gaugeSpan.dataset.width;
 
-        // console.log(progressEndValue+'확인용');
+        let newSpanElement = document.createElement('span'); // 스팬을 전역 변수로 선언 
 
         item.addEventListener('mouseover', () => {
-            
-            if ((window.matchMedia("(min-width: 1440px)").matches)) {
-                // 새로운 p 요소 생성
-                const newPElement = document.createElement('p');
-                newPElement.innerText = pElement.innerText; // 기존 p의 텍스트를 넣음
-                // p의 텍스트를 서클 안에 넣기
-                circleContainer.appendChild(newPElement);
-                circleContainer.classList.add("circle-style");
-
-                // PC버전에서 동그랗게 색칠되는 이벤트 
-
-                // let gauge = document.querySelector(".gauge");
-                // let gaugeSpan = document.querySelector('.gauge-txt');
-
-                // let progressStartValue = 0;
-                // let progressEndValue = gaugeSpan.dataset.width;
-                // let speed = 100;
-
-                // console.log(progressEndValue+"테스트용 앤드 밸류");
-
-                // let progress = setInterval(()=> {
-                //     progressStartValue++;
-
-                //     gauge.style.background = `conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg ${progressStartValue * 3.6}deg)`;
-
-                //     if (progressStartValue == progressEndValue) {
-                //         clearInterval(progress);
-                //     }
-                // }, speed);
-
-
-
-
-
-
-
-                // // PC버전에서 동그랗게 색칠되는 이벤트 
-                // let gauges = document.querySelectorAll('.gauge');
-                // // let gauge = document.querySelector(".gauge");
-                // let gaugeSpans = document.querySelectorAll('.gauge-txt');
-
-                // gaugeSpans.forEach((gaugeSpan, index) => {
-                //     let progressStartValue = 0;
-                //     let progressEndValue = gaugeSpan.dataset.width;
-                //     let speed = 100;
-
-                //     console.log(progressEndValue+'앤드밸류');
-                
-                //     let progress = setInterval(() => {
-                //         progressStartValue++;
-                //         gauges[index].style.background = `conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg ${progressStartValue * 3.6}deg)`;
-                //         console.log(progressStartValue+'프로그레스스타트밸류');
-                
-                //         // if (progressStartValue == progressEndValue && progressStartValue <= 360) {
-                //         //     clearInterval(progress);
-                //         // }
-                //         if (progressStartValue == progressEndValue) {
-                //             clearInterval(progress);
-                //         }
-                //     }, speed);
-                // });
-
-
-
-
-
-                // gauges.forEach((gauge, index) => {
-
-                //     let progressStartValue = 0,
-                //         progressEndValue = gaugeSpans[index].dataset.width,
-                //         speed = 100;
-        
-                //     let progress = setInterval(() => {
-                //         progressStartValue++;
-                //         gauge.style.background = `conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg ${progressStartValue * 3.6}deg)`;
-        
-                //         if (progressStartValue == progressEndValue) {
-                //             clearInterval(progress);
-                //         }
-                //     }, speed);
-                // });
-            };
             spans.forEach((span) => {
-                span.style.width = '0%';  // 초기값을 0%로 설정
+                span.style.width = '0%'; // 초기값을 0%로 설정
                 setTimeout(() => {
                     span.style.opacity = 1;
                     span.style.width = span.dataset.width; // data-width 값으로 변경
                     span.innerHTML = span.dataset.width; // 텍스트도 업데이트
-                    // pElement.style.opacity = 1;
                     item.style.backgroundColor = 'rgba(220, 232, 239, 0.1)'; // 배경색 변경
                 }, 100); // 약간의 지연 후에 변경
             });
+
+            // 프로그레스 바 애니메이션 시작
+            progressCircle.style.strokeDashoffset = circumference; // 초기화
+            setTimeout(() => {
+                progressCircle.style.strokeDashoffset = offset; // 애니메이션 시작
+            }, 0);
+
+            // PC 버전에서만 p 요소 추가
+            if (window.matchMedia("(min-width: 1440px)").matches) {
+                newSpanElement = document.createElement('span');
+                item.appendChild(newSpanElement);
+                item.classList.add("item-style");
+                newSpanElement.classList.add("item-data");
+                item.querySelector('img').style.opacity = '0.2';
+
+                spans.forEach((span)=> {
+                    const newPElement = document.createElement('p');
+                    newPElement.innerText = pElement.innerText; // 기존 p의 텍스트를 넣음
+                    circleContainer.appendChild(newPElement);
+                    circleContainer.classList.add("circle-style");
+                    newSpanElement.innerHTML = span.dataset.width;
+                });
+            }
         });
 
         item.addEventListener('mouseout', () => {
-
-            if ((window.matchMedia("(min-width: 1440px)").matches)) {
-                // 서클 안에 있는 p텍스트 제거
-                circleContainer.innerHTML = '';
-            };
             spans.forEach((span) => {
                 span.style.opacity = 0;
                 span.style.width = '0%'; // 마우스 아웃 시 초기값으로 되돌리기
                 span.innerHTML = ''; // 텍스트도 초기화
-                // pElement.style.opacity = 0;
                 item.style.backgroundColor = ''; // 배경색 초기화
             });
+
+            // 서클 안에 있는 p 텍스트 제거 (PC 버전에서만)
+            if (window.matchMedia("(min-width: 1440px)").matches) {
+                circleContainer.innerHTML = ''; // 서클 안에 있는 p텍스트 제거
+            }
+            newSpanElement.innerHTML = ''; // 스팬 안에 있는 텍스트 제거
+
+            // 프로그레스 바 초기화
+            progressCircle.style.strokeDashoffset = circumference; // 초기화
+            setTimeout(() => {
+                progressCircle.style.strokeDashoffset = circumference; // 다시 초기화하여 보이지 않도록
+            }, 0);
+
+            // 이미지 오파시티 초기화
+            item.querySelector('img').style.opacity = '1'; // 이미지 오파시티를 1로 설정하여 원래 상태로 복원
+            // 클래스 제거
+            item.classList.remove("item-style"); // 클래스 제거
         });
     });
 
-    // const spans = document.querySelectorAll('.gauge > span');
 
-    // spans.forEach((span) => {
-    //     span.style.width = '0%';  // 초기값을 0%로 설정
-    //     setTimeout(() => {
-    //         span.style.width = span.dataset.width; // data-width 값으로 변경
-    //         span.innerHTML = span.dataset.width; // 텍스트도 업데이트
-    //         document.querySelectorAll('.item').style.backgroundColor = `rgba($color: #DCE8EF, $alpha: 0.1)`;
-    //     }, 100); // 약간의 지연 후에 변경
-    // });
 };
