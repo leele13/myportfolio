@@ -1,57 +1,3 @@
-// $(window).on('load', function() {
-//     const leftBirds = $('.intro-img > .lf-bird1, .lf-bird2');
-//     const rightBirds = $('.intro-img > .rt-bird1, .rt-bird2');
-//     const leftClouds = $('.intro-img > .lf-cloud1, .lf-cloud2');
-//     const rightClouds = $('.intro-img > .rt-cloud1, .rt-cloud2');
-//     const floorClouds = $('.intro-img > .f-lf-cloud1, .f-lf-cloud2, .f-rt-cloud1, .f-rt-cloud2');
-
-//     function checkPosition() {
-//         rightBirds.each(function() {
-//             const bird = $(this);
-//             console.log(bird.attr('class'));
-//             if (bird[0].getBoundingClientRect().left > window.innerWidth) {
-//                 bird.css({
-//                     'opacity': '0',
-//                     'transform': 'translateX(-100vw)'
-//                 });
-//                 setTimeout(function() {
-//                     bird.css({
-//                         'transform': 'translateX(0)',
-//                         'opacity': '0'
-//                     });
-//                 }, 1000);
-//             }
-//         });
-
-//         rightClouds.each(function() {
-//             const cloud = $(this);
-//             if (cloud[0].getBoundingClientRect().left > window.innerWidth) {
-//                 cloud.css({
-//                     'opacity': '0',
-//                     'transform': 'translateX(-100vw)'
-//                 });
-//                 setTimeout(function() {
-//                     cloud.css({
-//                         'transform': 'translateX(0)',
-//                         'opacity': '1'
-//                     });
-//                 }, 1000);
-//             }
-//         });
-//     }
-
-//     floorClouds.each(function() {
-//         const floorCloud = $(this);
-//         floorCloud.on('animationend', function() {
-//             floorCloud.css('opacity', '0');
-//         });
-//     });
-
-//     setInterval(checkPosition, 1000); // 1초마다 위치 확인
-// });
-
-
-
 window.onload = function() {
 
     // const birds = document.querySelectorAll('.lf-bird1, .lf-bird2, .rt-bird1, .rt-bird2');
@@ -142,38 +88,20 @@ window.onload = function() {
 
     // 스킬부분 이벤트
 
-    // let item = document.getElementsByClassName("item")[0];
-    // let    itemValue = document.getElementsByClassName("gauge")[0];
+    // let gauge = document.getElementsByClassName("gauge")[0];
+    // let gaugeSpan = gauge.getElementsByClassName('gauge-txt')[0];
 
-    // let progressStartValue = 0,    
-    //     progressEndValue = 85,    
+    // let progressStartValue = 0,
+    //     progressEndValue = gaugeSpan.dataset.width,    
     //     speed = 100;
 
-    // let progress = setInterval(() => {
-    // if (progressStartValue < progressEndValue) {
+    // let progress = setInterval(()=> {
     //     progressStartValue++;
-    //     itemValue.textContent = `${progressStartValue}%`;
-    //     let gradientWidth = (progressStartValue / progressEndValue) * 100; // 비율을 계산하여 100%로 설정
-    //     itemValue.style.background = `linear-gradient(to right, yellow ${gradientWidth}%, orange ${gradientWidth}%)`;
-    // } else {
-    //     clearInterval(progress);
-    // }
-    // }, speed);
 
-
-    // let progress = setInterval(() => {
-    //     progressStartValue++;
-    //     itemValue.textContent = `${progressStartValue}%`
-    //     let gradientWidth = progressStartValue + progressEndValue ;
-    //     itemValue.style.background = `linear-gradient(to right, yellow ${gradientWidth}%, orange ${gradientWidth}%)`;
-
-    //     if(progressStartValue == progressEndValue){
+    //     if (progressStartValue == progressEndValue) {
     //         clearInterval(progress);
-    //     } 
+    //     }
     // }, speed);
-    
-
-
 
     const items = document.querySelectorAll('.item');
 
@@ -182,16 +110,95 @@ window.onload = function() {
         const pElement = item.querySelector('p');
         const circleContainer = document.getElementsByClassName('circle')[0];
 
-        item.querySelector('img').addEventListener('mouseover', () => {
+        // let gauge = document.getElementsByClassName("gauge")[0];
+        // let gaugeSpan = gauge.querySelector('span');
+        // let progressEndValue = parseInt(gaugeSpan.dataset.width, 10);
+        // let progressEndValue = gaugeSpan.dataset.width;
 
+        // console.log(progressEndValue+'확인용');
+
+        item.addEventListener('mouseover', () => {
+            
             if ((window.matchMedia("(min-width: 1440px)").matches)) {
                 // 새로운 p 요소 생성
                 const newPElement = document.createElement('p');
                 newPElement.innerText = pElement.innerText; // 기존 p의 텍스트를 넣음
                 // p의 텍스트를 서클 안에 넣기
                 circleContainer.appendChild(newPElement);
-                circleContainer.style.position = 'relative';
-                newPElement.classList.add("p-desktop-style");
+                circleContainer.classList.add("circle-style");
+
+                // PC버전에서 동그랗게 색칠되는 이벤트 
+
+                // let gauge = document.querySelector(".gauge");
+                // let gaugeSpan = document.querySelector('.gauge-txt');
+
+                // let progressStartValue = 0;
+                // let progressEndValue = gaugeSpan.dataset.width;
+                // let speed = 100;
+
+                // console.log(progressEndValue+"테스트용 앤드 밸류");
+
+                // let progress = setInterval(()=> {
+                //     progressStartValue++;
+
+                //     gauge.style.background = `conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg ${progressStartValue * 3.6}deg)`;
+
+                //     if (progressStartValue == progressEndValue) {
+                //         clearInterval(progress);
+                //     }
+                // }, speed);
+
+
+
+
+
+
+
+                // // PC버전에서 동그랗게 색칠되는 이벤트 
+                // let gauges = document.querySelectorAll('.gauge');
+                // // let gauge = document.querySelector(".gauge");
+                // let gaugeSpans = document.querySelectorAll('.gauge-txt');
+
+                // gaugeSpans.forEach((gaugeSpan, index) => {
+                //     let progressStartValue = 0;
+                //     let progressEndValue = gaugeSpan.dataset.width;
+                //     let speed = 100;
+
+                //     console.log(progressEndValue+'앤드밸류');
+                
+                //     let progress = setInterval(() => {
+                //         progressStartValue++;
+                //         gauges[index].style.background = `conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg ${progressStartValue * 3.6}deg)`;
+                //         console.log(progressStartValue+'프로그레스스타트밸류');
+                
+                //         // if (progressStartValue == progressEndValue && progressStartValue <= 360) {
+                //         //     clearInterval(progress);
+                //         // }
+                //         if (progressStartValue == progressEndValue) {
+                //             clearInterval(progress);
+                //         }
+                //     }, speed);
+                // });
+
+
+
+
+
+                // gauges.forEach((gauge, index) => {
+
+                //     let progressStartValue = 0,
+                //         progressEndValue = gaugeSpans[index].dataset.width,
+                //         speed = 100;
+        
+                //     let progress = setInterval(() => {
+                //         progressStartValue++;
+                //         gauge.style.background = `conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg ${progressStartValue * 3.6}deg)`;
+        
+                //         if (progressStartValue == progressEndValue) {
+                //             clearInterval(progress);
+                //         }
+                //     }, speed);
+                // });
             };
             spans.forEach((span) => {
                 span.style.width = '0%';  // 초기값을 0%로 설정
@@ -199,26 +206,26 @@ window.onload = function() {
                     span.style.opacity = 1;
                     span.style.width = span.dataset.width; // data-width 값으로 변경
                     span.innerHTML = span.dataset.width; // 텍스트도 업데이트
-                    pElement.style.opacity = 1;
+                    // pElement.style.opacity = 1;
                     item.style.backgroundColor = 'rgba(220, 232, 239, 0.1)'; // 배경색 변경
                 }, 100); // 약간의 지연 후에 변경
             });
         });
 
-        // item.querySelector('img').addEventListener('mouseout', () => {
+        item.addEventListener('mouseout', () => {
 
-        //     if ((window.matchMedia("(min-width: 1440px)").matches)) {
-        //         // 서클 안에 있는 p텍스트 제거
-        //         circleContainer.innerHTML = '';
-        //     };
-        //     spans.forEach((span) => {
-        //         span.style.opacity = 0;
-        //         span.style.width = '0%'; // 마우스 아웃 시 초기값으로 되돌리기
-        //         span.innerHTML = ''; // 텍스트도 초기화
-        //         pElement.style.opacity = 0;
-        //         item.style.backgroundColor = ''; // 배경색 초기화
-        //     });
-        // });
+            if ((window.matchMedia("(min-width: 1440px)").matches)) {
+                // 서클 안에 있는 p텍스트 제거
+                circleContainer.innerHTML = '';
+            };
+            spans.forEach((span) => {
+                span.style.opacity = 0;
+                span.style.width = '0%'; // 마우스 아웃 시 초기값으로 되돌리기
+                span.innerHTML = ''; // 텍스트도 초기화
+                // pElement.style.opacity = 0;
+                item.style.backgroundColor = ''; // 배경색 초기화
+            });
+        });
     });
 
     // const spans = document.querySelectorAll('.gauge > span');

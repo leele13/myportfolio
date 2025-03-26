@@ -572,20 +572,31 @@ main {
                     .folders {
 
                         .box { // str-box,  endeavor-box, vision-box
-                            position: absolute;
-                            width: 100%;
+                            position: relative;
+                            width: $width-wide;
                             height: 250px;
                             max-height: 300px;
-                            margin-bottom: 50px; left: 50%;
-                            transform: translateX(-50%);
+                            margin-bottom: 50px; 
                             opacity: 0;
-
-                            @include lf-slide-ani(-150%, -50%);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            
+                            @include lf-slide-ani(-100%, 0%);
                             animation: none;
                             // animation: lf-slide 2s;
 
+                            @include responsive(large-screens) {
+                                margin-bottom: 0;
+                                @include lf-slide-ani(-150%, -50%);
+                            }
+
                             &:nth-child(2) {
-                                @include rt-slide-ani (0%, -50%);
+                                @include rt-slide-ani (100%, 0%);
+
+                                @include responsive(large-screens) {
+                                    @include rt-slide-ani (0%, -50%);
+                                }
                             }
 
                             img,
@@ -594,14 +605,23 @@ main {
                                 transition: opacity 1.5s;
                             }
 
+                            img {
+                                width: $width-wide;
+                                height: inherit;
+                            }
+
                             div { //str-txt, endeavor-txt, vision-txt
                                 position: absolute;
-                                left: 50%; top: 50%;
-                                transform: translate(-50%, -50%);
-                                width: $width-wide;
+                                width: 335px;
                                 height: 240px;
                                 padding: 0 35px;
                                 // background-color: red;
+                                z-index: 6;
+
+                                @include responsive(large-screens) {
+                                    width: $width-wide;
+                                }
+
 
                                 h3 {
                                     font-size: $mobile-h3-cal-font;
@@ -627,17 +647,11 @@ main {
                         } // str-box,  endeavor-box, vision-box
 
                         .str-box {
-                            position: absolute;
-                            top: 0; 
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                top: -95px; 
-                                // right: -100%;
-                                left: 82%;
-                            width: 340px;
-
-                            // transform: translateX(-50%);
+                                top: -95px; left: 82%;
+                                width: 340px;
                             }
 
                             .str-txt {
@@ -653,12 +667,10 @@ main {
                         }
 
                         .endeavor-box {
-                            position: absolute;
-                            top: 320px;
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                left: 54%; top: -270px;
+                                left: 55%; top: -265px;
                                 width: 330px;
                             }
 
@@ -682,19 +694,25 @@ main {
 
                                 @include responsive(large-screens) {
                                     position: absolute;
-                                    top: 53%;
+                                    top: -25%;
                                 }
                             }
                         }
 
                         .vision-box {
-                            position: absolute;
-                            top:  640px;
 
                             @include responsive(large-screens) {
                                 position: absolute;
                                 left: 65%; top: 150px;
-                                width: 467px;
+                                width: 467px; height: 344px;
+                            }
+
+                            .vision-txt {
+
+                                @include responsive(large-screens) {
+                                    position: absolute;
+                                    top: 3%;
+                                }
                             }
                         }
                         
@@ -711,18 +729,6 @@ main {
                         }
                     }
                 }
-
-
-                // .folder-box-ani { // 애니메이션 적용을 위한 클래스
-
-                //     .folders-ani {
-
-                //         .box-slide-ani {
-                //             animation: lf-slide 2s;
-                //             opacity: 1;
-                //         }
-                //     }
-                // }
             }
         }
     } // about me
@@ -770,6 +776,26 @@ main {
                         background-color: #DCE8EF;
                     }
                 }
+
+                .circle-style {
+                    position: relative;
+
+                    p {
+                        position: absolute;
+                        left: 50%; top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 350px; height: 350px;
+                        border-radius: 170px;  
+                        display: flex;
+                        align-items: center;
+                        // justify-content: center;
+                        font-size: 20px;
+                        font-family: $font-sub;
+                        padding: 20px;
+                        color: $font-color-sub2;
+                        // background-color: red;
+                    }
+                }
             }
 
             .icon-list {
@@ -787,12 +813,13 @@ main {
                     display: grid;
                     grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
                     grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
-                    grid-gap: 5px 10px;
+                    grid-gap: 10px 10px;
                     align-items: center;
                     margin-bottom: 25px;
                     border-radius: 14px;
 
                     z-index: 1;
+                    cursor: pointer;
 
                     // background-color: red;
 
@@ -802,7 +829,7 @@ main {
                         top: 42.5%;
                         transform: translateX(-50%);
                         width: 150px; height: 150px;
-                        border-radius: 200px;      
+                        border-radius: 50%;      
                         transform-origin: center center; // 회전의 기준점 설정              
                         // transform-origin: 0 0; // 회전의 기준점 설정              
                         // background-color: #DCE8EF;
@@ -822,20 +849,23 @@ main {
 
                     .icon {
                         width: 50px; height: 50px;
-                        cursor: pointer;
+                        
 
                         @include responsive(large-screens) {
                             position: absolute;
                             left: 50%; top: 50%;
                             transform: translate(-50%, -50%);
                             width: 90px; height: 90px;
+                            z-index: 3;
                         }
                     }
 
                     p {
                         font-size: 14px;
-                        opacity: 0;
+                        // opacity: 0;
                         color: $font-color-sub3;
+                        border-radius: 5px;
+                        // background-color: rgba(220, 232, 239, 0.1);
 
                         @include responsive(large-screens) {
                             display: none;  // 자바스크립트로 서클에 집어넣을 예정
@@ -850,6 +880,17 @@ main {
                         border-radius: 7px;
                         // background-color: orange;
 
+                        @include responsive(large-screens) {
+                            width: 165px; height: 165px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 50%;  
+                            // background: conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg 360deg);
+                            // transition: width 0.5s ease-in;
+                            z-index: 0;
+                        }
+
                         .gauge-txt {
                             position: absolute;
                             left: 0; top: -2px;
@@ -862,17 +903,29 @@ main {
                             border-radius: 7px;
                             opacity: 0;
                             background: linear-gradient(to right, #FFF200 20%, #FBB92F 50%, #FA9F45);
-                            transition: width 0.5s linear;
+                            transition: width 0.5s ease-in;
+
+                            @include responsive(large-screens) {
+                                background: none;
+                            }
                         }
+
+                        // &::before { //  스타이롤 정상적용되면 이건 삭제예정
+                        //     position: absolute;
+                        //     content: '';
+                        //     width: 140px; height: 140px;
+                        //     border-radius: 50%;  
+                        //     background-color: rgba($color: #3D3344, $alpha: 0.8);
+                        // }
                     }
 
-                    p-desktop-style { // p에 적용할 속성 
-                        // position: absolute;
-                        // left: 50%; top: 50%;
-                        // transform: translate(-50%, -50%);
-                        color: red;
-                        font-size: 24px;
-                        font-family: $font-sub;
+                    .gauge-style { // 이벤트시 적용할 스타일 
+
+                        div {
+                            width: 140px; height: 140px;
+                            border-radius: 50%;  
+                            background-color: rgba($color: #3D3344, $alpha: 0.8);
+                        }
                     }
                 }
             }
@@ -894,7 +947,7 @@ main {
         }
     } // skill
 
-/* === skill === */
+/* === portfolio === */
     .portfolio {
         position: relative;
         // height: 640px;
