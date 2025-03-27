@@ -1129,7 +1129,16 @@ main {
                     }
                 }
 
+                .item-hover { // 이벤트시 적용할 스타일 
+                    background-color: rgba(220, 232, 239, 0.1); // 배경색을 추가합니다.
+                    transition: background-color 0.3s ease; // 배경색 변경에 애니메이션 효과 추가
+                }
+
                 .item-style { // 이벤트시 적용할 스타일 
+
+                    // .item {
+                    //     background-color: rgba($color: #DCE8EF, $alpha: 0.1);
+                    // }
 
                     span.item-data {
 
@@ -1183,14 +1192,15 @@ main {
     .portfolio {
         position: relative;
         // height: 640px;
+        width: $width-wide;
+        overflow: hidden;  // 슬라이드할 영역 외의 부분은 숨기기
 
-        height: 2000px;
+        // height: 2000px;
         background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
 
         @include responsive(large-screens) {
-            // height: 1040px;
-
-            height: 10000px;
+            height: 1040px;
+            // height: 10000px;
         }
 
         .portfolio-title {
@@ -1204,9 +1214,16 @@ main {
         }
 
         .portfolio-desc-box {
-            // display: flex;
+            display: flex;  // 가로로 배치
+            transition: transform 0.5s ease;  // 슬라이드 이동 애니메이션 효과
+            width: $width-wide;  // 전체 width 설정
 
             .portfolio-box {
+                position: relative;
+                width: $width-wide;
+                min-width: 300px;  // 각 항목의 최소 width (아이템 크기 조절)
+                margin-right: 20px;  // 항목 간의 간격 설정
+                flex-shrink: 0;  // 항목이 줄어들지 않도록 설정
                 margin-top: 35px;
                 border: 2px solid #262626;
                 background-color: #FFFAEE;
@@ -1237,6 +1254,11 @@ main {
                             width: 600px; height: 600px;
                             margin: 25px 0;
                         }
+
+                        img {
+                            height: auto;
+                            transition: transform 0.3s ease;
+                        }
                     }
     
                     .desc-btn-box {
@@ -1246,6 +1268,7 @@ main {
                         @include responsive(large-screens) {
                             width: 580px; 
                             margin: 25px 0;
+                            margin-left: 25px;
                         }
     
                         .txt-box {
@@ -1420,6 +1443,21 @@ main {
                         .btn-box {
 
                             a {
+                                width: $width-wide;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(8) {
+
+                    .desc-btn-box {
+
+                        .btn-box {
+
+                            a {
                                 width: 45%;
                             }
                         }
@@ -1433,21 +1471,20 @@ main {
             display: none;
 
             @include responsive(large-screens) {
-                position: absolute;
-                top: 50%; left: 50%;
-                transform: translate(-50%, -50%);
-                width: 1660px;
                 display: block;
-                display: flex;
-                justify-content: space-between;
+                z-index: 10;
                 cursor: pointer;
             }
             
 
             div { // lf-arrow, rt-arrow
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 96px; height: 96px;
                 border-radius: 48px;
                 background-color: rgba($color: #A286BA, $alpha: 0.7);
+                transition: transform 0.3s ease;
 
                 img {
                     opacity: 0.9;
@@ -1463,7 +1500,13 @@ main {
                 }
             }
 
-            
+            .lf-arrow {
+                left: 15px; // 좌측 화살표 위치
+            }
+    
+            .rt-arrow {
+                right: 15px; // 우측 화살표 위치
+            }
         }
     } // portfolio
 } // main

@@ -132,72 +132,119 @@ window.onload = function() {
         const pElement = item.querySelector('p');
         const circleContainer = document.getElementsByClassName('circle')[0];
 
-
-        let newSpanElement = document.createElement('span'); // 스팬을 전역 변수로 선언 
-
         item.addEventListener('mouseover', () => {
             spans.forEach((span) => {
-                span.style.width = '0%'; // 초기값을 0%로 설정
+                span.style.width = '0%';
                 setTimeout(() => {
                     span.style.opacity = 1;
-                    span.style.width = span.dataset.width; // data-width 값으로 변경
-                    span.innerHTML = span.dataset.width; // 텍스트도 업데이트
-                    item.style.backgroundColor = 'rgba(220, 232, 239, 0.1)'; // 배경색 변경
-                }, 100); // 약간의 지연 후에 변경
+                    span.style.width = span.dataset.width;
+                    span.innerHTML = span.dataset.width;
+                    item.classList.add('item-hover');  // 배경색을 추가할 클래스
+                }, 100);
             });
-
-            // 프로그레스 바 애니메이션 시작
-            progressCircle.style.strokeDashoffset = circumference; // 초기화
+        
+            progressCircle.style.strokeDashoffset = circumference;
             setTimeout(() => {
-                progressCircle.style.strokeDashoffset = offset; // 애니메이션 시작
+                progressCircle.style.strokeDashoffset = offset;
             }, 0);
-
-            // PC 버전에서만 p 요소 추가
+        
             if (window.matchMedia("(min-width: 1440px)").matches) {
-                newSpanElement = document.createElement('span');
-                item.appendChild(newSpanElement);
+                if (!item.querySelector('.item-data')) {
+                    const spanElement = document.createElement('span');
+                    spanElement.classList.add("item-data");
+                    spanElement.innerHTML = spans[0].dataset.width;
+                    item.appendChild(spanElement);
+                }
+        
                 item.classList.add("item-style");
-                newSpanElement.classList.add("item-data");
                 item.querySelector('img').style.opacity = '0.2';
-
-                spans.forEach((span)=> {
+        
+                if (!circleContainer.querySelector('p')) {
                     const newPElement = document.createElement('p');
-                    newPElement.innerText = pElement.innerText; // 기존 p의 텍스트를 넣음
+                    newPElement.innerText = pElement.innerText;
                     circleContainer.appendChild(newPElement);
                     circleContainer.classList.add("circle-style");
-                    newSpanElement.innerHTML = span.dataset.width;
-                });
+                }
             }
         });
-
+        
         item.addEventListener('mouseout', () => {
             spans.forEach((span) => {
                 span.style.opacity = 0;
-                span.style.width = '0%'; // 마우스 아웃 시 초기값으로 되돌리기
-                span.innerHTML = ''; // 텍스트도 초기화
-                item.style.backgroundColor = ''; // 배경색 초기화
+                span.style.width = '0%';
+                span.innerHTML = '';
             });
-
-            // 서클 안에 있는 p 텍스트 제거 (PC 버전에서만)
+        
+            // `transitionend` 이벤트를 사용하여 배경색 애니메이션이 끝난 후 클래스를 제거
+            item.addEventListener('transitionend', () => {
+                item.classList.remove('item-hover');
+            });
+        
             if (window.matchMedia("(min-width: 1440px)").matches) {
-                circleContainer.innerHTML = ''; // 서클 안에 있는 p텍스트 제거
+                const spanData = item.querySelector('.item-data');
+                if (spanData) spanData.remove();
+        
+                const circleText = circleContainer.querySelector('p');
+                if (circleText) circleText.remove();
+        
+                circleContainer.classList.remove('circle-style');
             }
-            newSpanElement.innerHTML = ''; // 스팬 안에 있는 텍스트 제거
-            item.classList.remove("item-style"); // 클래스 제거
-
-
-            // 프로그레스 바 초기화
-            progressCircle.style.strokeDashoffset = circumference; // 초기화
-            setTimeout(() => {
-                progressCircle.style.strokeDashoffset = circumference; // 다시 초기화하여 보이지 않도록
-            }, 0);
-
-            // 이미지 오파시티 초기화
-            item.querySelector('img').style.opacity = '1'; // 이미지 오파시티를 1로 설정하여 원래 상태로 복원
-            // 클래스 제거
-            // item.classList.remove("item-style"); // 클래스 제거
-        });
+        
+            item.querySelector('img').style.opacity = '1';
+            item.classList.remove("item-style");
+        
+            progressCircle.style.strokeDashoffset = circumference;
     });
 
+        
+    // 포트폴리오 슬라이드 이벤트
+    const portfolioDescBox = document.querySelector('.portfolio-desc-box');
+    const leftArrow = document.querySelector('.lf-arrow');
+    const rightArrow = document.querySelector('.rt-arrow');
 
+    let currentIndex = 0; // 현재 슬라이드 인덱스
+    const totalSlides = document.querySelectorAll('.portfolio-box').length; // 총 포트폴리오 박스 개수
+
+    // 슬라이드 이동 함수
+    function moveSlide(index) {
+        // 인덱스 범위 설정 (총 슬라이드 수를 넘지 않도록)
+        if (index < 0) {
+            currentIndex = totalSlides - 1; // 마지막 슬라이드로
+        } else if (index >= totalSlides) {
+            currentIndex = 0; // 첫 번째 슬라이드로
+        } else {
+            currentIndex = index;
+        }
+
+        // 슬라이드 이동 (좌측으로 이동)
+        const offset = -currentIndex * (document.querySelector('.portfolio-box').offsetWidth + 20); // 20px은 항목 간의 간격
+        portfolioDescBox.style.transform = `translateX(${offset}px)`;
+    }
+
+    // 좌측 화살표 클릭 이벤트
+    leftArrow.addEventListener('click', () => {
+        moveSlide(currentIndex - 1); // 왼쪽으로 슬라이드 이동
+    });
+
+    // 우측 화살표 클릭 이벤트
+    rightArrow.addEventListener('click', () => {
+        moveSlide(currentIndex + 1); // 오른쪽으로 슬라이드 이동
+    });
+
+    // 페이지 로드 시 초기 상태로 첫 번째 슬라이드 보이기
+    moveSlide(currentIndex);
+
+    // 자동 슬라이드 기능 (3초마다 슬라이드 이동)
+    const slideInterval = 3000; // 자동 슬라이드 간격 (3초)
+
+    // 자동으로 슬라이드 이동하는 함수
+    function autoSlide() {
+        moveSlide(currentIndex + 1); // 오른쪽으로 슬라이드 이동
+    }
+
+    // setInterval로 일정 간격마다 자동 슬라이드 실행
+    setInterval(autoSlide, slideInterval);
+
+        
+    });
 };

@@ -1124,6 +1124,10 @@ main .skill .circle-container .icon-list .item .progress-circle {
     transition: stroke-dashoffset 0.5s ease-in;
   }
 }
+main .skill .circle-container .icon-list .item-hover {
+  background-color: rgba(220, 232, 239, 0.1);
+  transition: background-color 0.3s ease;
+}
 @media (min-width: 1440px) {
   main .skill .circle-container .icon-list .item-style span.item-data {
     position: absolute;
@@ -1168,12 +1172,13 @@ main .skill .building-box .building {
 }
 main .portfolio {
   position: relative;
-  height: 2000px;
+  width: 100%;
+  overflow: hidden;
   background: linear-gradient(#3D3344, #896EA1 50%, #262626);
 }
 @media (min-width: 1440px) {
   main .portfolio {
-    height: 10000px;
+    height: 1040px;
   }
 }
 main .portfolio .portfolio-title {
@@ -1186,7 +1191,17 @@ main .portfolio .portfolio-title {
     font-size: 48px;
   }
 }
+main .portfolio .portfolio-desc-box {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
 main .portfolio .portfolio-desc-box .portfolio-box {
+  position: relative;
+  width: 100%;
+  min-width: 300px;
+  margin-right: 20px;
+  flex-shrink: 0;
   margin-top: 35px;
   border: 2px solid #262626;
   background-color: #FFFAEE;
@@ -1221,6 +1236,10 @@ main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .img-box {
     margin: 25px 0;
   }
 }
+main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .img-box img {
+  height: auto;
+  transition: transform 0.3s ease;
+}
 main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box {
   width: 77.7777777778%;
   margin: 25px auto;
@@ -1229,6 +1248,7 @@ main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box {
   main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box {
     width: 580px;
     margin: 25px 0;
+    margin-left: 25px;
   }
 }
 main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box {
@@ -1371,6 +1391,9 @@ main .portfolio .portfolio-desc-box .portfolio-box:nth-child(4) .desc-btn-box .b
   width: 100%;
 }
 main .portfolio .portfolio-desc-box .portfolio-box:nth-child(5) .desc-btn-box .btn-box a {
+  width: 100%;
+}
+main .portfolio .portfolio-desc-box .portfolio-box:nth-child(6) .desc-btn-box .btn-box a, main .portfolio .portfolio-desc-box .portfolio-box:nth-child(7) .desc-btn-box .btn-box a, main .portfolio .portfolio-desc-box .portfolio-box:nth-child(8) .desc-btn-box .btn-box a {
   width: 45%;
 }
 main .portfolio .arrow {
@@ -1378,22 +1401,20 @@ main .portfolio .arrow {
 }
 @media (min-width: 1440px) {
   main .portfolio .arrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1660px;
     display: block;
-    display: flex;
-    justify-content: space-between;
+    z-index: 10;
     cursor: pointer;
   }
 }
 main .portfolio .arrow div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 96px;
   height: 96px;
   border-radius: 48px;
   background-color: rgba(162, 134, 186, 0.7);
+  transition: transform 0.3s ease;
 }
 main .portfolio .arrow div img {
   opacity: 0.9;
@@ -1404,6 +1425,12 @@ main .portfolio .arrow div:hover {
 }
 main .portfolio .arrow div:hover img {
   transform: scale(1.1);
+}
+main .portfolio .arrow .lf-arrow {
+  left: 15px;
+}
+main .portfolio .arrow .rt-arrow {
+  right: 15px;
 }
 
 /* ===== footer ===== */
