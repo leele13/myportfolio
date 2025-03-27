@@ -1,5 +1,43 @@
 window.onload = function() {
 
+    // 헤더 이벤트 
+
+    function mobileMenuToggle() {
+        document.getElementsByClassName('mobile-btn')[0].addEventListener('click', function() {
+            this.classList.toggle('close');
+            const menuBox = document.getElementsByClassName('mainmenu')[0];
+            const body = document.body; // body 요소 선택
+            if(menuBox.classList.contains('active')) {
+                menuBox.classList.remove('active');
+                setTimeout(() => {
+                    menuBox.style.display = 'none'; // 애니메이션 후에 숨기기
+                    body.classList.remove('no-scroll'); // 스크롤 허용
+                }, 300); // 애니메이션 시간과 동일하게 설정
+            } else {
+                menuBox.style.display = 'block';
+                body.classList.add('no-scroll'); // 스크롤 막기
+                setTimeout(() => {
+                    menuBox.classList.add('active'); // 애니메이션 시작
+                }, 10); // 약간의 지연 후에 active 클래스 추가
+            }
+        });
+    }
+    mobileMenuToggle();
+
+    window.addEventListener('resize', function() {
+        const menuBox = document.getElementsByClassName('mainmenu')[0];
+        if (window.innerWidth >= 1440) { // PC 버전 해상도 기준
+            menuBox.style.display = 'block'; // 메뉴 박스를 보이게 설정
+            } else {
+            // 모바일 버전에서는 기존 로직 유지
+            if (!menuBox.classList.contains('active')) {
+            menuBox.style.display = 'none'; // 메뉴 박스를 숨김
+            }
+        }
+    });
+
+    // 인트로 이벤트 
+
     // const birds = document.querySelectorAll('.lf-bird1, .lf-bird2, .rt-bird1, .rt-bird2');
     // const clouds = document.querySelectorAll('.lf-cloud1, .lf-cloud2, .rt-cloud1, .rt-cloud2');
 
@@ -145,6 +183,8 @@ window.onload = function() {
                 circleContainer.innerHTML = ''; // 서클 안에 있는 p텍스트 제거
             }
             newSpanElement.innerHTML = ''; // 스팬 안에 있는 텍스트 제거
+            item.classList.remove("item-style"); // 클래스 제거
+
 
             // 프로그레스 바 초기화
             progressCircle.style.strokeDashoffset = circumference; // 초기화
@@ -155,7 +195,7 @@ window.onload = function() {
             // 이미지 오파시티 초기화
             item.querySelector('img').style.opacity = '1'; // 이미지 오파시티를 1로 설정하여 원래 상태로 복원
             // 클래스 제거
-            item.classList.remove("item-style"); // 클래스 제거
+            // item.classList.remove("item-style"); // 클래스 제거
         });
     });
 
