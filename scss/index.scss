@@ -217,6 +217,7 @@
             }
 
             .mobile-btn {
+                position: relative; /* 자식 요소가 회전할 때 잘리지 않도록 설정 */
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -230,7 +231,7 @@
 
                 span {
                     display: block;
-                    width: 30px;
+                    width: $width-wide;
                     height: 4px;
                     border-radius: 10px;
                     background-color: $font-color-main;
@@ -247,6 +248,8 @@
                     
                     &:nth-child(1) {
                         transform: rotate(45deg);
+                        position: absolute;
+                        left: 0; top: 50%;
                     }
 
                     &:nth-child(2) {
@@ -255,6 +258,8 @@
 
                     &:nth-child(3) {
                         transform: rotate(-45deg);
+                        position: absolute;
+                        left: 0; top: 50%;
                     }
                 }
             }
@@ -616,12 +621,15 @@ main {
                         opacity: 0;
 
                         transition: all 3s;
+
+                        @include lf-slide-ani(-50%, 0%);
                         animation: none;
 
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            left: 25%; top: 5%;
-                            width: 460px;
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                left: 25%; top: 5%;
+                                width: 460px;
+                                @include lf-slide-ani;
                         }
 
                         .file {
@@ -1358,23 +1366,51 @@ main {
                             left: 0; top: 0;
                             width: $width-wide; height: 100%;
                             background-color: rgba(38, 38, 38, 0.8); 
-                            z-index: 1;
-                            display: none; 
+                            z-index: 7;
+                            display: none;
+                            transition: opacity 0.3s ease, visibility 0.3s ease;
 
                             .modal {
                                 position: fixed;
                                 top: 50%; left: 50%;
                                 transform: translate(-50%, -50%);
-                                width: $width-wide; 
-                                z-index: 2;
+                                width: 80%; height: 80%;
+                                z-index: 8;
 
                                 @include responsive(large-screens) {
-                                    width: $break-large;
+                                    width: 60%; height: 60%;
+                                }
+                            }
+                        }
+
+                        .modal-container.show { // 모달 컨테이너 이벤트
+                            display: none;
+                        }
+                    }
+                } 
+
+                &:nth-child(2) {
+
+                    .desc-btn-box {
+
+                        .btn-box {
+
+                            a {
+                                &:nth-child(3) {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 10px;
+                                    line-height: 1;
+
+                                    @include responsive(large-screens) {
+                                        font-size: 20px;
+                                    }
                                 }
                             }
                         }
                     }
-                } 
+                }
 
                 &:nth-child(3) {
 
@@ -1437,6 +1473,10 @@ main {
                 }
 
                 &:nth-child(5) {
+
+                    .img-box {
+                        background-color: #FFF;
+                    }
 
                     .desc-btn-box {
 

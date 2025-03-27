@@ -205,6 +205,8 @@ window.onload = function() {
     let currentIndex = 0; // 현재 슬라이드 인덱스
     const totalSlides = document.querySelectorAll('.portfolio-box').length; // 총 포트폴리오 박스 개수
 
+    let slideIntervalId; // setInterval을 저장할 변수
+
     // 슬라이드 이동 함수
     function moveSlide(index) {
         // 인덱스 범위 설정 (총 슬라이드 수를 넘지 않도록)
@@ -218,6 +220,7 @@ window.onload = function() {
 
         // 슬라이드 이동 (좌측으로 이동)
         const offset = -currentIndex * (document.querySelector('.portfolio-box').offsetWidth + 20); // 20px은 항목 간의 간격
+        portfolioDescBox.style.transition = 'transform 0.5s ease';  // 부드러운 애니메이션
         portfolioDescBox.style.transform = `translateX(${offset}px)`;
     }
 
@@ -243,8 +246,108 @@ window.onload = function() {
     }
 
     // setInterval로 일정 간격마다 자동 슬라이드 실행
-    setInterval(autoSlide, slideInterval);
+    function startAutoSlide() {
+        slideIntervalId = setInterval(autoSlide, slideInterval);
+    }
 
+    function stopAutoSlide() {
+        clearInterval(slideIntervalId); // 자동 슬라이드 멈춤
+    }
+
+    // setInterval로 일정 간격마다 자동 슬라이드 실행
+    startAutoSlide();
+
+    // 슬라이드에 마우스 오버시 멈추기
+    portfolioDescBox.addEventListener('mouseover', stopAutoSlide);
+
+    // 슬라이드에서 마우스 아웃시 다시 시작
+    portfolioDescBox.addEventListener('mouseout', startAutoSlide);
+
+    // 마지막 슬라이드에서 첫 번째 슬라이드로 부드럽게 넘어가도록 하기 위한 순환 처리
+    portfolioDescBox.addEventListener('transitionend', () => {
+        if (currentIndex === totalSlides) {
+            // 마지막 슬라이드일 때, 슬라이드 위치를 0으로 리셋하고, transition을 없앰
+            portfolioDescBox.style.transition = 'none';
+
+            // 마지막 슬라이드를 맨 뒤로 이동시킴 (appendChild 사용)
+            const firstSlide = portfolioDescBox.querySelector('.portfolio-box');
+            portfolioDescBox.appendChild(firstSlide);  // 첫 번째 슬라이드를 맨 뒤로 이동
+
+            // 슬라이드를 첫 번째로 리셋
+            currentIndex = 0;
+
+            // 첫 번째 슬라이드로 위치 이동
+            const offset = -currentIndex * (document.querySelector('.portfolio-box').offsetWidth + 20);
+            portfolioDescBox.style.transform = `translateX(${offset}px)`; // 첫 번째 슬라이드로 위치 이동
+
+            // 이후 다시 애니메이션을 위해 transition을 활성화
+            setTimeout(() => {
+                portfolioDescBox.style.transition = 'transform 0.5s ease';
+            }, 20); // 약간의 딜레이 후에 transition을 다시 활성화
+        }
+    });
+
+    //모달창 이벤트
+    document.addEventListener('DOMContentLoaded', function() {
+        const btns = document.querySelectorAll('.open-modal-btn'); // 모든 버튼
+        const modals = document.querySelectorAll('.modal-container'); // 모든 모달 컨테이너
+    
+        // 모달 보이기 함수
+        function showModal(modal) {
+            modal.classList.add('show'); // 모달 보이기
+        }
+    
+        // 모달 숨기기 함수
+        function closeModal(modal) {
+            modal.classList.remove('show'); // 모달 숨기기
+        }
+    
+        // 버튼 클릭 시 모달 보이기
+        btns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modalId = `modal-${btn.id.split('-')[2]}`; // 'btn-modal-1' -> 'modal-1'
+                const targetModal = document.getElementById(modalId);
+                if (targetModal) {
+                    showModal(targetModal); // 해당 모달 보이기
+                }
+            });
+        });
+    
+        // 모달 외부나 모달 자체 클릭 시 모달 닫기
+        modals.forEach(function(modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal(modal); // 모달 외부 클릭 시 모달 숨기기
+                }
+            });
+        });
+    });
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // GNB 메뉴 항목을 모두 선택합니다
+        const gnbLinks = document.querySelectorAll('.gnb a');
         
+        gnbLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();  // 기본 클릭 동작을 막습니다
+        
+                // 클릭된 링크의 href 속성 값으로 이동할 대상 섹션을 가져옵니다
+                const targetId = this.getAttribute('href').substring(1);  // #을 제거한 ID 값
+        
+                // 해당 ID를 가진 섹션을 찾습니다
+                const targetSection = document.getElementById(targetId);
+                
+                // 섹션으로 부드럽게 스크롤 이동
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',  // 부드러운 스크롤
+                    block: 'start'       // 스크롤 위치를 섹션의 시작 부분에 맞추기
+                });
+            });
+        });
+    });
+    
+
     });
 };

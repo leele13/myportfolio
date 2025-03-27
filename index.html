@@ -23,10 +23,10 @@
                <div class="mainmenu">
                   <nav>
                      <ul class="gnb">
-                        <li><a href="#none">About me</a></li>
-                        <li><a href="#none">Skill</a></li>
-                        <li><a href="#none">Portfolio</a></li>
-                        <li><a href="#none">Contact</a></li>
+                        <li><a href="#about-me">About me</a></li>
+                        <li><a href="#skill">Skill</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
                      </ul>
                   </nav>
                </div>
@@ -44,7 +44,7 @@
    </header>
 
    <main>
-      <section>
+      <section id="intro">
          <div class="intro">
             <div class="intro-txt">
                <h2>Hello!!</h2>
@@ -71,7 +71,7 @@
          </div> <!-- intro -->
       </section>
 
-      <section>
+      <section id="about-me">
          <div class="about-me">
             <div class="container">
                <h2 class="about-me-title">About me</h2>
@@ -145,7 +145,7 @@
          </div> <!-- about-me -->
       </section>
 
-      <section>
+      <section id="skill">
          <div class="skill">
             <div class="container">
                <h2 class="skill-title">Skill</h2>
@@ -281,7 +281,7 @@
          </div> <!-- skill -->
       </section>
 
-      <section>
+      <section id="portfolio">
          <div class="portfolio">
             <div class="container">
                <h2 class="portfolio-title">Portfolio</h2>
@@ -300,7 +300,7 @@
                               <p>Potoshop, HTML, CSS</p>
                            </div>
                            <div class="btn-box">
-                              <a href="./page/Haribo/index.html" target="_blank">페이지</a>
+                              <a href="./page/Haribo/index.html" target="_blank">Page</a>
                               <a href="#">HTML</a>
                               <a href="#">CSS</a>
                            </div>
@@ -321,9 +321,9 @@
                               <p>Potoshop, Illustrator, HTML, SCSS, JS, JQuery, Figma</p>
                            </div>
                            <div class="btn-box">
-                              <a href="https://yeona25.github.io/" target="_blank">페이지</a>
-                              <a href="#">HTML</a>
-                              <a href="#">CSS</a>
+                              <a href="https://yeona25.github.io/" target="_blank">Page</a>
+                              <a href="https://www.figma.com/design/0FZBntt4Brki1PEyLh72ea/Untitled?node-id=0-1&t=c6GbIMOnfrnyMWaw-1" target="_blank">기획서</a>
+                              <a href="#">Source Code</a>
                            </div>
                         </div>
                      </div> <!-- img-desc-box -->
@@ -344,9 +344,9 @@
                               <p>Potoshop</p>
                            </div>
                            <div class="btn-box">
-                              <a href="">배너 디자인</a>
+                              <a href="#none" id="btn-modal-1" class="modal-btn">배너 디자인</a>
                            </div>
-                           <div class="modal-container">
+                           <div class="modal-container" id="modal-1">
                               <div class="modal banner-modal">
                                  <img src="./images/photoshop-banner-design.jpg" alt="banner-design">
                               </div>
@@ -368,10 +368,10 @@
                               <p>Illustrator</p>
                            </div>
                            <div class="btn-box">
-                              <a href="">인포그래픽</a>
+                              <a href="#none" id="btn-modal-2" class="modal-btn">인포그래픽</a>
                            </div>
-                           <div class="modal-container">
-                              <div class="modal info-modal">
+                           <div class="modal-container" id="modal-2">
+                              <div class="modal info-modal" >
                                  <img src="./images/infographic.png" alt="infographic">
                               </div>
                            </div> <!-- modal-container -->
@@ -392,11 +392,11 @@
                               <p>Illustrator</p>
                            </div>
                            <div class="btn-box">
-                              <a href="">캐릭터 드로잉</a>
+                              <a href="#none" id="btn-modal-3" class="modal-btn">캐릭터 드로잉</a>
                            </div>
-                           <div class="modal-container">
-                              <div class="modal info-modal">
-                                 <img src="./images/infographic.png" alt="infographic">
+                           <div class="modal-container" id="modal-3">
+                              <div class="modal Character-modal">
+                                 <img src="./images/Character-drawing.png" alt="Character-drawing">
                               </div>
                            </div> <!-- modal-container -->
                         </div>
@@ -416,9 +416,8 @@
                               <p>React</p>
                            </div>
                            <div class="btn-box">
-                              <a href="https://github.com/leele13/leele13.github.io.git" target="_blank">소스</a>
-                              <a href="#">To Do List</a>
-                              <!-- 투두리스트 모달로 띄울지, 페이지 연결할 수 있을지 확인 후 추가 수정!!! -->
+                              <a href="#">Page</a>
+                              <a href="https://github.com/leele13/leele13.github.io.git" target="_blank">Source Code</a>
                            </div>
                         </div>
                      </div> <!-- img-desc-box -->
@@ -434,11 +433,11 @@
                               <span>(Kiosk)</span>
                               </h3>
                               <p>제작기간: 2025년 0월 0일 ~ 2025년 0월 0일</p>
-                              <p>JS</p>
+                              <p>HTML, CSS, JS</p>
                            </div>
                            <div class="btn-box">
-                              <a href="https://github.com/leele13/leele13.github.io.git" target="_blank">소스</a>
-                              <a href="#">Kioskt</a>
+                              <a href="#">Page</a>
+                              <a href="https://github.com/leele13/leele13.github.io.git" target="_blank">Source Code</a>
                            </div>
                         </div>
                      </div> <!-- img-desc-box -->
@@ -457,8 +456,8 @@
                               <p>Figma, HTML, SCSS, JS</p>
                            </div>
                            <div class="btn-box">
-                              <a href="https://github.com/leele13/myportfolio.git" target="_blank">소스</a>
-                              <a href="./index.html">페이지</a>
+                              <a href="./index.html">Page</a>
+                              <a href="https://github.com/leele13/myportfolio.git" target="_blank">Source Code</a>
                            </div>
                         </div>
                      </div> <!-- img-desc-box -->
@@ -478,7 +477,7 @@
       </section>
    </main>
 
-   <footer>
+   <footer id="contact">
       <div class="contact">
          <div class="moon-trees">
             <div class="moon"><img src="./images/Moon.svg" alt="Moon"></div>

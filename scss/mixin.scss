@@ -16,24 +16,24 @@
     }
 }
 
-@mixin lf-move-ani{
+@mixin lf-move-ani ($start: 0, $end: 100vW){
     @keyframes lf-move {
         0% {
-            transform: translateX(0); /* 현재 위치에서 시작 */
+            transform: translateX($start); /* 현재 위치에서 시작 */
         }
         100% {
-            transform: translateX(100vw); /* 화면의 너비만큼 이동 */
+            transform: translateX($end); /* 화면의 너비만큼 이동 */
         }
     }
 }
 
-@mixin rt-move-ani {
+@mixin rt-move-ani ($start: 0, $end: -100vW){
     @keyframes rt-move {
         0% {
-            transform: translateX(0);/* 현재 위치에서 시작 */
+            transform: translateX($start);/* 현재 위치에서 시작 */
         }
         100% {
-            transform: translateX(-100vw);/* 화면의 너비만큼 이동 */
+            transform: translateX($end);/* 화면의 너비만큼 이동 */
         }
     }
 }
