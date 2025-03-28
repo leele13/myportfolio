@@ -23,6 +23,7 @@
         }
         100% {
             transform: translateX($end); /* 화면의 너비만큼 이동 */
+            opacity: 0;
         }
     }
 }
@@ -34,6 +35,7 @@
         }
         100% {
             transform: translateX($end);/* 화면의 너비만큼 이동 */
+            opacity: 0;
         }
     }
 }

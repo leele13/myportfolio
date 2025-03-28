@@ -226,12 +226,20 @@ window.onload = function() {
 
     // 좌측 화살표 클릭 이벤트
     leftArrow.addEventListener('click', () => {
+        stopAutoSlide(); // 자동 슬라이드 멈춤
         moveSlide(currentIndex - 1); // 왼쪽으로 슬라이드 이동
+    });
+    leftArrow.addEventListener('mouseover', () => {
+        stopAutoSlide(); // 자동 슬라이드 멈춤
     });
 
     // 우측 화살표 클릭 이벤트
     rightArrow.addEventListener('click', () => {
+        stopAutoSlide(); // 자동 슬라이드 멈춤
         moveSlide(currentIndex + 1); // 오른쪽으로 슬라이드 이동
+    });
+    rightArrow.addEventListener('mouseover', () => {
+        stopAutoSlide(); // 자동 슬라이드 멈춤
     });
 
     // 페이지 로드 시 초기 상태로 첫 번째 슬라이드 보이기
@@ -288,41 +296,86 @@ window.onload = function() {
     });
 
     //모달창 이벤트
-    document.addEventListener('DOMContentLoaded', function() {
-        const btns = document.querySelectorAll('.open-modal-btn'); // 모든 버튼
-        const modals = document.querySelectorAll('.modal-container'); // 모든 모달 컨테이너
-    
-        // 모달 보이기 함수
-        function showModal(modal) {
-            modal.classList.add('show'); // 모달 보이기
+
+    // 모달 버튼과 모달 컨테이너를 선택합니다.
+// 모달 버튼과 모달 컨테이너를 선택합니다.
+const modalButtons = document.querySelectorAll('.modal-btn');
+const modalContainers = document.querySelectorAll('.modal-container');
+
+modalButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault(); // 기본 링크 동작 방지
+
+        // 클릭한 버튼의 부모 요소에서 모달 컨테이너를 찾습니다.
+        const modalContainer = this.closest('.desc-btn-box').querySelector('.modal-container');
+
+        // 1. this를 확인합니다.
+        console.log('Clicked button:', this+'디스 확인');
+
+        // 2. modalContainer가 존재하는지 확인합니다.
+        // console.log('Modal container:', modalContainer+'모달컨테이너확인');
+
+        // 해당 모달을 보이게 합니다.
+        if (modalContainer) {
+            modalContainer.style.display = 'block'; // 모달을 보이게 설정
+            setTimeout(() => {
+                modalContainer.classList.add('show'); // 모달에 show 클래스를 추가하여 애니메이션 효과를 줄 수 있습니다.
+                 // 3. show 클래스가 정상적으로 부여되는지 확인합니다.
+                //  console.log('Show class added:', modalContainer.classList.contains('show')+'쇼 클랙스 부여확인');
+            }, 10); // 약간의 지연을 주어 애니메이션 효과를 부여
         }
-    
-        // 모달 숨기기 함수
-        function closeModal(modal) {
-            modal.classList.remove('show'); // 모달 숨기기
-        }
-    
-        // 버튼 클릭 시 모달 보이기
-        btns.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const modalId = `modal-${btn.id.split('-')[2]}`; // 'btn-modal-1' -> 'modal-1'
-                const targetModal = document.getElementById(modalId);
-                if (targetModal) {
-                    showModal(targetModal); // 해당 모달 보이기
-                }
-            });
-        });
-    
-        // 모달 외부나 모달 자체 클릭 시 모달 닫기
-        modals.forEach(function(modal) {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeModal(modal); // 모달 외부 클릭 시 모달 숨기기
-                }
-            });
-        });
     });
+});
+
+// 모달 외부를 클릭하면 모달을 닫는 기능
+modalContainers.forEach(container => {
+    container.addEventListener('click', function(event) {
+        if (event.target === this) { // 모달 외부 클릭 확인
+            this.classList.remove('show'); // show 클래스를 제거하여 애니메이션 효과를 제거
+            setTimeout(() => {
+                this.style.display = 'none'; // 모달을 숨깁니다.
+            }, 300); // 애니메이션 시간과 일치하도록 설정
+        }
+    });
+});
+
+
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const btns = document.querySelectorAll('.open-modal-btn'); // 모든 버튼
+    //     const modals = document.querySelectorAll('.modal-container'); // 모든 모달 컨테이너
+    
+    //     // 모달 보이기 함수
+    //     function showModal(modal) {
+    //         modal.classList.add('show'); // 모달 보이기
+    //     }
+    
+    //     // 모달 숨기기 함수
+    //     function closeModal(modal) {
+    //         modal.classList.remove('show'); // 모달 숨기기
+    //     }
+    
+    //     // 버튼 클릭 시 모달 보이기
+    //     btns.forEach(function(btn) {
+    //         btn.addEventListener('click', function(e) {
+    //             e.preventDefault();
+    //             const modalId = `modal-${btn.id.split('-')[2]}`; // 'btn-modal-1' -> 'modal-1'
+    //             const targetModal = document.getElementById(modalId);
+    //             if (targetModal) {
+    //                 showModal(targetModal); // 해당 모달 보이기
+    //             }
+    //         });
+    //     });
+    
+    //     // 모달 외부나 모달 자체 클릭 시 모달 닫기
+    //     modals.forEach(function(modal) {
+    //         modal.addEventListener('click', function(e) {
+    //             if (e.target === modal) {
+    //                 closeModal(modal); // 모달 외부 클릭 시 모달 숨기기
+    //             }
+    //         });
+    //     });
+    // });
     
     
     document.addEventListener('DOMContentLoaded', function() {

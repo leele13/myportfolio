@@ -609,7 +609,12 @@ main {
                     position: relative;
                     width: $width-wide;
                     height: 450px;
+                    overflow: hidden;
                     // background-color: red;
+
+                    @include responsive(large-screens) {
+                        overflow: visible;
+                    }
 
                     .file-me-box {
                         position: absolute;
@@ -743,8 +748,21 @@ main {
                     }
                     
                     .file-me-box-ani {  // 애니메이션 적용을 위한 클래스
-                        animation: lf-slide 2s;
+                        animation: lf-slide 2s forwards, return-to-position 1s ease-in-out 2s forwards; // 모바일에서 2초 후에 돌아오는 애니메이션 추가
                         opacity: 1;
+
+                        @include responsive(large-screens) {
+                            animation: lf-slide 2s;
+                        }
+                    }
+
+                    @keyframes return-to-position {
+                        0% {
+                            transform: translateX(0); /* 시작 위치 */
+                        }
+                        100% {
+                            transform: translateX(-50%); /* 원래 위치 */
+                        }
                     }
                 }
 
@@ -1281,6 +1299,7 @@ main {
     
                         .txt-box {
                             color: $font-color-sub2;
+                            height: 245px;
                             
     
                             @include responsive(large-screens) {
@@ -1328,7 +1347,7 @@ main {
                             align-items: center;
                             
                             a {
-                                width: 22.77777777777778%; height: 26px;
+                                width: 45%; height: 26px;
                                 line-height: 26px;
                                 text-align: center;
                                 font-size: 12px;
@@ -1339,7 +1358,7 @@ main {
                                 background-color: #DCE8EF;
     
                                 @include responsive(large-screens) {
-                                    width: 150px; height: 70px;
+                                    height: 70px;
                                     line-height: 70px;
                                     font-size: 20px;
                                     border-radius: 10px;
@@ -1384,35 +1403,65 @@ main {
                         }
 
                         .modal-container.show { // 모달 컨테이너 이벤트
-                            display: none;
+                            display: block;
                         }
                     }
                 } 
 
-                &:nth-child(2) {
+                &:nth-child(1) {
 
                     .desc-btn-box {
+
+                        .txt-box {
+
+                            p {
+                                margin: 15px 0;
+                                line-height: 1.6;
+
+                                @include responsive(large-screens) {
+                                    margin: 25px 0;
+                                    line-height: 2;
+                                }
+
+                                span {
+                                    color: #bb8ae9;
+
+                                    @include responsive(large-screens) {
+                                        color: #FBB92F;
+                                    }
+                                }
+                            }
+                        }
 
                         .btn-box {
 
                             a {
-                                &:nth-child(3) {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-size: 10px;
-                                    line-height: 1;
+                                width: 22.77777777777778%;
 
-                                    @include responsive(large-screens) {
-                                        font-size: 20px;
-                                    }
+                                @include responsive(large-screens) {
+                                    width: 150px;
                                 }
                             }
                         }
                     }
                 }
 
-                &:nth-child(3) {
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(8) {
+
+                    .desc-btn-box {
+
+                        .btn-box {
+
+                            a {
+                                width: $width-wide;
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(6) {
 
                     .img-box {
                         position: relative;
@@ -1443,64 +1492,19 @@ main {
                             }
                         }
                     }
-
-                    .desc-btn-box {
-
-                        .btn-box {
-
-                            a {
-                                width: $width-wide;
-                            }
-                        }
-                    }
                 }
 
-                &:nth-child(4) {
+                &:nth-child(7) {
 
                     .img-box {
                         background-color: #efeaec;
                     }
-
-                    .desc-btn-box {
-
-                        .btn-box {
-
-                            a {
-                                width: $width-wide;
-                            }
-                        }
-                    }
                 }
 
-                &:nth-child(5) {
+                &:nth-child(8) {
 
                     .img-box {
                         background-color: #FFF;
-                    }
-
-                    .desc-btn-box {
-
-                        .btn-box {
-
-                            a {
-                                width: $width-wide;
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(6),
-                &:nth-child(7),
-                &:nth-child(8) {
-
-                    .desc-btn-box {
-
-                        .btn-box {
-
-                            a {
-                                width: 45%;
-                            }
-                        }
                     }
                 }
             } // portfolio-box
