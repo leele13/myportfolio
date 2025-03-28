@@ -72,7 +72,7 @@ window.onload = function() {
                 }, 1000); // 1초 후에 다시 나타나게 설정
             }
         });
-    }
+    };
 
     floorClouds.forEach(floorCloud => {
         floorCloud.addEventListener('animationend', () => {
@@ -194,6 +194,7 @@ window.onload = function() {
             item.classList.remove("item-style");
         
             progressCircle.style.strokeDashoffset = circumference;
+        });
     });
 
         
@@ -296,49 +297,54 @@ window.onload = function() {
     });
 
     //모달창 이벤트
+    const modalButtons = document.querySelectorAll('.modal-btn');
+    const modalContainers = document.querySelectorAll('.modal-container');
 
-    // 모달 버튼과 모달 컨테이너를 선택합니다.
-// 모달 버튼과 모달 컨테이너를 선택합니다.
-const modalButtons = document.querySelectorAll('.modal-btn');
-const modalContainers = document.querySelectorAll('.modal-container');
+    modalButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // 기본 링크 동작 방지
 
-modalButtons.forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault(); // 기본 링크 동작 방지
+            // 클릭한 버튼의 부모 요소에서 모달 컨테이너를 찾습니다.
+            const modalContainer = this.closest('.desc-btn-box').querySelector('.modal-container');
 
-        // 클릭한 버튼의 부모 요소에서 모달 컨테이너를 찾습니다.
-        const modalContainer = this.closest('.desc-btn-box').querySelector('.modal-container');
+            // 1. this를 확인합니다.
+            console.log('Clicked button:', this+'디스 확인');
 
-        // 1. this를 확인합니다.
-        console.log('Clicked button:', this+'디스 확인');
+            // 2. modalContainer가 존재하는지 확인합니다.
+            // console.log('Modal container:', modalContainer+'모달컨테이너확인');
 
-        // 2. modalContainer가 존재하는지 확인합니다.
-        // console.log('Modal container:', modalContainer+'모달컨테이너확인');
-
-        // 해당 모달을 보이게 합니다.
-        if (modalContainer) {
-            modalContainer.style.display = 'block'; // 모달을 보이게 설정
-            setTimeout(() => {
-                modalContainer.classList.add('show'); // 모달에 show 클래스를 추가하여 애니메이션 효과를 줄 수 있습니다.
-                 // 3. show 클래스가 정상적으로 부여되는지 확인합니다.
-                //  console.log('Show class added:', modalContainer.classList.contains('show')+'쇼 클랙스 부여확인');
-            }, 10); // 약간의 지연을 주어 애니메이션 효과를 부여
-        }
+            // 해당 모달을 보이게 합니다.
+            if (modalContainer) {
+                modalContainer.style.display = 'block'; // 모달을 보이게 설정
+                setTimeout(() => {
+                    modalContainer.classList.add('show'); // 모달에 show 클래스를 추가하여 애니메이션 효과를 줄 수 있습니다.
+                    // 3. show 클래스가 정상적으로 부여되는지 확인합니다.
+                    //  console.log('Show class added:', modalContainer.classList.contains('show')+'쇼 클랙스 부여확인');
+                }, 10); // 약간의 지연을 주어 애니메이션 효과를 부여
+            }
+        });
     });
-});
 
-// 모달 외부를 클릭하면 모달을 닫는 기능
-modalContainers.forEach(container => {
-    container.addEventListener('click', function(event) {
-        if (event.target === this) { // 모달 외부 클릭 확인
-            this.classList.remove('show'); // show 클래스를 제거하여 애니메이션 효과를 제거
-            setTimeout(() => {
-                this.style.display = 'none'; // 모달을 숨깁니다.
-            }, 300); // 애니메이션 시간과 일치하도록 설정
-        }
+    // 모달 외부를 클릭하면 모달을 닫는 기능
+    modalContainers.forEach(container => {
+        container.addEventListener('click', function(event) {
+            if (event.target === this) { // 모달 외부 클릭 확인
+                this.classList.remove('show'); // show 클래스를 제거하여 애니메이션 효과를 제거
+                setTimeout(() => {
+                    this.style.display = 'none'; // 모달을 숨깁니다.
+                }, 300); // 애니메이션 시간과 일치하도록 설정
+            }
+        });
     });
-});
 
+// 모달 외부나 모달 자체 클릭 시 모달 닫기
+    //     modals.forEach(function(modal) {
+    //         modal.addEventListener('click', function(e) {
+    //             if (e.target === modal) {
+    //                 closeModal(modal); // 모달 외부 클릭 시 모달 숨기기
+    //             }
+    //         });
+    //     });
 
 
     // document.addEventListener('DOMContentLoaded', function() {
@@ -377,30 +383,37 @@ modalContainers.forEach(container => {
     //     });
     // });
     
-    
+    // 앵커이벤트 
     document.addEventListener('DOMContentLoaded', function() {
         // GNB 메뉴 항목을 모두 선택합니다
         const gnbLinks = document.querySelectorAll('.gnb a');
-        
+        const menuBox = document.getElementsByClassName('mainmenu')[0]; // 메인 메뉴 선택
+        const body = document.body; // body 요소 선택
+    
         gnbLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();  // 기본 클릭 동작을 막습니다
-        
+    
                 // 클릭된 링크의 href 속성 값으로 이동할 대상 섹션을 가져옵니다
                 const targetId = this.getAttribute('href').substring(1);  // #을 제거한 ID 값
-        
+    
                 // 해당 ID를 가진 섹션을 찾습니다
                 const targetSection = document.getElementById(targetId);
-                
+    
                 // 섹션으로 부드럽게 스크롤 이동
                 targetSection.scrollIntoView({
                     behavior: 'smooth',  // 부드러운 스크롤
                     block: 'start'       // 스크롤 위치를 섹션의 시작 부분에 맞추기
                 });
+    
+                // 메뉴를 숨깁니다
+                menuBox.classList.remove('active'); // active 클래스 제거
+                setTimeout(() => {
+                    menuBox.style.display = 'none'; // 애니메이션 후에 숨기기
+                    body.classList.remove('no-scroll'); // 스크롤 허용
+                }, 300); // 애니메이션 시간과 동일하게 설정
             });
         });
     });
-    
-
-    });
 };
+

@@ -1385,7 +1385,8 @@ main {
                             left: 0; top: 0;
                             width: $width-wide; height: 100%;
                             background-color: rgba(38, 38, 38, 0.8); 
-                            z-index: 7;
+                            // z-index: 7;
+                            z-index: 50;
                             display: none;
                             transition: opacity 0.3s ease, visibility 0.3s ease;
 
