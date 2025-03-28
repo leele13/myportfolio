@@ -19,10 +19,10 @@
 @mixin lf-move-ani ($start: 0, $end: 100vW){
     @keyframes lf-move {
         0% {
-            transform: translateX($start); /* 현재 위치에서 시작 */
+            transform: translateX($start); 
         }
         100% {
-            transform: translateX($end); /* 화면의 너비만큼 이동 */
+            transform: translateX($end);
             opacity: 0;
         }
     }
@@ -31,10 +31,10 @@
 @mixin rt-move-ani ($start: 0, $end: -100vW){
     @keyframes rt-move {
         0% {
-            transform: translateX($start);/* 현재 위치에서 시작 */
+            transform: translateX($start);
         }
         100% {
-            transform: translateX($end);/* 화면의 너비만큼 이동 */
+            transform: translateX($end);
             opacity: 0;
         }
     }
@@ -43,10 +43,10 @@
 @mixin lf-slide-ani ($start: -100%, $end: -50%){
     @keyframes lf-slide {
         0% {
-            transform: translateX($start); /* 현재 위치에서 시작 */
+            transform: translateX($start); 
         }
         100% {
-            transform: translateX($end); /* 화면의 너비만큼 이동 */
+            transform: translateX($end); 
         }
     }
 }
@@ -54,10 +54,10 @@
 @mixin rt-slide-ani ($start: 100%, $end: 50%){
     @keyframes rt-slide {
         0% {
-            transform: translateX($start); /* 현재 위치에서 시작 */
+            transform: translateX($start); 
         }
         100% {
-            transform: translateX($end); /* 화면의 너비만큼 이동 */
+            transform: translateX($end); 
         }
     }
 }

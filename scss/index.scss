@@ -39,7 +39,6 @@
     max-width: $break-large;
     margin: 0 auto;
     padding: 0 10px;
-    // background-color: orange;
 }
 
 /* =====  header  ===== */
@@ -66,7 +65,6 @@
                 width: 80px;
                 height: 80px;
                 padding: 10px;
-                // background-color: red;
 
                 @include responsive(large-screens) {
                     width: 150px;
@@ -77,7 +75,6 @@
 
                     @include responsive(large-screens) {
                         height: 100%;
-                        // background-color: aqua;
                     }
                 }
             }
@@ -96,11 +93,9 @@
                 top: 0;
                 width: 480px;
                 display: block;
-                // background-color: red;
             }
 
             .gnb {
-                // display: none;
     
                 @include responsive(large-screens) {
                     display: block;
@@ -110,30 +105,29 @@
 
                 li {
                     position: relative;
-                    height: 60px;
+                    height: 100px;
                     text-align: center;
                     overflow: hidden;
-                
-                    // &::before {
-                    //     content: '';
-                    //     position: absolute;
-                    //     left: 0; top: 0;
-                    //     height: 100%;
-                    //     background-color: #DCE8EF; // 원하는 색상으로 변경
-                    //     transform: translateX(-100%);
-                    //     transition: transform 0.5s ease;
-                    //     opacity: 0;
-                    // }
+
+                    &:nth-child(1) {
+                        margin-top: 100px;
+
+                        @include responsive(large-screens) {
+                            margin-top: 0;
+                        }
+                    }
                 
                     a {
-                        position: relative; // a 요소에 상대 위치 추가
-                        height: 55px;
-                        line-height: 55px;
-                        font-size: $mobile-cal-16-font;
+                        position: relative; 
+                        height: 100px;
+                        line-height: 100px;
+                        font-size: $mobile-cal-30-font;
                         text-align: center;
                         color: $font-color-main;
                         
-                        
+                        @include responsive(large-screens) {
+                            font-size: $desktop-menu-font;
+                        }
                 
                         &::after {
                             content: '';
@@ -150,13 +144,13 @@
                         &::before {
                             content: '';
                             position: absolute;
-                            bottom: 0; // 보더를 아래에 위치시키기 위해
+                            bottom: 0;
                             left: 0;
                             width: 100%;
-                            height: 2px; // 보더의 두께
+                            height: 2px; 
                             background-color: #39B2C5; 
-                            transform: scaleX(0); // 초기 상태는 보이지 않도록
-                            transition: transform 0.5s ease; // 부드러운 애니메이션
+                            transform: scaleX(0); 
+                            transition: transform 0.5s ease; 
                         }
                 
                         &:hover {
@@ -170,7 +164,7 @@
                             }
 
                             &::before {
-                                transform: scaleX(1); // 호버 시 보더가 나타나도록
+                                transform: scaleX(1); 
                             }
 
                             @include responsive(large-screens) {
@@ -183,7 +177,7 @@
                             line-height: 120px;
 
                             &::after {
-                                display: none; // PC 버전에서 배경을 숨김
+                                display: none; 
                             }
                         }
                     }
@@ -217,7 +211,7 @@
             }
 
             .mobile-btn {
-                position: relative; /* 자식 요소가 회전할 때 잘리지 않도록 설정 */
+                position: relative; 
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -243,7 +237,7 @@
                 }
             }
 
-            .mobile-btn.close { // 버튼 이벤트 클래스 --> 적용하면 x가 우측으로 잘려보여서 수정 필요!!!!!
+            .mobile-btn.close { // 버튼 이벤트 클래스
                 span {
                     
                     &:nth-child(1) {
@@ -292,7 +286,6 @@ main {
             
             h2 {
                 font-size: $mobile-title-main;
-
                 -webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
                 animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 
@@ -302,11 +295,6 @@ main {
             }
         }
 
-        /**
-        * ----------------------------------------
-        * animation tracking-in-expand-fwd
-        * ----------------------------------------
-        */
         @-webkit-keyframes tracking-in-expand-fwd {
             0% {
             letter-spacing: -0.5em;
@@ -361,14 +349,12 @@ main {
                 position: absolute;
                 top: 10%; right: 30%;
                 width: 37px; height: 35px;
-
                 animation: rt-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     left: 15%;
                     width: 87px; height: 83px;
-
                     animation: rt-move 20s linear infinite;
 
                 }
@@ -378,39 +364,33 @@ main {
                 position: absolute;
                 top: 15%; right: 12%;
                 width: 25px; height: 23px;
-
                 animation: rt-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     left: 28%;
                     width: 58px; height: 55px;
-
                     animation: rt-move 20s linear infinite;
 
                 }
             }
             
             .rt-cloud1 {
-                // display: none;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 10%; right: 23%;
                     width: 160px; height: 75px;
-
                     animation: rt-move 20s linear infinite;
                 }
             }
     
             .rt-cloud2 {
-                // display: none;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 17%; right: 12%;
                     width: 134px; height: 79px;
-
                     animation: rt-move 20s linear infinite;
                 }
             }
@@ -419,14 +399,12 @@ main {
                 position: absolute;
                 top: 15%; left: 10%;
                 width: 60px; height: 29px;
-
                 animation: lf-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 34%;
                     width: 140px; height: 81px;
-
                     animation: lf-move 20s linear infinite;
                 }
             }
@@ -435,14 +413,12 @@ main {
                 position: absolute;
                 top: 7%; left: 25%;
                 width: 52px; height: 31px;
-
                 animation: lf-move 10s linear infinite;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 27%; left: 20%;
                     width: 160px; height: 75px;
-
                     animation: lf-move 20s linear infinite;
                 }
             }
@@ -452,7 +428,6 @@ main {
                 top: 50%; left: 50%;
                 transform: translate(-50%, -50%);
                 width: 88.88888888888889%; height: 295px;
-                // background-color: red;
 
                 @include responsive(large-screens) {
                     width: 724px; height: 682px;
@@ -460,34 +435,27 @@ main {
 
                 .sun {
                     display: block;
-                    // transform-origin: center;
-                    // transform-origin: 0; /* 또는 원하는 위치로 설정 */
                     width: 100%; height: 100%;
-    
                     animation: spin 5s linear infinite, pulse 1.5s infinite;
                 }
             }
     
             .rt-bird1 {
-                // display: none;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 35%; right: 20%;
                     width: 60px; height: 57px;
-
                     animation: lf-move 20s linear infinite;
                 }
             }
     
             .rt-bird2 {
-                // display: none;
     
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 30%; right: 7%;
                     width: 90px; height: 86px;
-
                     animation: lf-move 20s linear infinite;
                 }
             }
@@ -498,8 +466,6 @@ main {
                 width: 129.1666666666667%; height: 250px;
                 transform: rotate(5deg);
                 z-index: 1;
-                // display: none;
-                
                 animation: rt-move 3s ease-in forwards;
 
                 @include responsive(large-screens) {
@@ -521,7 +487,6 @@ main {
                 top: 53%; left: -40%;
                 width: 131.1111111111111%; height: 215px;
                 transform: rotate(15deg);   
-
                 animation: rt-move 3s ease-in forwards;
     
                 @include responsive(large-screens) {
@@ -543,7 +508,6 @@ main {
                 width: 156.9444444444444%; height: 300px;
                 transform: rotate(12deg);  
                 z-index: 2;
-
                 animation: lf-move 3s ease-in forwards;
     
                 @include responsive(large-screens) {
@@ -551,25 +515,21 @@ main {
                     left: 33%;
                     width: 1655px; height: 675px;
                     transform: rotate(5deg); 
-                    // display: none;
                 }
 
                 @media (min-width: 1920px) {
                     position: absolute;
-                    // top: 52%; 
                     left: 38%;
                 }
             }
     
             .f-rt-cloud2 {
-                // display: none;
 
                 @include responsive(large-screens) {
                     position: absolute;
                     top: 58%; right: -19%;
                     width: 700px; height: 500px;
                     transform: rotate(-30deg); 
-
                     animation: lf-move 3s ease-in forwards;
                 }
             }
@@ -599,7 +559,6 @@ main {
             
             .desk-img-box {
                 margin-top: 35px;
-                // background-color: red;
 
                 @include responsive(large-screens) {
                     margin-top: 100px;
@@ -610,7 +569,6 @@ main {
                     width: $width-wide;
                     height: 450px;
                     overflow: hidden;
-                    // background-color: red;
 
                     @include responsive(large-screens) {
                         overflow: visible;
@@ -624,7 +582,6 @@ main {
                         text-align: center;
                         z-index: 1;
                         opacity: 0;
-
                         transition: all 3s;
 
                         @include lf-slide-ani(-50%, 0%);
@@ -655,7 +612,6 @@ main {
 
                             @include responsive(large-screens) {
                                 width: 316px;
-                                // height: 125px;
                             }
                         }
     
@@ -748,7 +704,7 @@ main {
                     }
                     
                     .file-me-box-ani {  // 애니메이션 적용을 위한 클래스
-                        animation: lf-slide 2s forwards, return-to-position 1s ease-in-out 2s forwards; // 모바일에서 2초 후에 돌아오는 애니메이션 추가
+                        animation: lf-slide 2s forwards, return-to-position 1s ease-in-out 2s forwards; 
                         opacity: 1;
 
                         @include responsive(large-screens) {
@@ -758,10 +714,10 @@ main {
 
                     @keyframes return-to-position {
                         0% {
-                            transform: translateX(0); /* 시작 위치 */
+                            transform: translateX(0);
                         }
                         100% {
-                            transform: translateX(-50%); /* 원래 위치 */
+                            transform: translateX(-50%); 
                         }
                     }
                 }
@@ -770,7 +726,6 @@ main {
                     position: relative;
                     width: 100%;
                     height: 1000px;
-                    // background-color: lightgreen;
 
                     @include responsive(large-screens) {
                         height: 600px;
@@ -791,7 +746,6 @@ main {
                             
                             @include lf-slide-ani(-100%, 0%);
                             animation: none;
-                            // animation: lf-slide 2s;
 
                             @include responsive(large-screens) {
                                 margin-bottom: 0;
@@ -822,13 +776,11 @@ main {
                                 width: 335px;
                                 height: 240px;
                                 padding: 0 35px;
-                                // background-color: red;
                                 z-index: 6;
 
                                 @include responsive(large-screens) {
                                     width: $width-wide;
                                 }
-
 
                                 h3 {
                                     font-size: $mobile-cal-16-font;
@@ -924,13 +876,13 @@ main {
                         }
                         
                         .lf-slide { // 이벤트 적용을 위한 클래스
-                            animation: lf-slide 2s forwards; // 왼쪽에서 슬라이드
+                            animation: lf-slide 2s forwards; 
                             opacity: 1;
 
                         }
                         
                         .rt-slide { // 이벤트 적용을 위한 클래스 
-                            animation: rt-slide 2s forwards; // 오른쪽에서 슬라이드
+                            animation: rt-slide 2s forwards; 
                             opacity: 1;
 
                         }
@@ -971,7 +923,6 @@ main {
                     transform: translate(-50%, -50%);
                     width: 400px; height: 400px;
                     display: block;
-                    // background-color: aqua;
                 }
 
                 .circle {                    
@@ -995,12 +946,10 @@ main {
                         border-radius: 170px;  
                         display: flex;
                         align-items: center;
-                        // justify-content: center;
                         font-size: 20px;
                         font-family: $font-sub;
                         padding: 20px;
                         color: $font-color-sub2;
-                        // background-color: red;
                     }
                 }
             }
@@ -1009,26 +958,17 @@ main {
                 font-family: $font-sub;
                 padding: 0 50px;
 
-                // height: 1000px;  // 임시 임시 임시 임시 임시 임시 임시 
-
-                // @include responsive(large-screens) {
-                //     height: 1000px; 
-                // }
-
                 .item {
                     position: relative; 
                     display: grid;
-                    grid-template-columns: auto 1fr; /* 이미지와 텍스트를 나란히 배치 */
-                    grid-template-rows: auto auto; /* 두 개의 행으로 나누기 */
+                    grid-template-columns: auto 1fr; 
+                    grid-template-rows: auto auto;
                     grid-gap: 10px 10px;
                     align-items: center;
                     margin-bottom: 25px;
                     border-radius: 14px;
-
                     z-index: 1;
                     cursor: pointer;
-
-                    // background-color: red;
 
                     @include responsive(large-screens) {
                         position: absolute;
@@ -1037,11 +977,8 @@ main {
                         transform: translateX(-50%);
                         width: 150px; height: 150px;
                         border-radius: 50%;      
-                        transform-origin: center center; // 회전의 기준점 설정              
-                        // transform-origin: 0 0; // 회전의 기준점 설정              
-                        // background-color: #DCE8EF;
+                        transform-origin: center center; 
 
-                        // 각 아이콘의 각도에 따라 rotate를 적용
                             &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
                             &:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); }
                             &:nth-child(3) { transform: rotate(72deg) translate(300px) rotate(-72deg); }
@@ -1057,7 +994,6 @@ main {
                     .icon {
                         width: 50px; height: 50px;
                         
-
                         @include responsive(large-screens) {
                             position: absolute;
                             left: 50%; top: 50%;
@@ -1069,13 +1005,11 @@ main {
 
                     p {
                         font-size: 14px;
-                        // opacity: 0;
                         color: $font-color-sub3;
                         border-radius: 5px;
-                        // background-color: rgba(220, 232, 239, 0.1);
 
                         @include responsive(large-screens) {
-                            display: none;  // 자바스크립트로 서클에 집어넣을 예정
+                            display: none;  
                         }
                     }
 
@@ -1083,9 +1017,8 @@ main {
                         position: relative;
                         width: $width-wide;
                         height: 14px;
-                        grid-column: 1 / -1; /* div를 전체 열을 차지하게 하기 */
+                        grid-column: 1 / -1; 
                         border-radius: 7px;
-                        // background-color: orange;
 
                         @include responsive(large-screens) {
                             width: 165px; height: 165px;
@@ -1093,15 +1026,12 @@ main {
                             justify-content: center;
                             align-items: center;
                             border-radius: 50%;  
-                            // background: conic-gradient(#FFF200 0deg 90deg, #FBB92F 90deg 180deg, #FA9F45 180deg 360deg);
-                            // transition: width 0.5s ease-in;
                             z-index: 0;
                         }
 
                         .gauge-txt {
                             position: absolute;
                             left: 0; top: -2px;
-                            // width: $width-wide;
                             height: 100%;
                             font-size: 12px;
                             font-weight: bold;
@@ -1124,14 +1054,14 @@ main {
 
                         @include responsive(large-screens) {                            
                             position: absolute;
-                            top: -3px; /* 아이템의 배경 위로 올리기 */
-                            left: -3px; /* 아이템의 배경 위로 올리기 */
-                            width: calc($width-wide + 6px); /* 배경보다 크게 설정 */
-                            height: calc($width-wide + 6px); /* 배경보다 크게 설정 */ 
+                            top: -3px; 
+                            left: -3px; 
+                            width: calc($width-wide + 6px); 
+                            height: calc($width-wide + 6px); 
                             display: block; 
                             border-radius: 50%;
                             overflow: hidden;
-                            z-index: 0; // 아이템의 배경 아래에 위치
+                            z-index: 0; 
                         }
 
                         svg {
@@ -1146,9 +1076,9 @@ main {
                                     fill: none;
                                     stroke: url(#gradient);
                                     stroke-width: 5;
-                                    stroke-dasharray: 283; // 원의 둘레
-                                    stroke-dashoffset: 283; // 초기값
-                                    transition: stroke-dashoffset 0.5s ease-in; // 애니메이션 효과
+                                    stroke-dasharray: 283; 
+                                    stroke-dashoffset: 283; 
+                                    transition: stroke-dashoffset 0.5s ease-in; 
                                 }
                             }
                         }
@@ -1156,15 +1086,11 @@ main {
                 }
 
                 .item-hover { // 이벤트시 적용할 스타일 
-                    background-color: rgba(220, 232, 239, 0.1); // 배경색을 추가합니다.
-                    transition: background-color 0.3s ease; // 배경색 변경에 애니메이션 효과 추가
+                    background-color: rgba(220, 232, 239, 0.1); 
+                    transition: background-color 0.3s ease; 
                 }
 
                 .item-style { // 이벤트시 적용할 스타일 
-
-                    // .item {
-                    //     background-color: rgba($color: #DCE8EF, $alpha: 0.1);
-                    // }
 
                     span.item-data {
 
@@ -1193,7 +1119,7 @@ main {
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    z-index: 0; /* 아이템의 배경 아래에 위치 */                    
+                    z-index: 0;                 
                 }
             }
         }
@@ -1217,16 +1143,12 @@ main {
 /* === portfolio === */
     .portfolio {
         position: relative;
-        // height: 640px;
         width: $width-wide;
-        overflow: hidden;  // 슬라이드할 영역 외의 부분은 숨기기
-
-        // height: 2000px;
+        overflow: hidden;  
         background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
 
         @include responsive(large-screens) {
             height: 1040px;
-            // height: 10000px;
         }
 
         .portfolio-title {
@@ -1240,16 +1162,16 @@ main {
         }
 
         .portfolio-desc-box {
-            display: flex;  // 가로로 배치
-            transition: transform 0.5s ease;  // 슬라이드 이동 애니메이션 효과
-            width: $width-wide;  // 전체 width 설정
+            display: flex;  
+            transition: transform 0.5s ease; 
+            width: $width-wide; 
 
             .portfolio-box {
                 position: relative;
                 width: $width-wide;
-                min-width: 300px;  // 각 항목의 최소 width (아이템 크기 조절)
-                margin-right: 20px;  // 항목 간의 간격 설정
-                flex-shrink: 0;  // 항목이 줄어들지 않도록 설정
+                min-width: 300px;  
+                margin-right: 20px;  
+                flex-shrink: 0;  
                 margin-top: 35px;
                 border: 2px solid #262626;
                 background-color: #FFFAEE;
@@ -1385,8 +1307,7 @@ main {
                             left: 0; top: 0;
                             width: $width-wide; height: 100%;
                             background-color: rgba(38, 38, 38, 0.8); 
-                            // z-index: 7;
-                            z-index: 50;
+                            z-index: 7;
                             display: none;
                             transition: opacity 0.3s ease, visibility 0.3s ease;
 
@@ -1481,7 +1402,7 @@ main {
                                 transform: rotate(-15deg);
 
                                 &:hover {
-                                    transition: scale(1.2);
+                                    transform: scale(1.2);
                                 }
                             }
 
@@ -1546,11 +1467,11 @@ main {
             }
 
             .lf-arrow {
-                left: 15px; // 좌측 화살표 위치
+                left: 15px; 
             }
     
             .rt-arrow {
-                right: 15px; // 우측 화살표 위치
+                right: 15px;
             }
         }
     } // portfolio
@@ -1587,10 +1508,10 @@ footer {
                     width: 32.77777777777778%;
                     border-radius: 50%;
         
-                    box-shadow:  // x-offset y-offset blur-radius spread-radius color
-                    0px 4px 20px 40px rgba(255, 255, 255, 0.1), // 첫 번째 그림자
-                    0px 3px 30px 10px rgba(239, 202, 123, 0.25), // 두 번째 그림자
-                    0px 5px 27px 10px rgba(102, 167, 198, 0.25); // 세 번째 그림자
+                    box-shadow:  
+                    0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
+                    0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
+                    0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
     
                     @include responsive(large-screens) {
                         width: 27.77777777777778%;
@@ -1603,7 +1524,6 @@ footer {
                 height: 264px;
                 bottom: 0;
                 overflow: hidden;
-                // background-color: yellow;
 
                 @include responsive(large-screens) {
                     height: 544px;
@@ -1653,7 +1573,6 @@ footer {
                             position: absolute;
                             left: 6%; bottom: -16px;
                             width: 203px; height: 330px;
-
                         }
                     }
 
@@ -1774,10 +1693,10 @@ footer {
 
                     img {
                         border-radius: 50%;
-                        box-shadow:  // x-offset y-offset blur-radius spread-radius color
-                        0px 4px 20px 40px rgba(255, 255, 255, 0.1), // 첫 번째 그림자
-                        0px 3px 30px 10px rgba(239, 202, 123, 0.25), // 두 번째 그림자
-                        0px 5px 27px 10px rgba(102, 167, 198, 0.25); // 세 번째 그림자
+                        box-shadow:  
+                        0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
+                        0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
+                        0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
                         opacity: 0.5;
                     }
                 }
