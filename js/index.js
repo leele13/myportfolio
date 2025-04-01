@@ -10,26 +10,28 @@ window.onload = function() {
                 menuBox.classList.remove('active');
                 setTimeout(() => {
                     menuBox.style.display = 'none'; 
-                    body.classList.remove('no-scroll');
+                    body.classList.remove('no-scroll');  // 메뉴가 닫힐 때 no-scroll 제거
                 }, 300); 
             } else {
                 menuBox.style.display = 'block';
-                body.classList.add('no-scroll'); 
+                body.classList.add('no-scroll');  // 메뉴가 열릴 때 no-scroll 추가
                 setTimeout(() => {
                     menuBox.classList.add('active'); 
                 }, 10); 
             }
         });
-
+    
         const links = document.querySelectorAll('.mainmenu .gnb a');
         links.forEach(link => {
             link.addEventListener('click', function() {
-            const menuBox = document.getElementsByClassName('mainmenu')[0];
-            menuBox.classList.remove('active');
-            menuBox.style.display = 'none'; 
-            document.body.classList.remove('no-scroll');
-
-            const closeSpan = document.querySelector('.close');
+                const menuBox = document.getElementsByClassName('mainmenu')[0];
+                if (window.innerWidth < 1440) {  // 모바일에서만 메뉴 닫기
+                    menuBox.classList.remove('active');
+                    menuBox.style.display = 'none'; 
+                    document.body.classList.remove('no-scroll');  // 메뉴가 닫힐 때 no-scroll 제거
+                }
+    
+                const closeSpan = document.querySelector('.close');
                 if (closeSpan) {
                     closeSpan.classList.remove('close');
                 }
@@ -40,12 +42,10 @@ window.onload = function() {
 
     window.addEventListener('resize', function() {
         const menuBox = document.getElementsByClassName('mainmenu')[0];
+        // PC 화면 크기일 경우 메뉴가 항상 보이도록 설정
         if (window.innerWidth >= 1440) { 
-            menuBox.style.display = 'block'; 
-        } else {
-            if (!menuBox.classList.contains('active')) {
-            menuBox.style.display = 'none'; 
-            }
+            menuBox.style.display = 'block'; // 메뉴가 항상 보이도록 설정
+            menuBox.classList.remove('active');
         }
     });
 
@@ -95,16 +95,23 @@ window.onload = function() {
     const endeavorBox = document.querySelector(".endeavor-box");
     const visionBox = document.querySelector(".vision-box");
     const folderBox = document.querySelectorAll(".box");
-    console.log(strBox.classList.contains("box-slide-ani"));
 
+    // 탑버튼 이벤트
+    const topButton = document.getElementById('top-btn');
+    const topImage = document.getElementById('top-img');
+    const topText = document.getElementById('top-txt');
+
+    // 스크롤 이벤트
     window.addEventListener('scroll', () => {
+        // 콘솔에 스크롤 위치 찍기
         console.log(window.scrollY);
+        
+        // 어바웃미 관련 애니메이션 처리
         if (window.scrollY >= aboutMe.offsetTop && !fileMe.classList.contains("file-me-box-ani")) {
             fileMe.classList.add("file-me-box-ani");
-        };
+        }
         
         if (window.scrollY >= aboutMe.offsetTop + 250) {
-
             folderBox.forEach(box => {
                 box.querySelector("div").style.opacity = 1;
                 box.querySelector("img").style.opacity = 1;
@@ -121,6 +128,29 @@ window.onload = function() {
                 visionBox.classList.add("lf-slide");
             }
         }
+
+        // 탑버튼 이미지와 텍스트 색상 변경
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        
+        // 콘솔에 스크롤 위치 및 윈도우 높이 찍기
+        console.log(window.scrollY + ' 윈도우 스크롤 위치');
+        console.log(scrollPosition + ' 윈도우 스크롤 위치');
+        console.log(windowHeight + ' 윈도우 세로의 높이 위치');
+        
+        // 스크롤 위치가 윈도우 높이의 절반을 초과하면 두 번째 이미지로 변경
+        if (scrollPosition > windowHeight / 2) {
+            topImage.src = '../images/Moon.svg'; // 두 번째 이미지로 변경
+            topText.style.color = '#262626'; // 글자 색을 두 번째 이미지에 맞게 변경 (어두운 색)
+        } else {
+            topImage.src = '../images/Sun.svg'; // 첫 번째 이미지로 변경
+            topText.style.color = '#FFFFFF'; // 글자 색을 첫 번째 이미지에 맞게 변경 (흰색)
+        }
+    });
+
+    // 탑버튼 클릭 시 상단으로 스크롤 이동
+    topButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // skill부분 이벤트
@@ -319,30 +349,22 @@ window.onload = function() {
     });
     
     // 앵커이벤트 
-    document.addEventListener('DOMContentLoaded', function() {
-        const gnbLinks = document.querySelectorAll('.gnb a');
-        const menuBox = document.getElementsByClassName('mainmenu')[0]; 
-        const body = document.body; 
-    
-        gnbLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();  
-    
-                const targetId = this.getAttribute('href').substring(1); 
-                const targetSection = document.getElementById(targetId);
-    
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',  
-                    block: 'start'      
+    document.querySelectorAll('.gnb a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();  
+            
+            const targetId = this.getAttribute('href').substring(1); // #about -> about
+            const targetElement = document.getElementById(targetId); // 해당 ID를 가진 요소 찾기
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',  // 부드럽게 스크롤
+                    block: 'start'       // 스크롤 후 해당 요소가 화면 상단에 위치하도록
                 });
-
-                if (menuBox.classList.contains('active')) {
-                    menuBox.classList.remove('active');
-                    menuBox.style.display = 'none';
-                    body.classList.remove('no-scroll');
-                }
-            });
+            }
         });
     });
+
+    
 };
 

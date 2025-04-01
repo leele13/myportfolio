@@ -1756,4 +1756,50 @@ footer .contact .contact-box .contact-txt .mail-thanks-box strong {
     font-size: 50px;
     margin-top: 15px;
   }
+}
+footer #top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background: none;
+  z-index: 15;
+  cursor: pointer;
+}
+@media (min-width: 1440px) {
+  footer #top-btn {
+    width: 100px;
+    height: 100px;
+  }
+}
+footer #top-btn .btn-img-txt {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+@media (min-width: 1440px) {
+  footer #top-btn .btn-img-txt {
+    width: 100px;
+    height: 100px;
+  }
+}
+footer #top-btn .btn-img-txt #top-img {
+  height: 100%;
+}
+footer #top-btn .btn-img-txt #top-txt {
+  position: absolute;
+  top: 51%;
+  left: 48%;
+  transform: translate(-51%, -48%);
+  color: #FFF;
+  font-size: 10px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(26, 26, 26, 0.2);
+}
+@media (min-width: 1440px) {
+  footer #top-btn .btn-img-txt #top-txt {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=index.css.map */

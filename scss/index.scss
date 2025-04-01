@@ -1736,4 +1736,47 @@ footer {
             }
         }
     } // contact
+
+    #top-btn {
+        position: fixed;
+        right: 20px; bottom: 20px;
+        width: 70px; height: 70px;
+        border: none;
+        background: none;
+        z-index: 15;
+        cursor: pointer;
+
+        @include responsive(large-screens) {
+            width: 100px; 
+            height: 100px;
+        }
+
+        .btn-img-txt {
+            position: relative;
+            width: 70px; height: 70px;
+
+            @include responsive(large-screens) {
+                width: 100px; 
+                height: 100px;
+            }
+
+            #top-img {
+                height: 100%;
+            }
+
+            #top-txt {
+                position: absolute;
+                top: 51%; left: 48%;
+                transform: translate(-51%, -48%);
+                color: #FFF;
+                font-size: 10px;
+                font-weight: bold;
+                text-shadow: 2px 2px 5px rgba(26, 26, 26, 0.2);
+
+                @include responsive(large-screens) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 } // footer
