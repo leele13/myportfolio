@@ -103,7 +103,6 @@ window.onload = function() {
 
     // 스크롤 이벤트
     window.addEventListener('scroll', () => {
-        // 콘솔에 스크롤 위치 찍기
         console.log(window.scrollY);
         
         // 어바웃미 관련 애니메이션 처리
@@ -131,19 +130,21 @@ window.onload = function() {
 
         // 탑버튼 이미지와 텍스트 색상 변경
         const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;  // 문서 전체 높이
         
         // 콘솔에 스크롤 위치 및 윈도우 높이 찍기
         console.log(window.scrollY + ' 윈도우 스크롤 위치');
         console.log(scrollPosition + ' 윈도우 스크롤 위치');
-        console.log(windowHeight + ' 윈도우 세로의 높이 위치');
+        console.log(documentHeight + ' 문서 전체 높이');
         
-        // 스크롤 위치가 윈도우 높이의 절반을 초과하면 두 번째 이미지로 변경
-        if (scrollPosition > windowHeight / 2) {
+        // 문서 높이의 절반을 초과하면 두 번째 이미지로 변경
+        if (scrollPosition > documentHeight / 2) {
             topImage.src = '../images/Moon.svg'; // 두 번째 이미지로 변경
+            topImage.classList.add('moon-style');
             topText.style.color = '#262626'; // 글자 색을 두 번째 이미지에 맞게 변경 (어두운 색)
         } else {
             topImage.src = '../images/Sun.svg'; // 첫 번째 이미지로 변경
+            topImage.classList.remove('moon-style');
             topText.style.color = '#FFFFFF'; // 글자 색을 첫 번째 이미지에 맞게 변경 (흰색)
         }
     });
