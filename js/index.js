@@ -46,6 +46,8 @@ window.onload = function() {
         if (window.innerWidth >= 1440) { 
             menuBox.style.display = 'block'; // 메뉴가 항상 보이도록 설정
             menuBox.classList.remove('active');
+        } else {
+            menuBox.style.display = 'none';
         }
     });
 
@@ -242,7 +244,7 @@ window.onload = function() {
 
     let slideIntervalId; 
 
-    // 슬라이드 이동 함수
+    //슬라이드 이동 함수
     function moveSlide(index) {
         if (index < 0) {
             currentIndex = totalSlides - 1; 
@@ -275,10 +277,10 @@ window.onload = function() {
     });
 
     // 페이지 로드 시 초기 상태로 첫 번째 슬라이드 보이기
-    moveSlide(currentIndex);
+    // moveSlide(currentIndex);
 
     // 자동 슬라이드 기능 
-    const slideInterval = 3000; 
+    // const slideInterval = 3000; 
 
     // 자동으로 슬라이드 이동하는 함수
     function autoSlide() {
@@ -318,36 +320,47 @@ window.onload = function() {
         }
     });
 
-    //모달창 이벤트
     const modalButtons = document.querySelectorAll('.modal-btn');
-    const modalContainers = document.querySelectorAll('.modal-container');
 
-    modalButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault(); 
+modalButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
 
-            const modalContainer = this.closest('.desc-btn-box').querySelector('.modal-container');
+        // 클릭한 버튼이 속한 portfolio-box에서 모달을 찾기
+        const portfolioBox = this.closest('.portfolio-box');
+        const modalContainer = portfolioBox.querySelector('.modal-container');
 
-            if (modalContainer) {
-                modalContainer.style.display = 'block'; 
-                setTimeout(() => {
-                    modalContainer.classList.add('show'); 
-                }, 10); 
-            }
-        });
+        if (modalContainer) {
+            // 모달이 보이게 하기 위해 'modal-container-show' 클래스 추가
+            modalContainer.classList.add('modal-container-show');
+        }
     });
+});
+
+// 모달을 닫는 기능 추가 (모달 밖 클릭 시 닫기)
+const modalContainers = document.querySelectorAll('.modal-container');
+
+modalContainers.forEach(modalContainer => {
+    modalContainer.addEventListener('click', function(e) {
+        // 모달 컨텐츠를 클릭했을 때는 닫히지 않도록 처리
+        if (e.target === this) {
+            modalContainer.classList.remove('modal-container-show');
+        }
+    });
+});
 
     // 모달 외부를 클릭하면 모달을 닫는 기능
-    modalContainers.forEach(container => {
-        container.addEventListener('click', function(event) {
-            if (event.target === this) { 
-                this.classList.remove('show'); 
-                setTimeout(() => {
-                    this.style.display = 'none'; 
-                }, 300); 
-            }
-        });
-    });
+    // modalContainers.forEach(container => {
+    //     container.addEventListener('click', function(event) {
+    //         if (event.target === this) { // 모달 외부 클릭 시
+    //             this.classList.remove('modal-container-show');
+    //             setTimeout(() => {
+    //                 this.style.display = 'none';
+    //             }, 300);
+    //         }
+    //     });
+    // });
+
     
     // 앵커이벤트 
     document.querySelectorAll('.gnb a').forEach(anchor => {

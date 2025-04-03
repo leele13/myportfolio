@@ -1383,35 +1383,6 @@ main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .
     background-color: #DCE8EF;
   }
 }
-main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .modal-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(38, 38, 38, 0.8);
-  z-index: 7;
-  display: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .modal-container .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  z-index: 8;
-}
-@media (min-width: 1440px) {
-  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .modal-container .modal {
-    width: 60%;
-    height: 60%;
-  }
-}
-main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .modal-container.show {
-  display: block;
-}
 main .portfolio .portfolio-desc-box .portfolio-box:nth-child(1) .desc-btn-box .txt-box p {
   margin: 15px 0;
   line-height: 1.6;
@@ -1472,6 +1443,35 @@ main .portfolio .portfolio-desc-box .portfolio-box:nth-child(7) .img-box {
 }
 main .portfolio .portfolio-desc-box .portfolio-box:nth-child(8) .img-box {
   background-color: #FFF;
+}
+main .portfolio .portfolio-desc-box .portfolio-box .modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 38, 38, 0.8);
+  z-index: 12;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+main .portfolio .portfolio-desc-box .portfolio-box .modal-container .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  z-index: 13;
+}
+@media (min-width: 1440px) {
+  main .portfolio .portfolio-desc-box .portfolio-box .modal-container .modal {
+    width: 60%;
+    height: 60%;
+  }
+}
+main .portfolio .portfolio-desc-box .portfolio-box .modal-container-show {
+  opacity: 1;
+  visibility: visible;
 }
 main .portfolio .arrow {
   display: none;

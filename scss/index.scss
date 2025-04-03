@@ -1301,32 +1301,6 @@ main {
                                 }
                             }
                         }
-
-                        .modal-container {
-                            position: fixed;
-                            left: 0; top: 0;
-                            width: $width-wide; height: 100%;
-                            background-color: rgba(38, 38, 38, 0.8); 
-                            z-index: 7;
-                            display: none;
-                            transition: opacity 0.3s ease, visibility 0.3s ease;
-
-                            .modal {
-                                position: fixed;
-                                top: 50%; left: 50%;
-                                transform: translate(-50%, -50%);
-                                width: 80%; height: 80%;
-                                z-index: 8;
-
-                                @include responsive(large-screens) {
-                                    width: 60%; height: 60%;
-                                }
-                            }
-                        }
-
-                        .modal-container.show { // 모달 컨테이너 이벤트
-                            display: block;
-                        }
                     }
                 } 
 
@@ -1428,6 +1402,34 @@ main {
                     .img-box {
                         background-color: #FFF;
                     }
+                }
+
+                .modal-container {
+                    position: fixed;
+                    left: 0; top: 0;
+                    width: $width-wide; height: 100%;
+                    background-color: rgba(38, 38, 38, 0.8); 
+                    z-index: 12;
+                    // opacity: 0; 
+                    // visibility: hidden;
+                    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+                    .modal {
+                        position: absolute;
+                        top: 50%; left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 80%; height: 80%;
+                        z-index: 13;
+
+                        @include responsive(large-screens) {
+                            width: 60%; height: 60%;
+                        }
+                    }
+                }
+
+                .modal-container-show { // 모달 컨테이너 이벤트
+                    opacity: 1; 
+                    visibility: visible;
                 }
             } // portfolio-box
         } // portfolio-desc-box
