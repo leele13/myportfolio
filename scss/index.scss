@@ -1162,12 +1162,12 @@ main {
         }
 
         .portfolio-desc-box {
+            position: relative;
             display: flex;  
             transition: transform 0.5s ease; 
             width: $width-wide; 
 
             .portfolio-box {
-                position: relative;
                 width: $width-wide;
                 min-width: 300px;  
                 margin-right: 20px;  
@@ -1374,10 +1374,6 @@ main {
                                 width: 350px; height: 350px;
                                 left: -7%; top: -5%;
                                 transform: rotate(-15deg);
-
-                                &:hover {
-                                    transform: scale(1.2);
-                                }
                             }
 
                             &:nth-child(3) {
@@ -1410,8 +1406,8 @@ main {
                     width: $width-wide; height: 100%;
                     background-color: rgba(38, 38, 38, 0.8); 
                     z-index: 12;
-                    // opacity: 0; 
-                    // visibility: hidden;
+                    opacity: 0; 
+                    visibility: hidden;
                     transition: opacity 0.3s ease, visibility 0.3s ease;
 
                     .modal {

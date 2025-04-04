@@ -1243,12 +1243,12 @@ main .portfolio .portfolio-title {
   }
 }
 main .portfolio .portfolio-desc-box {
+  position: relative;
   display: flex;
   transition: transform 0.5s ease;
   width: 100%;
 }
 main .portfolio .portfolio-desc-box .portfolio-box {
-  position: relative;
   width: 100%;
   min-width: 300px;
   margin-right: 20px;
@@ -1427,9 +1427,6 @@ main .portfolio .portfolio-desc-box .portfolio-box:nth-child(6) .img-box img:nth
   top: -5%;
   transform: rotate(-15deg);
 }
-main .portfolio .portfolio-desc-box .portfolio-box:nth-child(6) .img-box img:nth-child(2):hover {
-  transform: scale(1.2);
-}
 main .portfolio .portfolio-desc-box .portfolio-box:nth-child(6) .img-box img:nth-child(3) {
   position: absolute;
   width: 500px;
@@ -1452,6 +1449,8 @@ main .portfolio .portfolio-desc-box .portfolio-box .modal-container {
   height: 100%;
   background-color: rgba(38, 38, 38, 0.8);
   z-index: 12;
+  opacity: 0;
+  visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 main .portfolio .portfolio-desc-box .portfolio-box .modal-container .modal {

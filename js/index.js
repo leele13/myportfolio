@@ -258,6 +258,7 @@ window.onload = function() {
         portfolioDescBox.style.transition = 'transform 0.5s ease';  
         portfolioDescBox.style.transform = `translateX(${offset}px)`;
     }
+    
 
     //화살표 클릭 이벤트
     leftArrow.addEventListener('click', () => {
@@ -277,10 +278,10 @@ window.onload = function() {
     });
 
     // 페이지 로드 시 초기 상태로 첫 번째 슬라이드 보이기
-    // moveSlide(currentIndex);
+    moveSlide(currentIndex);
 
     // 자동 슬라이드 기능 
-    // const slideInterval = 3000; 
+    const slideInterval = 3000; 
 
     // 자동으로 슬라이드 이동하는 함수
     function autoSlide() {
@@ -302,64 +303,39 @@ window.onload = function() {
 
     portfolioDescBox.addEventListener('mouseout', startAutoSlide);
 
-    portfolioDescBox.addEventListener('transitionend', () => {
-        if (currentIndex === totalSlides) {
-            portfolioDescBox.style.transition = 'none';
-
-            const firstSlide = portfolioDescBox.querySelector('.portfolio-box');
-            portfolioDescBox.appendChild(firstSlide); 
-
-            currentIndex = 0;
-
-            const offset = -currentIndex * (document.querySelector('.portfolio-box').offsetWidth + 20);
-            portfolioDescBox.style.transform = `translateX(${offset}px)`; 
-
-            setTimeout(() => {
-                portfolioDescBox.style.transition = 'transform 0.5s ease';
-            }, 20); 
-        }
-    });
-
+    // 모달 이벤트 
     const modalButtons = document.querySelectorAll('.modal-btn');
 
-modalButtons.forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
+    modalButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
 
-        // 클릭한 버튼이 속한 portfolio-box에서 모달을 찾기
-        const portfolioBox = this.closest('.portfolio-box');
-        const modalContainer = portfolioBox.querySelector('.modal-container');
+            // 클릭한 버튼이 속한 portfolio-box에서 모달을 찾기
+            const portfolioBox = this.closest('.portfolio-box');
+            const modalContainer = portfolioBox.querySelector('.modal-container');
 
-        if (modalContainer) {
-            // 모달이 보이게 하기 위해 'modal-container-show' 클래스 추가
-            modalContainer.classList.add('modal-container-show');
-        }
+            if (modalContainer) {
+                // 현재 슬라이드의 X 위치를 계산 (슬라이드가 이동한 거리)
+                const portfolioDescBox = document.querySelector('.portfolio-desc-box');
+                const slideOffset = portfolioDescBox.getBoundingClientRect().left;
+                const modalPosition = portfolioBox.getBoundingClientRect().left - slideOffset;
+
+                // 모달을 슬라이드에 맞게 위치하도록 수정
+                modalContainer.style.left = `${modalPosition}px`; // 현재 슬라이드의 위치에 맞춰 모달의 left를 설정
+
+                // 모달을 보이게 하기 위해 'modal-container-show' 클래스 추가
+                modalContainer.classList.add('modal-container-show');
+
+                // 모달 닫기 기능 (모달 외부 클릭 시 닫기)
+                modalContainer.addEventListener('click', (e) => {
+                    if (e.target === modalContainer) {
+                        modalContainer.classList.remove('modal-container-show');
+                    }
+                });
+                modalContainer.style.cursor = 'pointer';
+            }
+        });
     });
-});
-
-// 모달을 닫는 기능 추가 (모달 밖 클릭 시 닫기)
-const modalContainers = document.querySelectorAll('.modal-container');
-
-modalContainers.forEach(modalContainer => {
-    modalContainer.addEventListener('click', function(e) {
-        // 모달 컨텐츠를 클릭했을 때는 닫히지 않도록 처리
-        if (e.target === this) {
-            modalContainer.classList.remove('modal-container-show');
-        }
-    });
-});
-
-    // 모달 외부를 클릭하면 모달을 닫는 기능
-    // modalContainers.forEach(container => {
-    //     container.addEventListener('click', function(event) {
-    //         if (event.target === this) { // 모달 외부 클릭 시
-    //             this.classList.remove('modal-container-show');
-    //             setTimeout(() => {
-    //                 this.style.display = 'none';
-    //             }, 300);
-    //         }
-    //     });
-    // });
 
     
     // 앵커이벤트 
