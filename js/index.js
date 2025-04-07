@@ -105,7 +105,7 @@ window.onload = function() {
 
     // 스크롤 이벤트
     window.addEventListener('scroll', () => {
-        console.log(window.scrollY);
+        // console.log(window.scrollY);
         
         // 어바웃미 관련 애니메이션 처리
         if (window.scrollY >= aboutMe.offsetTop && !fileMe.classList.contains("file-me-box-ani")) {
@@ -135,9 +135,9 @@ window.onload = function() {
         const documentHeight = document.documentElement.scrollHeight;  // 문서 전체 높이
         
         // 콘솔에 스크롤 위치 및 윈도우 높이 찍기
-        console.log(window.scrollY + ' 윈도우 스크롤 위치');
-        console.log(scrollPosition + ' 윈도우 스크롤 위치');
-        console.log(documentHeight + ' 문서 전체 높이');
+        // console.log(window.scrollY + ' 윈도우 스크롤 위치');
+        // console.log(scrollPosition + ' 윈도우 스크롤 위치');
+        // console.log(documentHeight + ' 문서 전체 높이');
         
         // 문서 높이의 절반을 초과하면 두 번째 이미지로 변경
         if (scrollPosition > documentHeight / 2) {
@@ -326,12 +326,16 @@ window.onload = function() {
                 // 모달을 보이게 하기 위해 'modal-container-show' 클래스 추가
                 modalContainer.classList.add('modal-container-show');
 
+                stopAutoSlide();
+
                 // 모달 닫기 기능 (모달 외부 클릭 시 닫기)
                 modalContainer.addEventListener('click', (e) => {
                     if (e.target === modalContainer) {
                         modalContainer.classList.remove('modal-container-show');
+                        startAutoSlide();
                     }
                 });
+                
                 modalContainer.style.cursor = 'pointer';
             }
         });
@@ -357,4 +361,32 @@ window.onload = function() {
 
     
 };
+
+// 카테고리 버튼 이벤트 
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.category-btn');
+    const portfolioContainer = document.querySelector('.portfolio-desc-box');
+    const portfolioBoxes = document.querySelectorAll('.portfolio-box');
+    console.log(buttons);
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const categoryClass = event.target.classList[1];  // 버튼의 두 번째 클래스 (웹페이지, js, design 등)
+            let targetIndex = -1;
+    
+            // 해당 카테고리의 첫 번째 포트폴리오 박스를 찾음
+            portfolioBoxes.forEach((box, index) => {
+                if (box.classList.contains(categoryClass)) {  // 해당 클래스가 포함된 박스를 찾음
+                targetIndex = index;
+                return; // 첫 번째로 맞는 박스 찾으면 종료
+                }
+            });
+    
+            if (targetIndex >= 0) {
+                // 슬라이드로 해당 포트폴리오 박스로 이동 (예시: transform을 이용한 이동)
+                portfolioContainer.style.transform = `translateX(-${targetIndex * 100}%)`;
+            }
+        });
+    });
+});
 
