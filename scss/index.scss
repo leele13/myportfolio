@@ -270,10 +270,24 @@ main {
         position: relative;
         height: 540px;
         overflow: hidden;
-        background-color: $intro-bg-color;
+        background: url(../images/image_fx.jpg) no-repeat;
+        background-size: cover;
+        // background-color: $intro-bg-color;
 
         @include responsive(large-screens) {
             height: 1024px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #422e21); // 어바웃미 배경색 맞추기
+            z-index: 1;
+            pointer-events: none;
         }
 
         .intro-txt {
@@ -436,6 +450,7 @@ main {
                 .sun {
                     display: block;
                     width: 100%; height: 100%;
+                    object-fit: contain;
                     animation: spin 5s linear infinite, pulse 1.5s infinite;
                 }
             }
@@ -538,8 +553,23 @@ main {
     
 /* === about me === */
     .about-me {
-        background: linear-gradient($aboutme-bg-color1 20%, $aboutme-bg-color2 55%, $aboutme-bg-color3);
+        // background: linear-gradient($aboutme-bg-color1 20%, $aboutme-bg-color2 55%, $aboutme-bg-color3);
+        position: relative;
+        background: url(../images/image_fx\ \(8\).jpg) no-repeat center;
+        background-size: cover;
 
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            height: 100px; /* 부드럽게 넘어가는 높이 */
+            width: 100%;
+            background: linear-gradient(to bottom, transparent, #1b0025); /* Skill 배경색 or 톤 맞추기 */
+            z-index: 1;
+            pointer-events: none;
+        }
+        
         .about-me-title {
             padding-top: 30px;
             color: $font-color-main;
@@ -648,9 +678,9 @@ main {
 
                         .desk-img {
                             width: $width-wide;
-                            height: 200px;
-                            background: url(../images/desk.svg) no-repeat center;
-                            background-size: contain;
+                            // height: 200px;
+                            // background: url(../images/desk.svg) no-repeat center;
+                            // background-size: contain;
 
                             @include responsive(large-screens) {
                                 height: 530px;
@@ -895,10 +925,42 @@ main {
 /* === skill === */
     .skill {
         position: relative;
-        background: linear-gradient($skill-bg-color1, $skill-bg-color2 48%, $skill-bg-color3 87%);
+        // background: linear-gradient($skill-bg-color1, $skill-bg-color2 48%, $skill-bg-color3 87%);
+        // background: url(../images/image_fx\ \(1\).jpg) no-repeat center;
+        // background-size: cover;
 
         @include responsive(large-screens) {
             height: 1000px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(../images/image_fx\ \(1\).jpg) no-repeat center;
+            background-size: cover;
+            // opacity: 0.95; // 여기서 투명도 조절!
+            filter: brightness(1.0) ;
+            filter: blur(1px); // 어둡게
+
+            mix-blend-mode: overlay; // 위에 텍스트랑 잘 섞이게
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #101010); // #101010 = 포트폴리오 배경
+            z-index: 1;
+            pointer-events: none;
         }
 
         .skill-title {
@@ -1104,7 +1166,7 @@ main {
                             font-size: 35px;
                             border-radius: 50%;  
                             color: $font-color-sub3;
-                            background-color: rgba($color: #3D3344, $alpha: 0.8);
+                            background-color: rgba($color: #3D3344, $alpha: 0.9);
                         }                        
                     }
                 }
@@ -1128,7 +1190,7 @@ main {
             
             .building {
                 width: 100%; height: 205px;
-                background: url(../images/building.svg) repeat-x bottom;
+                // background: url(../images/building.svg) repeat-x bottom;
                 opacity: 0.1;
 
                 @include responsive(large-screens) {
@@ -1145,10 +1207,37 @@ main {
         position: relative;
         width: $width-wide;
         overflow: hidden;  
-        background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+        // background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+        background: url(../images/image_fx\ \(7\).jpg) no-repeat;
+        background-size: cover;
 
         @include responsive(large-screens) {
             height: 1040px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, transparent, #0d0718); // 스킬 배경색
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #0a0018); // footer 배경 예상
+            // background: linear-gradient(to bottom, transparent, #090f10); // footer 배경 예상
+            z-index: 1;
+            pointer-events: none;
         }
 
         .portfolio-title {
@@ -1600,10 +1689,24 @@ footer {
     .contact {
         position: relative;
         height: 640px;
-        background-color: #353434;
+        // background-color: #353434;
+        background: url(../images/image_fx\ \(4\).jpg) no-repeat center;
+        background-size: cover;
 
         @include responsive(large-screens) {
             height: 1080px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, transparent, #080a20); // 포트폴리오 배경
+            z-index: 1;
+            pointer-events: none;
         }
 
         .moon-trees {
@@ -1622,10 +1725,15 @@ footer {
                     width: 32.77777777777778%;
                     border-radius: 50%;
         
+                    // box-shadow:  
+                    // 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
+                    // 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
+                    // 0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
+
                     box-shadow:  
-                    0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
-                    0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
-                    0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
+                    0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
+                    0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
+                    0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
     
                     @include responsive(large-screens) {
                         width: 27.77777777777778%;
@@ -1769,7 +1877,8 @@ footer {
             position: absolute;
             bottom: 0;
             width: $width-wide; height: 100px;
-            background-color: #262626;
+            // background-color: #262626;
+            background: url(../images/image_fx\ \(4\)_reverse.png);
             overflow: hidden;
 
             @include responsive(large-screens) {
@@ -1803,6 +1912,7 @@ footer {
                         display: block;
                         margin-top: 140px;
                         width: 340px; height: 192px;
+                        
                     }
 
                     img {

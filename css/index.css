@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Gaegu&family=Noto+Sans+KR:wght@100..900&display=swap");
 * {
   margin: 0;
@@ -324,12 +325,24 @@ main .intro {
   position: relative;
   height: 540px;
   overflow: hidden;
-  background-color: #B7F5FF;
+  background: url(../images/image_fx.jpg) no-repeat;
+  background-size: cover;
 }
 @media (min-width: 1440px) {
   main .intro {
     height: 1024px;
   }
+}
+main .intro::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #422e21);
+  z-index: 1;
+  pointer-events: none;
 }
 main .intro .intro-txt {
   position: absolute;
@@ -477,6 +490,8 @@ main .intro .intro-img .sun-box .sun {
   display: block;
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
   animation: spin 5s linear infinite, pulse 1.5s infinite;
 }
 @media (min-width: 1440px) {
@@ -589,7 +604,20 @@ main .intro .intro-img .f-rt-cloud1 {
   }
 }
 main .about-me {
-  background: linear-gradient(#B7F5FF 20%, #97F2FF 55%, #66A7C6);
+  position: relative;
+  background: url(../images/image_fx\ \(8\).jpg) no-repeat center;
+  background-size: cover;
+}
+main .about-me::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  height: 100px; /* 부드럽게 넘어가는 높이 */
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #1b0025); /* Skill 배경색 or 톤 맞추기 */
+  z-index: 1;
+  pointer-events: none;
 }
 main .about-me .about-me-title {
   padding-top: 30px;
@@ -717,9 +745,6 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper {
 }
 main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
   width: 100%;
-  height: 200px;
-  background: url(../images/desk.svg) no-repeat center;
-  background-size: contain;
 }
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
@@ -963,12 +988,37 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .rt-slide {
 }
 main .skill {
   position: relative;
-  background: linear-gradient(#66A7C6, #0E4163 48%, #3D3344 87%);
 }
 @media (min-width: 1440px) {
   main .skill {
     height: 1000px;
   }
+}
+main .skill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/image_fx\ \(1\).jpg) no-repeat center;
+  background-size: cover;
+  filter: brightness(1);
+  filter: blur(1px);
+  mix-blend-mode: overlay;
+  z-index: 0;
+  pointer-events: none;
+}
+main .skill::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #101010);
+  z-index: 1;
+  pointer-events: none;
 }
 main .skill .skill-title {
   padding-top: 30px;
@@ -1192,7 +1242,7 @@ main .skill .circle-container .icon-list .item-hover {
     font-size: 35px;
     border-radius: 50%;
     color: #FEF3DB;
-    background-color: rgba(61, 51, 68, 0.8);
+    background-color: rgba(61, 51, 68, 0.9);
   }
 }
 main .skill .circle-container .progress-svg {
@@ -1211,7 +1261,6 @@ main .skill .circle-container .progress-svg {
 main .skill .building-box .building {
   width: 100%;
   height: 205px;
-  background: url(../images/building.svg) repeat-x bottom;
   opacity: 0.1;
 }
 @media (min-width: 1440px) {
@@ -1225,12 +1274,35 @@ main .portfolio {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(#3D3344, #896EA1 50%, #262626);
+  background: url(../images/image_fx\ \(7\).jpg) no-repeat;
+  background-size: cover;
 }
 @media (min-width: 1440px) {
   main .portfolio {
     height: 1040px;
   }
+}
+main .portfolio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, transparent, #0d0718);
+  z-index: 1;
+  pointer-events: none;
+}
+main .portfolio::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #0a0018);
+  z-index: 1;
+  pointer-events: none;
 }
 main .portfolio .portfolio-title {
   padding-top: 30px;
@@ -1600,12 +1672,24 @@ main .portfolio .arrow .rt-arrow {
 footer .contact {
   position: relative;
   height: 640px;
-  background-color: #353434;
+  background: url(../images/image_fx\ \(4\).jpg) no-repeat center;
+  background-size: cover;
 }
 @media (min-width: 1440px) {
   footer .contact {
     height: 1080px;
   }
+}
+footer .contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, transparent, #080a20);
+  z-index: 1;
+  pointer-events: none;
 }
 footer .contact .moon-trees .moon {
   height: 276px;
@@ -1622,7 +1706,7 @@ footer .contact .moon-trees .moon img {
   transform: translateX(-50%);
   width: 32.7777777778%;
   border-radius: 50%;
-  box-shadow: 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 0px 5px 27px 10px rgba(102, 167, 198, 0.25);
+  box-shadow: 0px 4px 25px 20px rgba(180, 210, 255, 0.12), 0px 4px 55px 30px rgba(105, 167, 192, 0.2), 0px 3px 60px 45px rgba(255, 255, 255, 0.045); /* 흰 빛은 최소화 */
 }
 @media (min-width: 1440px) {
   footer .contact .moon-trees .moon img {
@@ -1765,7 +1849,7 @@ footer .contact .contact-box {
   bottom: 0;
   width: 100%;
   height: 100px;
-  background-color: #262626;
+  background: url(../images/image_fx\ \(4\)_reverse.png);
   overflow: hidden;
 }
 @media (min-width: 1440px) {
