@@ -97,6 +97,7 @@ window.onload = function() {
     const endeavorBox = document.querySelector(".endeavor-box");
     const visionBox = document.querySelector(".vision-box");
     const folderBox = document.querySelectorAll(".box");
+    const objBox = document.querySelectorAll(".desk-obj");
 
     // 탑버튼 이벤트
     const topButton = document.getElementById('top-btn');
@@ -116,6 +117,10 @@ window.onload = function() {
             folderBox.forEach(box => {
                 box.querySelector("div").style.opacity = 1;
                 box.querySelector("img").style.opacity = 1;
+            });
+
+            objBox.forEach(obj => {
+                obj.style.opacity = 1;
             });
 
             if (!strBox.classList.contains("lf-slide")) {

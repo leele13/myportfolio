@@ -492,7 +492,7 @@ main .intro .intro-img .sun-box .sun {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  animation: spin 5s linear infinite, pulse 1.5s infinite;
+  animation: spin 10s linear infinite, pulse 1.5s infinite;
 }
 @media (min-width: 1440px) {
   main .intro .intro-img .rt-bird1 {
@@ -750,6 +750,10 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-im
   main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
     height: 530px;
   }
+}
+main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj {
+  opacity: 0;
+  transition: opacity 2s;
 }
 main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .cup {
   position: absolute;
