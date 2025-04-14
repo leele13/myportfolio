@@ -151,7 +151,7 @@ window.onload = function() {
             topImage.classList.add('moon-style');
             topText.style.color = '#262626'; // 글자 색을 두 번째 이미지에 맞게 변경 (어두운 색)
         } else {
-            topImage.src = '../images/sun123.png'; // 첫 번째 이미지로 변경
+            topImage.src = '../images/top_btn_sun.png'; // 첫 번째 이미지로 변경
             topImage.classList.remove('moon-style');
             topText.style.color = '#FFFFFF'; // 글자 색을 첫 번째 이미지에 맞게 변경 (흰색)
         }
