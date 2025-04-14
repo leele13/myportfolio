@@ -96,6 +96,7 @@
             }
 
             .gnb {
+                font-family: $font-sub;
     
                 @include responsive(large-screens) {
                     display: block;
@@ -270,9 +271,8 @@ main {
         position: relative;
         height: 540px;
         overflow: hidden;
-        background: url(../images/image_fx.jpg) no-repeat;
+        background: url(../images/Intro_bg.jpg) no-repeat;
         background-size: cover;
-        // background-color: $intro-bg-color;
 
         @include responsive(large-screens) {
             height: 1024px;
@@ -300,6 +300,7 @@ main {
             
             h2 {
                 font-size: $mobile-title-main;
+                font-family: $font-sub;
                 -webkit-animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
                 animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 
@@ -551,12 +552,26 @@ main {
         }
     } // intro
     
+
+    section {
+
+        div {
+
+            h2 {
+                font-family: $font-sub;
+            }
+        }
+    }
+
 /* === about me === */
     .about-me {
-        // background: linear-gradient($aboutme-bg-color1 20%, $aboutme-bg-color2 55%, $aboutme-bg-color3);
         position: relative;
-        background: url(../images/image_fx\ \(8\).jpg) no-repeat center;
+        background: url(../images/AboutMe_bg.jpg) no-repeat center;
         background-size: cover;
+
+        @include responsive(large-screens) {
+            height: 1300px;
+        }
 
         &::after {
             content: "";
@@ -647,10 +662,11 @@ main {
     
                         h3 {
                             position: absolute;
-                            left: 50%; bottom: 15% ;
+                            left: 50%; bottom: 18% ;
                             transform: translateX(-50%);
                             width: 125px;
                             font-family: $font-sub;
+                            font-size: 24px;
 
                             @include responsive(large-screens) {
                                 position: absolute;
@@ -658,36 +674,36 @@ main {
                                 width: 300px;
                                 font-size: 30px;
                                 text-align: left;
+                                display: flex;
                             }
     
                             span {
                                 font-family: $font-main;
+                                font-size: 18px;
+
+                                @include responsive(large-screens) {
+                                    font-size: 24px;;
+                                    flex: 1;
+                                    display: flex;
+                                    justify-content: center;
+                                }
                             }
                         }
-                    }
 
-                    .desk-wrapper {
-                        position: absolute;
-                        top: 220PX;
-                        width: $width-wide;
-
-                        @include responsive(large-screens) {
+                        p {
                             position: absolute;
-                            top: 480PX;
-                        }
-
-                        .desk-img {
-                            width: $width-wide;
-                            // height: 200px;
-                            // background: url(../images/desk.svg) no-repeat center;
-                            // background-size: contain;
+                            left: 50%; bottom: 10% ;
+                            transform: translateX(-50%);
+                            font-size: 14px;
 
                             @include responsive(large-screens) {
-                                height: 530px;
+                                font-size: 18px;
+                                position: absolute;
+                                left: 57%; bottom: 7% ;
                             }
                         }
                     }
-
+                    
                     .desk-obj {
                         opacity: 0;
                         transition: opacity 2s;
@@ -701,7 +717,7 @@ main {
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                left: 7%; bottom: -90%;
+                                left: 6%; bottom: -90%;
                                 width: 100px;
                                 height: 150px;
                             }
@@ -816,6 +832,7 @@ main {
 
                                 h3 {
                                     font-size: $mobile-cal-16-font;
+                                    font-family: $font-sub;
                                     padding-bottom: 10px;
 
                                     @include responsive(large-screens) {
@@ -841,7 +858,7 @@ main {
 
                             @include responsive(large-screens) {
                                 position: absolute;
-                                top: -95px; left: 82%;
+                                top: -25%; left: 82%;
                                 width: 340px;
                             }
 
@@ -927,9 +944,6 @@ main {
 /* === skill === */
     .skill {
         position: relative;
-        // background: linear-gradient($skill-bg-color1, $skill-bg-color2 48%, $skill-bg-color3 87%);
-        // background: url(../images/image_fx\ \(1\).jpg) no-repeat center;
-        // background-size: cover;
 
         @include responsive(large-screens) {
             height: 1000px;
@@ -942,9 +956,8 @@ main {
             left: 0;
             width: 100%;
             height: 100%;
-            background: url(../images/image_fx\ \(1\).jpg) no-repeat center;
+            background: url(../images/Skill_bg.jpg) no-repeat center;
             background-size: cover;
-            // opacity: 0.95; // 여기서 투명도 조절!
             filter: brightness(1.0) ;
             filter: blur(1px); // 어둡게
 
@@ -1011,7 +1024,6 @@ main {
                         display: flex;
                         align-items: center;
                         font-size: 20px;
-                        font-family: $font-sub;
                         padding: 20px;
                         color: $font-color-sub2;
                     }
@@ -1019,7 +1031,6 @@ main {
             }
 
             .icon-list {
-                font-family: $font-sub;
                 padding: 0 50px;
 
                 .item {
@@ -1187,21 +1198,6 @@ main {
                 }
             }
         }
-
-        .building-box {
-            
-            .building {
-                width: 100%; height: 205px;
-                // background: url(../images/building.svg) repeat-x bottom;
-                opacity: 0.1;
-
-                @include responsive(large-screens) {
-                    position: absolute;
-                    bottom: 0;
-                    height: 400px;
-                }
-            }
-        }
     } // skill
 
 /* === portfolio === */
@@ -1209,8 +1205,7 @@ main {
         position: relative;
         width: $width-wide;
         overflow: hidden;  
-        // background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
-        background: url(../images/image_fx\ \(7\).jpg) no-repeat;
+        background: url(../images/Portfolio_bg.jpg) no-repeat;
         background-size: cover;
 
         @include responsive(large-screens) {
@@ -1223,7 +1218,7 @@ main {
             top: 0;
             left: 0;
             width: 100%;
-            height: 100px;
+            height: 40px;
             background: linear-gradient(to top, transparent, #0d0718); // 스킬 배경색
             z-index: 1;
             pointer-events: none;
@@ -1235,11 +1230,15 @@ main {
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 100px;
+            height: 40px;
             background: linear-gradient(to bottom, transparent, #0a0018); // footer 배경 예상
             // background: linear-gradient(to bottom, transparent, #090f10); // footer 배경 예상
             z-index: 1;
             pointer-events: none;
+
+            @include responsive(large-screens) {
+                height: 95px;
+            }
         }
 
         .portfolio-title {
@@ -1257,7 +1256,7 @@ main {
             display: flex;
             justify-content: space-between;
             margin: 30px 0 15px;
-
+            
             @include responsive(large-screens) {
                 display: block;
             }
@@ -1266,7 +1265,7 @@ main {
                 width: 30%; height: 26px;
                 line-height: 26px;
                 text-align: center;
-                font-size: 12px;
+                font-size: 14px;
                 font-family: $font-sub;
                 border: 1px solid #262626;
                 border-radius: 5px;
@@ -1276,7 +1275,7 @@ main {
                 @include responsive(large-screens) {
                     width: 15%; height: 70px;
                     line-height: 70px;
-                    font-size: 20px;
+                    font-size: 24px;
                     margin-right: 10px;
                     border-radius: 10px;
                     color: $font-color-sub3;
@@ -1309,6 +1308,7 @@ main {
                 margin-right: 20px;  
                 flex-shrink: 0;  
                 margin-top: 35px;
+                margin-bottom: 35px;
                 border: 2px solid #262626;
                 background-color: #FFFAEE;
     
@@ -1377,6 +1377,7 @@ main {
                             .desc-title {
                                 font-size: 20px;
                                 font-weight: normal;
+                                font-family: $font-sub;
     
                                 @include responsive(large-screens) {
                                     font-size: 40px;
@@ -1406,12 +1407,17 @@ main {
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
+                            margin-top: 20px;
+
+                            @include responsive(large-screens) {
+                                margin-top: 0;
+                            }
                             
                             a {
                                 width: 45%; height: 26px;
                                 line-height: 26px;
                                 text-align: center;
-                                font-size: 12px;
+                                font-size: 14px;
                                 font-family: $font-sub;
                                 border: 1px solid #262626;
                                 border-radius: 5px;
@@ -1421,7 +1427,7 @@ main {
                                 @include responsive(large-screens) {
                                     height: 70px;
                                     line-height: 70px;
-                                    font-size: 20px;
+                                    font-size: 24px;
                                     border-radius: 10px;
                                     color: $font-color-sub3;
                                     background-color: #E28787;
@@ -1653,8 +1659,8 @@ main {
                 transition: transform 0.3s ease;
 
                 @include responsive(large-screens) {
-                    width: 96px; height: 96px;
-                    border-radius: 48px;
+                    width: 80px; height: 80px;
+                    border-radius: 40px;
                 }
 
                 img {
@@ -1692,7 +1698,7 @@ footer {
         position: relative;
         height: 640px;
         // background-color: #353434;
-        background: url(../images/image_fx\ \(4\).jpg) no-repeat center;
+        background: url(../images/Reflection_bg.png) no-repeat center top;
         background-size: cover;
 
         @include responsive(large-screens) {
@@ -1711,176 +1717,42 @@ footer {
             pointer-events: none;
         }
 
-        .moon-trees {
+        .moon {
+            width: 33.33333333333333%; 
+            padding-top: 70px;
+            margin: 0 auto;
 
-            .moon {
-                height: 276px;
-
-                @include responsive(large-screens) {
-                    height: 330px;
-                }
-    
-                img {
-                    position: relative;
-                    top: 120px; left: 50%;
-                    transform: translateX(-50%);
-                    width: 32.77777777777778%;
-                    border-radius: 50%;
-        
-                    // box-shadow:  
-                    // 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
-                    // 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
-                    // 0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
-
-                    box-shadow:  
-                    0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
-                    0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
-                    0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
-    
-                    @include responsive(large-screens) {
-                        width: 27.77777777777778%;
-                    }
-                }
+            @include responsive(large-screens) {
+                width: 385px
             }
-    
-            .tree-box {
+
+            img {
                 position: relative;
-                height: 264px;
-                bottom: 0;
-                overflow: hidden;
+                top: 120px; left: 50%;
+                transform: translateX(-50%);
+                width: 32.77777777777778%;
+                border-radius: 50%;
+    
+                // box-shadow:  
+                // 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
+                // 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
+                // 0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
+
+                box-shadow:  
+                0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
+                0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
+                0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
 
                 @include responsive(large-screens) {
-                    height: 544px;
-                }
-    
-                ul {
-                    li {
-    
-                        &:nth-child(3),
-                        &:nth-child(4),
-                        &:nth-child(5),
-                        &:nth-child(8),
-                        &:nth-child(9) {
-                            display: none;
-
-                            @include responsive(large-screens) {
-                                display: block;
-                            }
-                        }
-
-                        img {
-                            height: inherit;
-                        }
-                    }
-                }
-    
-                .left-trees {
-    
-                    .tree1 {
-                        position: absolute;
-                        left: -4%; bottom: -15px;
-                        width: 33%; height: 200px;
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            left: -4%; bottom: -15px;
-                            width: 247px; height: 427px;
-                        }
-                    }
-    
-                    .tree2 {
-                        position: absolute;
-                        left: 15%; bottom: -16px;
-                        width: 30%; height: 146px;
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            left: 6%; bottom: -16px;
-                            width: 203px; height: 330px;
-                        }
-                    }
-
-                    .tree3 {
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            left: 15%; bottom: -16px;
-                            width: 169px; height: 298px;
-                        }
-                    }
-
-                    .tree4 {
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            left: 22%; bottom: -16px;
-                            width: 147px; height: 232px;
-                        }
-                    }
-
-                    .tree5 {
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            left: 28%; bottom: -23px;
-                            width: 148px; height: 218px;
-                        }
-                    }
-                }
-    
-                .right-trees {
-    
-                    .tree6 {
-                        position: absolute;
-                        right: 20%; bottom: -17px;
-                        width: 33.61111111111111%; height: 202px;
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            right: 24%; bottom: -35px;
-                            width: 212px; height: 340px;
-                        }
-                    }
-    
-                    .tree7 {
-                        position: absolute;
-                        right: -3%; bottom: -25px;
-                        width: 37.5%; height: 260px;
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            right: 15%; bottom: -30px;
-                            width: 241px; height: 405px;
-                        }
-                    }
-
-                    .tree8 {
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            right: 6%; bottom: -18px;
-                            width: 249px; height: 415px;
-                        }
-                    }
-
-                    .tree9 {
-
-                        @include responsive(large-screens) {
-                            position: absolute;
-                            right: -4%; bottom: -20px;
-                            width: 278px; height: 544px;
-                        }
-                    }
+                    width: 27.77777777777778%;
                 }
             }
-        } // moon-trees
+        }
 
         .contact-box {
             position: absolute;
             bottom: 0;
             width: $width-wide; height: 100px;
-            // background-color: #262626;
-            background: url(../images/image_fx\ \(4\)_reverse.png);
             overflow: hidden;
 
             @include responsive(large-screens) {
@@ -1900,6 +1772,7 @@ footer {
 
                 .contact-title {
                     font-size: 30px;
+                    font-family: $font-sub;
 
                     @include responsive(large-screens) {
                         width: 445px;
@@ -1908,22 +1781,31 @@ footer {
                 }
 
                 .reverse-moon {
-                    display: none;
+                    position: absolute;
+                    left: 50%; top: 20%;
+                    transform: translateX(-50%);
+                    width: 28%; height: 100px;
 
                     @include responsive(large-screens) {
-                        display: block;
-                        margin-top: 140px;
-                        width: 340px; height: 192px;
-                        
+                        position: absolute;
+                        top: 27%;
+                        width: 340px; height: 192px;                        
                     }
 
                     img {
                         border-radius: 50%;
                         box-shadow:  
+                        0px 4px 10px 20px rgba(255, 255, 255, 0.1), 
+                        0px 3px 15px 5px rgba(239, 202, 123, 0.25), 
+                        0px 5px 14px 5px rgba(102, 167, 198, 0.25); 
+                        opacity: 0.5;
+
+                        @include responsive(large-screens) {
+                            box-shadow:  
                         0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
                         0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
                         0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
-                        opacity: 0.5;
+                        }
                     }
                 }
 
@@ -1936,7 +1818,6 @@ footer {
 
                     span {
                         font-size: 10px;
-                        font-family: $font-sub;
 
                         @include responsive(large-screens) {
                             font-size: 26px;
@@ -1951,7 +1832,7 @@ footer {
                     strong {
                         display: block;
                         font-size: 18px;
-                        font-family: $font-main;
+                        font-family: $font-sub;
 
                         @include responsive(large-screens) {
                             font-size: 50px;

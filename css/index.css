@@ -7,7 +7,7 @@
 }
 
 body {
-  font: 16px "Gaegu";
+  font: 16px "Noto Sans KR";
 }
 
 .no-scroll {
@@ -169,6 +169,9 @@ p {
     display: block;
   }
 }
+.logo-main-menu .logo-main-menu-box .mainmenu .gnb {
+  font-family: "Gaegu";
+}
 @media (min-width: 1440px) {
   .logo-main-menu .logo-main-menu-box .mainmenu .gnb {
     display: block;
@@ -325,7 +328,7 @@ main .intro {
   position: relative;
   height: 540px;
   overflow: hidden;
-  background: url(../images/image_fx.jpg) no-repeat;
+  background: url(../images/Intro_bg.jpg) no-repeat;
   background-size: cover;
 }
 @media (min-width: 1440px) {
@@ -354,6 +357,7 @@ main .intro .intro-txt {
 }
 main .intro .intro-txt h2 {
   font-size: calc(30px + 0.5vw);
+  font-family: "Gaegu";
   animation: tracking-in-expand-fwd 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 @media (min-width: 1440px) {
@@ -603,10 +607,18 @@ main .intro .intro-img .f-rt-cloud1 {
     animation: lf-move 3s ease-in forwards;
   }
 }
+main section div h2 {
+  font-family: "Gaegu";
+}
 main .about-me {
   position: relative;
-  background: url(../images/image_fx\ \(8\).jpg) no-repeat center;
+  background: url(../images/AboutMe_bg.jpg) no-repeat center;
   background-size: cover;
+}
+@media (min-width: 1440px) {
+  main .about-me {
+    height: 1300px;
+  }
 }
 main .about-me::after {
   content: "";
@@ -715,10 +727,11 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box .me {
 main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 {
   position: absolute;
   left: 50%;
-  bottom: 15%;
+  bottom: 18%;
   transform: translateX(-50%);
   width: 125px;
-  font-family: "Noto Sans KR";
+  font-family: "Gaegu";
+  font-size: 24px;
 }
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 {
@@ -727,28 +740,34 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 {
     width: 300px;
     font-size: 30px;
     text-align: left;
+    display: flex;
   }
 }
 main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 span {
-  font-family: "Gaegu";
-}
-main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper {
-  position: absolute;
-  top: 220PX;
-  width: 100%;
+  font-family: "Noto Sans KR";
+  font-size: 18px;
 }
 @media (min-width: 1440px) {
-  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper {
-    position: absolute;
-    top: 480PX;
+  main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box h3 span {
+    font-size: 24px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
   }
 }
-main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
-  width: 100%;
+main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box p {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  font-size: 14px;
 }
 @media (min-width: 1440px) {
-  main .about-me .introduce-box .desk-img-box .file-me-desk .desk-wrapper .desk-img {
-    height: 530px;
+  main .about-me .introduce-box .desk-img-box .file-me-desk .file-me-box p {
+    font-size: 18px;
+    position: absolute;
+    left: 57%;
+    bottom: 7%;
   }
 }
 main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj {
@@ -766,7 +785,7 @@ main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .cup {
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .file-me-desk .desk-obj .cup {
     position: absolute;
-    left: 7%;
+    left: 6%;
     bottom: -90%;
     width: 100px;
     height: 150px;
@@ -904,6 +923,7 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .box div {
 }
 main .about-me .introduce-box .desk-img-box .folder-box .folders .box div h3 {
   font-size: calc(16px + 0.5vw);
+  font-family: "Gaegu";
   padding-bottom: 10px;
 }
 @media (min-width: 1440px) {
@@ -926,7 +946,7 @@ main .about-me .introduce-box .desk-img-box .folder-box .folders .box div p {
 @media (min-width: 1440px) {
   main .about-me .introduce-box .desk-img-box .folder-box .folders .str-box {
     position: absolute;
-    top: -95px;
+    top: -25%;
     left: 82%;
     width: 340px;
   }
@@ -1005,7 +1025,7 @@ main .skill::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../images/image_fx\ \(1\).jpg) no-repeat center;
+  background: url(../images/Skill_bg.jpg) no-repeat center;
   background-size: cover;
   filter: brightness(1);
   filter: blur(1px);
@@ -1072,12 +1092,10 @@ main .skill .circle-container .circle-wrapper .circle-style p {
   display: flex;
   align-items: center;
   font-size: 20px;
-  font-family: "Noto Sans KR";
   padding: 20px;
   color: #262626;
 }
 main .skill .circle-container .icon-list {
-  font-family: "Noto Sans KR";
   padding: 0 50px;
 }
 main .skill .circle-container .icon-list .item {
@@ -1262,23 +1280,11 @@ main .skill .circle-container .progress-svg {
     z-index: 0;
   }
 }
-main .skill .building-box .building {
-  width: 100%;
-  height: 205px;
-  opacity: 0.1;
-}
-@media (min-width: 1440px) {
-  main .skill .building-box .building {
-    position: absolute;
-    bottom: 0;
-    height: 400px;
-  }
-}
 main .portfolio {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: url(../images/image_fx\ \(7\).jpg) no-repeat;
+  background: url(../images/Portfolio_bg.jpg) no-repeat;
   background-size: cover;
 }
 @media (min-width: 1440px) {
@@ -1292,7 +1298,7 @@ main .portfolio::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 40px;
   background: linear-gradient(to top, transparent, #0d0718);
   z-index: 1;
   pointer-events: none;
@@ -1303,10 +1309,15 @@ main .portfolio::after {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 40px;
   background: linear-gradient(to bottom, transparent, #0a0018);
   z-index: 1;
   pointer-events: none;
+}
+@media (min-width: 1440px) {
+  main .portfolio::after {
+    height: 95px;
+  }
 }
 main .portfolio .portfolio-title {
   padding-top: 30px;
@@ -1334,8 +1345,8 @@ main .portfolio .category-buttons .category-btn {
   height: 26px;
   line-height: 26px;
   text-align: center;
-  font-size: 12px;
-  font-family: "Noto Sans KR";
+  font-size: 14px;
+  font-family: "Gaegu";
   border: 1px solid #262626;
   border-radius: 5px;
   color: #262626;
@@ -1346,7 +1357,7 @@ main .portfolio .category-buttons .category-btn {
     width: 15%;
     height: 70px;
     line-height: 70px;
-    font-size: 20px;
+    font-size: 24px;
     margin-right: 10px;
     border-radius: 10px;
     color: #FEF3DB;
@@ -1377,6 +1388,7 @@ main .portfolio .portfolio-desc-box .portfolio-box {
   margin-right: 20px;
   flex-shrink: 0;
   margin-top: 35px;
+  margin-bottom: 35px;
   border: 2px solid #262626;
   background-color: #FFFAEE;
 }
@@ -1446,6 +1458,7 @@ main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .
 main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title {
   font-size: 20px;
   font-weight: normal;
+  font-family: "Gaegu";
 }
 @media (min-width: 1440px) {
   main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .txt-box .desc-title {
@@ -1474,14 +1487,20 @@ main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
+}
+@media (min-width: 1440px) {
+  main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box {
+    margin-top: 0;
+  }
 }
 main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
   width: 45%;
   height: 26px;
   line-height: 26px;
   text-align: center;
-  font-size: 12px;
-  font-family: "Noto Sans KR";
+  font-size: 14px;
+  font-family: "Gaegu";
   border: 1px solid #262626;
   border-radius: 5px;
   color: #262626;
@@ -1491,7 +1510,7 @@ main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .
   main .portfolio .portfolio-desc-box .portfolio-box .img-desc-box .desc-btn-box .btn-box a {
     height: 70px;
     line-height: 70px;
-    font-size: 20px;
+    font-size: 24px;
     border-radius: 10px;
     color: #FEF3DB;
     background-color: #E28787;
@@ -1649,9 +1668,9 @@ main .portfolio .arrow div {
 }
 @media (min-width: 1440px) {
   main .portfolio .arrow div {
-    width: 96px;
-    height: 96px;
-    border-radius: 48px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
   }
 }
 main .portfolio .arrow div img {
@@ -1676,7 +1695,7 @@ main .portfolio .arrow .rt-arrow {
 footer .contact {
   position: relative;
   height: 640px;
-  background: url(../images/image_fx\ \(4\).jpg) no-repeat center;
+  background: url(../images/Reflection_bg.png) no-repeat center top;
   background-size: cover;
 }
 @media (min-width: 1440px) {
@@ -1695,15 +1714,17 @@ footer .contact::before {
   z-index: 1;
   pointer-events: none;
 }
-footer .contact .moon-trees .moon {
-  height: 276px;
+footer .contact .moon {
+  width: 33.3333333333%;
+  padding-top: 70px;
+  margin: 0 auto;
 }
 @media (min-width: 1440px) {
-  footer .contact .moon-trees .moon {
-    height: 330px;
+  footer .contact .moon {
+    width: 385px;
   }
 }
-footer .contact .moon-trees .moon img {
+footer .contact .moon img {
   position: relative;
   top: 120px;
   left: 50%;
@@ -1713,139 +1734,8 @@ footer .contact .moon-trees .moon img {
   box-shadow: 0px 4px 25px 20px rgba(180, 210, 255, 0.12), 0px 4px 55px 30px rgba(105, 167, 192, 0.2), 0px 3px 60px 45px rgba(255, 255, 255, 0.045); /* 흰 빛은 최소화 */
 }
 @media (min-width: 1440px) {
-  footer .contact .moon-trees .moon img {
+  footer .contact .moon img {
     width: 27.7777777778%;
-  }
-}
-footer .contact .moon-trees .tree-box {
-  position: relative;
-  height: 264px;
-  bottom: 0;
-  overflow: hidden;
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box {
-    height: 544px;
-  }
-}
-footer .contact .moon-trees .tree-box ul li:nth-child(3), footer .contact .moon-trees .tree-box ul li:nth-child(4), footer .contact .moon-trees .tree-box ul li:nth-child(5), footer .contact .moon-trees .tree-box ul li:nth-child(8), footer .contact .moon-trees .tree-box ul li:nth-child(9) {
-  display: none;
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box ul li:nth-child(3), footer .contact .moon-trees .tree-box ul li:nth-child(4), footer .contact .moon-trees .tree-box ul li:nth-child(5), footer .contact .moon-trees .tree-box ul li:nth-child(8), footer .contact .moon-trees .tree-box ul li:nth-child(9) {
-    display: block;
-  }
-}
-footer .contact .moon-trees .tree-box ul li img {
-  height: inherit;
-}
-footer .contact .moon-trees .tree-box .left-trees .tree1 {
-  position: absolute;
-  left: -4%;
-  bottom: -15px;
-  width: 33%;
-  height: 200px;
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .left-trees .tree1 {
-    position: absolute;
-    left: -4%;
-    bottom: -15px;
-    width: 247px;
-    height: 427px;
-  }
-}
-footer .contact .moon-trees .tree-box .left-trees .tree2 {
-  position: absolute;
-  left: 15%;
-  bottom: -16px;
-  width: 30%;
-  height: 146px;
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .left-trees .tree2 {
-    position: absolute;
-    left: 6%;
-    bottom: -16px;
-    width: 203px;
-    height: 330px;
-  }
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .left-trees .tree3 {
-    position: absolute;
-    left: 15%;
-    bottom: -16px;
-    width: 169px;
-    height: 298px;
-  }
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .left-trees .tree4 {
-    position: absolute;
-    left: 22%;
-    bottom: -16px;
-    width: 147px;
-    height: 232px;
-  }
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .left-trees .tree5 {
-    position: absolute;
-    left: 28%;
-    bottom: -23px;
-    width: 148px;
-    height: 218px;
-  }
-}
-footer .contact .moon-trees .tree-box .right-trees .tree6 {
-  position: absolute;
-  right: 20%;
-  bottom: -17px;
-  width: 33.6111111111%;
-  height: 202px;
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .right-trees .tree6 {
-    position: absolute;
-    right: 24%;
-    bottom: -35px;
-    width: 212px;
-    height: 340px;
-  }
-}
-footer .contact .moon-trees .tree-box .right-trees .tree7 {
-  position: absolute;
-  right: -3%;
-  bottom: -25px;
-  width: 37.5%;
-  height: 260px;
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .right-trees .tree7 {
-    position: absolute;
-    right: 15%;
-    bottom: -30px;
-    width: 241px;
-    height: 405px;
-  }
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .right-trees .tree8 {
-    position: absolute;
-    right: 6%;
-    bottom: -18px;
-    width: 249px;
-    height: 415px;
-  }
-}
-@media (min-width: 1440px) {
-  footer .contact .moon-trees .tree-box .right-trees .tree9 {
-    position: absolute;
-    right: -4%;
-    bottom: -20px;
-    width: 278px;
-    height: 544px;
   }
 }
 footer .contact .contact-box {
@@ -1853,7 +1743,6 @@ footer .contact .contact-box {
   bottom: 0;
   width: 100%;
   height: 100px;
-  background: url(../images/image_fx\ \(4\)_reverse.png);
   overflow: hidden;
 }
 @media (min-width: 1440px) {
@@ -1875,6 +1764,7 @@ footer .contact .contact-box .contact-txt {
 }
 footer .contact .contact-box .contact-txt .contact-title {
   font-size: 30px;
+  font-family: "Gaegu";
 }
 @media (min-width: 1440px) {
   footer .contact .contact-box .contact-txt .contact-title {
@@ -1883,20 +1773,30 @@ footer .contact .contact-box .contact-txt .contact-title {
   }
 }
 footer .contact .contact-box .contact-txt .reverse-moon {
-  display: none;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  width: 28%;
+  height: 100px;
 }
 @media (min-width: 1440px) {
   footer .contact .contact-box .contact-txt .reverse-moon {
-    display: block;
-    margin-top: 140px;
+    position: absolute;
+    top: 27%;
     width: 340px;
     height: 192px;
   }
 }
 footer .contact .contact-box .contact-txt .reverse-moon img {
   border-radius: 50%;
-  box-shadow: 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 0px 5px 27px 10px rgba(102, 167, 198, 0.25);
+  box-shadow: 0px 4px 10px 20px rgba(255, 255, 255, 0.1), 0px 3px 15px 5px rgba(239, 202, 123, 0.25), 0px 5px 14px 5px rgba(102, 167, 198, 0.25);
   opacity: 0.5;
+}
+@media (min-width: 1440px) {
+  footer .contact .contact-box .contact-txt .reverse-moon img {
+    box-shadow: 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 0px 5px 27px 10px rgba(102, 167, 198, 0.25);
+  }
 }
 footer .contact .contact-box .contact-txt .mail-thanks-box {
   line-height: 1.7;
@@ -1908,7 +1808,6 @@ footer .contact .contact-box .contact-txt .mail-thanks-box {
 }
 footer .contact .contact-box .contact-txt .mail-thanks-box span {
   font-size: 10px;
-  font-family: "Noto Sans KR";
 }
 @media (min-width: 1440px) {
   footer .contact .contact-box .contact-txt .mail-thanks-box span {
