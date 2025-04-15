@@ -241,6 +241,23 @@ window.onload = function() {
 
         
     // 포트폴리오 슬라이드 이벤트
+    // 웹페이지 슬라이드 이벤트
+    const slider1 = document.querySelector(".portfolio-web-pages");
+    const dots = document.querySelectorAll(".dot");
+
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+        const slideIndex = parseInt(dot.dataset.slide);
+        const slideWidth = window.innerWidth;
+        slider1.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
+
+        dots.forEach(d => d.classList.remove("active"));
+        dot.classList.add("active");
+        });
+    });
+
+
+    // 자바스크립트, 디자인 슬라이드 이벤트 
     const portfolioDescBox = document.querySelector('.portfolio-desc-box');
     const leftArrow = document.querySelector('.lf-arrow');
     const rightArrow = document.querySelector('.rt-arrow');

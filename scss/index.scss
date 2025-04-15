@@ -1158,6 +1158,11 @@ main {
                             }
                         }
                     }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                        padding-bottom: 50px;
+                    }
                 }
 
                 .item-hover { // 이벤트시 적용할 스타일 
@@ -1208,9 +1213,9 @@ main {
         background: url(../images/Portfolio_bg.jpg) no-repeat;
         background-size: cover;
 
-        @include responsive(large-screens) {
-            height: 1040px;
-        }
+        // @include responsive(large-screens) {
+        //     height: 1080px;
+        // }
 
         &::before {
             content: '';
@@ -1250,6 +1255,392 @@ main {
                 font-size: 48px;
             }
         }
+
+        .web-title {
+            color: $font-color-sub3;
+            margin-top: 30px;
+        }
+        
+        .portfolio-slider {
+            position: relative;
+            overflow: hidden;
+
+            .desc-box {  // portfolio-web-pages, portfolio-desc-box
+                position: relative;
+                display: flex;  
+                transition: transform 0.5s ease; 
+                width: $width-wide; 
+                padding-bottom: 25px;
+    
+                @include responsive(large-screens) {
+                }
+                
+                .portfolio-box {
+                    width: $width-wide;
+                    min-width: 300px;  
+                    flex-shrink: 0;  
+                    margin-top: 35px;
+                    margin-right: 20px;  
+                    margin-bottom: 35px;
+                    border: 2px solid #262626;
+                    background-color: #FFFAEE;
+        
+                    @include responsive(large-screens) {
+                        height: 750px;
+                        padding: 20px 70px;
+                        background-color: rgba($color: #DCE8EF, $alpha: 0.1);
+                    }
+        
+                    .img-desc-box {
+        
+                        @include responsive(large-screens) {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 25px;
+                        }
+                        
+                        .img-box {
+                            width: 77.77777777777778%; height: 245px;
+                            display: flex; 
+                            align-items: start; 
+                            justify-content: center;
+                            margin: 25px auto;
+                            overflow: hidden;  
+                            cursor: pointer;
+                            
+                            @include responsive(large-screens) {
+                                width: 600px; height: 600px;
+                                margin: 25px 0;
+                            }
+    
+                            img {
+                                position: relative;
+                                height: auto;
+                                margin: auto;
+                                transition: transform 0.3s ease, transform 2.5s ease-in-out;
+                            }
+                        }
+        
+                        .desc-btn-box {
+                            width: 77.77777777777778%;
+                            margin: 25px auto;
+        
+                            @include responsive(large-screens) {
+                                width: 580px; 
+                                margin: 25px 0;
+                                margin-left: 25px;
+                            }
+        
+                            .txt-box {
+                                color: $font-color-sub2;
+                                height: 245px;
+                                
+        
+                                @include responsive(large-screens) {
+                                    height: 530px;
+                                    color: $font-color-sub3;
+                                }
+    
+                                .desc-title,
+                                span,
+                                p {
+                                    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                                }
+                                
+                                .desc-title {
+                                    font-size: 20px;
+                                    font-weight: normal;
+                                    font-family: $font-sub;
+        
+                                    @include responsive(large-screens) {
+                                        font-size: 40px;
+                                    }
+        
+                                    span {
+                                        font-size: 18px;
+        
+                                        @include responsive(large-screens) {
+                                            font-size: 36px;
+                                        }
+                                    }
+                                }
+        
+                                p {
+                                    font-size: 12px;
+                                    margin: 25px 0;
+        
+                                    @include responsive(large-screens) {
+                                        font-size: 20px;
+                                        margin-top: 60px;
+                                    }
+                                }
+                            }
+        
+                            .btn-box {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-top: 20px;
+    
+                                @include responsive(large-screens) {
+                                    margin-top: 0;
+                                }
+                                
+                                a {
+                                    width: 45%; height: 26px;
+                                    line-height: 26px;
+                                    text-align: center;
+                                    font-size: 14px;
+                                    font-family: $font-sub;
+                                    border: 1px solid #262626;
+                                    border-radius: 5px;
+                                    color: $font-color-sub2;
+                                    background-color: #DCE8EF;
+        
+                                    @include responsive(large-screens) {
+                                        height: 70px;
+                                        line-height: 70px;
+                                        font-size: 24px;
+                                        border-radius: 10px;
+                                        color: $font-color-sub3;
+                                        background-color: #E28787;
+                                    }
+        
+                                    &:hover {
+                                        font-weight: bold;
+                                        color: $font-color-sub;
+                                        background-color: #E28787;
+        
+                                        @include responsive(large-screens) {
+                                            color: $font-color-main;
+                                            font-size: 20px;
+                                            background-color: #DCE8EF;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                } // portfolio-box
+            } // desc-box
+
+            .portfolio-web-pages {
+                position: relative;
+                // width: 300%; 
+                width: 100%;
+                transition: transform 0.5s ease-in-out;
+                padding-bottom: 0;
+    
+                .portfolio-box {
+                    flex-shrink: 0;
+                    background-color: rgba($color: #DCE8EF, $alpha: 0.1);
+                    border: 1px solid #FEF3DB;
+
+    
+                    .img-desc-box {
+                        // position: relative;
+                        
+                        // display: flex;
+                        // flex-direction: column; // 기본은 모바일 기준, 세로 배치
+                        // gap: 20px;
+    
+                        // @include responsive(large-screens) {
+                        //     flex-direction: row; // 데스크탑에서는 가로 배치
+                        //     // justify-content: space-between;
+                        //     // align-items: flex-start;
+                        // }
+    
+                        .img-box {
+                            // height: 500px;
+                            // background-color: red;
+                            // display: flex;
+                            // flex-direction: column;
+    
+                            .mobile-img {
+                                display: none;
+                            }
+    
+    
+                        }
+    
+                        .desc-btn-box {
+                            
+                            .txt-box {
+                                color: $font-color-sub3;
+                            }
+                        }
+                    }
+
+                    &:nth-child(1) {
+                    
+                        .desc-btn-box {
+    
+                            .txt-box {
+    
+                                p {
+                                    margin: 15px 0;
+                                    line-height: 1.6;
+    
+                                    @include responsive(large-screens) {
+                                        margin: 25px 0;
+                                        line-height: 2;
+                                    }
+    
+                                    span {
+                                        color: #bb8ae9;
+    
+                                        @include responsive(large-screens) {
+                                            color: #FBB92F;
+                                        }
+                                    }
+                                }
+                            }
+    
+                            .btn-box {
+    
+                                a {
+                                    width: 22.77777777777778%;
+    
+                                    @include responsive(large-screens) {
+                                        width: 150px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } // portfolio-web-pages
+
+            .slider-dots {
+                text-align: center;
+                
+
+                @include responsive(large-screens) {
+                    margin-top: 1rem;
+                }
+
+                .dot {
+                    font-size: 1.2rem;
+                    color: #aaa;
+                    cursor: pointer;
+                    margin: 0 0.3rem;
+
+                    &.active {
+                        color: #FFF;
+                    }
+                }
+            }
+
+            .portfolio-desc-box {
+
+                .portfolio-box {
+
+                    &:nth-child(1) {
+
+                        .img-box {
+    
+                            img {
+    
+                                &:hover {
+                                    transform: translateY(-57%);
+    
+                                    @include responsive(large-screens) {
+                                        transform: translateY(-55%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+    
+                    &:nth-child(3),
+                    &:nth-child(4),
+                    &:nth-child(5) {
+    
+                        .desc-btn-box {
+    
+                            .btn-box {
+    
+                                a {
+                                    width: $width-wide;
+                                }
+                            }
+                        }
+                    }
+    
+                    &:nth-child(3) {
+    
+                        .img-box {
+                            position: relative;
+                            background-color: rgba($color: #FEF3DB, $alpha: 0.9);
+    
+                            img {
+    
+                                &:nth-child(1) {
+                                    z-index: 1;
+                                }
+    
+                                &:nth-child(2) {
+                                    position: absolute;
+                                    width: 350px; height: 350px;
+                                    left: -7%; top: -5%;
+                                    transform: rotate(-15deg);
+                                }
+    
+                                &:nth-child(3) {
+                                    position: absolute;
+                                    width: 500px; height: 500px;
+                                    right: -17%; bottom: -13%;
+                                    transform: rotate(10deg);
+                                }
+                            }
+                        }
+                    }
+    
+                    &:nth-child(4) {
+    
+                        .img-box {
+                            background-color: #efeaec;
+                        }
+                    }
+    
+                    &:nth-child(5) {
+    
+                        .img-box {
+                            background-color: #FFF;
+                        }
+                    }
+    
+                    .modal-container {
+                        position: fixed;
+                        left: 0; top: 0;
+                        width: $width-wide; height: 100%;
+                        background-color: rgba(38, 38, 38, 0.8); 
+                        z-index: 12;
+                        opacity: 0; 
+                        visibility: hidden;
+                        transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+                        .modal {
+                            position: absolute;
+                            top: 50%; left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 80%; height: 80%;
+                            z-index: 13;
+    
+                            @include responsive(large-screens) {
+                                width: 60%; height: 60%;
+                            }
+                        }
+                    }
+    
+                    .modal-container-show { // 모달 컨테이너 이벤트
+                        opacity: 1; 
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
 
         .category-buttons {
             width: $width-wide;
@@ -1296,350 +1687,6 @@ main {
             }
         }
 
-        .portfolio-desc-box {
-            position: relative;
-            display: flex;  
-            transition: transform 0.5s ease; 
-            width: $width-wide; 
-
-            .portfolio-box {
-                width: $width-wide;
-                min-width: 300px;  
-                margin-right: 20px;  
-                flex-shrink: 0;  
-                margin-top: 35px;
-                margin-bottom: 35px;
-                border: 2px solid #262626;
-                background-color: #FFFAEE;
-    
-                @include responsive(large-screens) {
-                    height: 750px;
-                    padding: 20px 70px;
-                    background-color: rgba($color: #DCE8EF, $alpha: 0.1);
-                }
-    
-                .img-desc-box {
-    
-                    @include responsive(large-screens) {
-                        display: flex;
-                        justify-content: space-between;
-                        margin-top: 25px;
-                    }
-                    
-                    .img-box {
-                        width: 77.77777777777778%; height: 245px;
-                        display: flex; 
-                        align-items: start; 
-                        justify-content: center;
-                        margin: 25px auto;
-                        overflow: hidden;  
-                        cursor: pointer;
-                        
-                        @include responsive(large-screens) {
-                            width: 600px; height: 600px;
-                            margin: 25px 0;
-                        }
-
-                        img {
-                            position: relative;
-                            height: auto;
-                            margin: auto;
-                            transition: transform 0.3s ease, transform 2.5s ease-in-out;
-                        }
-                    }
-    
-                    .desc-btn-box {
-                        width: 77.77777777777778%;
-                        margin: 25px auto;
-    
-                        @include responsive(large-screens) {
-                            width: 580px; 
-                            margin: 25px 0;
-                            margin-left: 25px;
-                        }
-    
-                        .txt-box {
-                            color: $font-color-sub2;
-                            height: 245px;
-                            
-    
-                            @include responsive(large-screens) {
-                                height: 530px;
-                                color: $font-color-sub3;
-                            }
-
-                            .desc-title,
-                            span,
-                            p {
-                                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-                            }
-                            
-                            .desc-title {
-                                font-size: 20px;
-                                font-weight: normal;
-                                font-family: $font-sub;
-    
-                                @include responsive(large-screens) {
-                                    font-size: 40px;
-                                }
-    
-                                span {
-                                    font-size: 18px;
-    
-                                    @include responsive(large-screens) {
-                                        font-size: 36px;
-                                    }
-                                }
-                            }
-    
-                            p {
-                                font-size: 12px;
-                                margin: 25px 0;
-    
-                                @include responsive(large-screens) {
-                                    font-size: 20px;
-                                    margin-top: 60px;
-                                }
-                            }
-                        }
-    
-                        .btn-box {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            margin-top: 20px;
-
-                            @include responsive(large-screens) {
-                                margin-top: 0;
-                            }
-                            
-                            a {
-                                width: 45%; height: 26px;
-                                line-height: 26px;
-                                text-align: center;
-                                font-size: 14px;
-                                font-family: $font-sub;
-                                border: 1px solid #262626;
-                                border-radius: 5px;
-                                color: $font-color-sub2;
-                                background-color: #DCE8EF;
-    
-                                @include responsive(large-screens) {
-                                    height: 70px;
-                                    line-height: 70px;
-                                    font-size: 24px;
-                                    border-radius: 10px;
-                                    color: $font-color-sub3;
-                                    background-color: #E28787;
-                                }
-    
-                                &:hover {
-                                    font-weight: bold;
-                                    color: $font-color-sub;
-                                    background-color: #E28787;
-    
-                                    @include responsive(large-screens) {
-                                        color: $font-color-main;
-                                        font-size: 20px;
-                                        background-color: #DCE8EF;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } 
-
-                &:nth-child(1) {
-
-                    .img-box {
-
-                        img {
-                            &:hover {
-                                transform: translateY(-65%);
-
-                                @include responsive(large-screens) {
-                                    transform: translateY(-62%);
-                                }
-                            }
-                        }
-                    }
-
-                    .desc-btn-box {
-
-                        .txt-box {
-
-                            p {
-                                margin: 15px 0;
-                                line-height: 1.6;
-
-                                @include responsive(large-screens) {
-                                    margin: 25px 0;
-                                    line-height: 2;
-                                }
-
-                                span {
-                                    color: #bb8ae9;
-
-                                    @include responsive(large-screens) {
-                                        color: #FBB92F;
-                                    }
-                                }
-                            }
-                        }
-
-                        .btn-box {
-
-                            a {
-                                width: 22.77777777777778%;
-
-                                @include responsive(large-screens) {
-                                    width: 150px;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(2) {
-
-                    .img-box {
-
-                        img {
-
-                            &:hover {
-                                transform: translateY(-55%);
-
-                                @include responsive(large-screens) {
-                                    transform: translateY(-52%);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(3) {
-
-                    .img-box {
-
-                        img {
-
-                            &:hover {
-                                transform: translateY(-76%);
-
-                                @include responsive(large-screens) {
-                                    transform: translateY(-75%);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(4) {
-
-                    .img-box {
-
-                        img {
-
-                            &:hover {
-                                transform: translateY(-57%);
-
-                                @include responsive(large-screens) {
-                                    transform: translateY(-55%);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(6),
-                &:nth-child(7),
-                &:nth-child(8) {
-
-                    .desc-btn-box {
-
-                        .btn-box {
-
-                            a {
-                                width: $width-wide;
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(6) {
-
-                    .img-box {
-                        position: relative;
-                        background-color: rgba($color: #FEF3DB, $alpha: 0.9);
-
-                        img {
-
-                            &:nth-child(1) {
-                                z-index: 1;
-                            }
-
-                            &:nth-child(2) {
-                                position: absolute;
-                                width: 350px; height: 350px;
-                                left: -7%; top: -5%;
-                                transform: rotate(-15deg);
-                            }
-
-                            &:nth-child(3) {
-                                position: absolute;
-                                width: 500px; height: 500px;
-                                right: -17%; bottom: -13%;
-                                transform: rotate(10deg);
-                            }
-                        }
-                    }
-                }
-
-                &:nth-child(7) {
-
-                    .img-box {
-                        background-color: #efeaec;
-                    }
-                }
-
-                &:nth-child(8) {
-
-                    .img-box {
-                        background-color: #FFF;
-                    }
-                }
-
-                .modal-container {
-                    position: fixed;
-                    left: 0; top: 0;
-                    width: $width-wide; height: 100%;
-                    background-color: rgba(38, 38, 38, 0.8); 
-                    z-index: 12;
-                    opacity: 0; 
-                    visibility: hidden;
-                    transition: opacity 0.3s ease, visibility 0.3s ease;
-
-                    .modal {
-                        position: absolute;
-                        top: 50%; left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 80%; height: 80%;
-                        z-index: 13;
-
-                        @include responsive(large-screens) {
-                            width: 60%; height: 60%;
-                        }
-                    }
-                }
-
-                .modal-container-show { // 모달 컨테이너 이벤트
-                    opacity: 1; 
-                    visibility: visible;
-                }
-            } // portfolio-box
-        } // portfolio-desc-box
-
-
         .arrow {
 
             @include responsive(large-screens) {
@@ -1648,11 +1695,9 @@ main {
                 cursor: pointer;
             }
             
-
             div { // lf-arrow, rt-arrow
                 position: absolute;
-                top: 60%;
-                transform: translateY(-60%);
+                bottom: 20%;
                 width: 46px; height: 46px;
                 border-radius: 23px;
                 background-color: rgba($color: #A286BA, $alpha: 0.7);
@@ -1717,36 +1762,45 @@ footer {
             pointer-events: none;
         }
 
+        .moon-box {
+            padding-top: 70px;
+        }
+
         .moon {
             width: 33.33333333333333%; 
-            padding-top: 70px;
             margin: 0 auto;
+
+            border-radius: 50%;
+            box-shadow:  
+                0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
+                0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
+                0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
 
             @include responsive(large-screens) {
                 width: 385px
             }
 
-            img {
-                position: relative;
-                top: 120px; left: 50%;
-                transform: translateX(-50%);
-                width: 32.77777777777778%;
-                border-radius: 50%;
+            // img {
+            //     position: relative;
+            //     top: 120px; left: 50%;
+            //     transform: translateX(-50%);
+            //     width: 32.77777777777778%;
+            //     border-radius: 50%;
     
-                // box-shadow:  
-                // 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
-                // 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
-                // 0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
+            //     // box-shadow:  
+            //     // 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
+            //     // 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
+            //     // 0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
 
-                box-shadow:  
-                0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
-                0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
-                0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
+            //     box-shadow:  
+            //     0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
+            //     0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
+            //     0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
 
-                @include responsive(large-screens) {
-                    width: 27.77777777777778%;
-                }
-            }
+            //     @include responsive(large-screens) {
+            //         width: 27.77777777777778%;
+            //     }
+            // }
         }
 
         .contact-box {
@@ -1794,17 +1848,28 @@ footer {
 
                     img {
                         border-radius: 50%;
+
+                        // box-shadow:  
+                        // 0px 4px 10px 20px rgba(255, 255, 255, 0.1), 
+                        // 0px 3px 15px 5px rgba(239, 202, 123, 0.25), 
+                        // 0px 5px 14px 5px rgba(102, 167, 198, 0.25); 
+
                         box-shadow:  
-                        0px 4px 10px 20px rgba(255, 255, 255, 0.1), 
-                        0px 3px 15px 5px rgba(239, 202, 123, 0.25), 
-                        0px 5px 14px 5px rgba(102, 167, 198, 0.25); 
+                        0px 4px 10px 20px rgba(180, 210, 255, 0.12),  
+                        0px 3px 15px 10px rgba(105, 167, 192, 0.2),
+                        0px 5px 14px 10px rgba(255, 255, 255, 0.045);
                         opacity: 0.5;
 
                         @include responsive(large-screens) {
                             box-shadow:  
-                        0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
-                        0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
-                        0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
+                            0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
+                            0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
+                            0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
+
+                            box-shadow:  
+                            0px 4px 20px 30px rgba(180, 210, 255, 0.12),  
+                            0px 3px 30px 18px rgba(105, 167, 192, 0.2),
+                            0px 5px 27px 17px rgba(255, 255, 255, 0.045);
                         }
                     }
                 }
