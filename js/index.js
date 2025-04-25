@@ -41,11 +41,13 @@ window.onload = function() {
     mobileMenuToggle();
 
     window.addEventListener('resize', function() {
+        const mobileBtn = document.getElementsByClassName('mobile-btn')[0];
         const menuBox = document.getElementsByClassName('mainmenu')[0];
         // PC 화면 크기일 경우 메뉴가 항상 보이도록 설정
         if (window.innerWidth >= 1440) { 
             menuBox.style.display = 'block'; // 메뉴가 항상 보이도록 설정
             menuBox.classList.remove('active');
+            mobileBtn.classList.remove('close');
         } else {
             menuBox.style.display = 'none';
         }
@@ -258,12 +260,12 @@ window.onload = function() {
 
 
     // 자바스크립트, 디자인 슬라이드 이벤트 
-    const portfolioDescBox = document.querySelector('.portfolio-desc-box');
+    const portfolioDescBox = document.querySelector('.slider2 .desc-box');
     const leftArrow = document.querySelector('.lf-arrow');
     const rightArrow = document.querySelector('.rt-arrow');
 
     let currentIndex = 0; 
-    const totalSlides = document.querySelectorAll('.portfolio-box').length; 
+    const totalSlides = document.querySelectorAll('.port2').length; 
 
     let slideIntervalId; 
 
@@ -277,7 +279,7 @@ window.onload = function() {
             currentIndex = index;
         }
 
-        const offset = -currentIndex * (document.querySelector('.portfolio-box').offsetWidth + 20); 
+        const offset = -currentIndex * (document.querySelector('.port2').offsetWidth + 20); 
         portfolioDescBox.style.transition = 'transform 0.5s ease';  
         portfolioDescBox.style.transform = `translateX(${offset}px)`;
     }
@@ -355,8 +357,8 @@ window.onload = function() {
                 modalContainer.addEventListener('click', (e) => {
                     if (e.target === modalContainer) {
                         modalContainer.classList.remove('modal-container-show');
-                        startAutoSlide();
                     }
+                    startAutoSlide();
                 });
                 
                 modalContainer.style.cursor = 'pointer';
@@ -388,8 +390,8 @@ window.onload = function() {
 // 카테고리 버튼 이벤트 
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.category-btn');
-    const portfolioContainer = document.querySelector('.portfolio-desc-box');
-    const portfolioBoxes = document.querySelectorAll('.portfolio-box');
+    const portfolioContainer = document.querySelector('.slider2 .desc-box');
+    const portfolioBoxes = document.querySelectorAll('.port2');
     console.log(buttons);
 
     buttons.forEach(button => {

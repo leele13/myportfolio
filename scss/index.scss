@@ -1210,8 +1210,13 @@ main {
         position: relative;
         width: $width-wide;
         overflow: hidden;  
-        background: url(../images/Portfolio_bg.jpg) no-repeat;
-        background-size: cover;
+        // background: url(../images/Portfolio_bg.jpg) no-repeat;
+        // background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+
+        background: url(../images/star7.png)repeat center,
+        linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+
+        // background-size: cover;
 
         // @include responsive(large-screens) {
         //     height: 1080px;
@@ -1552,9 +1557,9 @@ main {
                         }
                     }
     
-                    &:nth-child(3),
                     &:nth-child(4),
-                    &:nth-child(5) {
+                    &:nth-child(5),
+                    &:nth-child(6) {
     
                         .desc-btn-box {
     
@@ -1567,7 +1572,7 @@ main {
                         }
                     }
     
-                    &:nth-child(3) {
+                    &:nth-child(4) {
     
                         .img-box {
                             position: relative;
@@ -1596,14 +1601,14 @@ main {
                         }
                     }
     
-                    &:nth-child(4) {
+                    &:nth-child(5) {
     
                         .img-box {
                             background-color: #efeaec;
                         }
                     }
     
-                    &:nth-child(5) {
+                    &:nth-child(6) {
     
                         .img-box {
                             background-color: #FFF;
