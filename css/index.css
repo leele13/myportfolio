@@ -1095,10 +1095,66 @@ main .skill .circle-container .circle-wrapper .circle-style p {
   padding: 20px;
   color: #262626;
 }
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes counter-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 main .skill .circle-container .icon-list {
   padding: 0 50px;
 }
-main .skill .circle-container .icon-list .item {
+main .skill .circle-container .icon-list li {
+  position: relative;
+}
+@media (min-width: 1440px) {
+  main .skill .circle-container .icon-list li {
+    left: -4.5%;
+    top: 240px;
+    background-color: yellow;
+  }
+}
+main .skill .circle-container .icon-list li:nth-child(1) {
+  transform: rotate(0deg) translate(300px) rotate(0deg);
+}
+main .skill .circle-container .icon-list li:nth-child(2) {
+  transform: rotate(36deg) translate(300px) rotate(-36deg);
+}
+main .skill .circle-container .icon-list li:nth-child(3) {
+  transform: rotate(72deg) translate(300px) rotate(-72deg);
+}
+main .skill .circle-container .icon-list li:nth-child(4) {
+  transform: rotate(108deg) translate(300px) rotate(-108deg);
+}
+main .skill .circle-container .icon-list li:nth-child(5) {
+  transform: rotate(144deg) translate(300px) rotate(-144deg);
+}
+main .skill .circle-container .icon-list li:nth-child(6) {
+  transform: rotate(180deg) translate(300px) rotate(-180deg);
+}
+main .skill .circle-container .icon-list li:nth-child(7) {
+  transform: rotate(216deg) translate(300px) rotate(-216deg);
+}
+main .skill .circle-container .icon-list li:nth-child(8) {
+  transform: rotate(252deg) translate(300px) rotate(-252deg);
+}
+main .skill .circle-container .icon-list li:nth-child(9) {
+  transform: rotate(288deg) translate(300px) rotate(-288deg);
+}
+main .skill .circle-container .icon-list li:nth-child(10) {
+  transform: rotate(324deg) translate(300px) rotate(-324deg);
+}
+main .skill .circle-container .icon-list li .item {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1111,53 +1167,26 @@ main .skill .circle-container .icon-list .item {
   cursor: pointer;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item {
+  main .skill .circle-container .icon-list li .item {
     position: absolute;
-    left: calc(50% - 75px);
-    top: 42.5%;
-    transform: translateX(-50%);
+    left: 50%;
+    top: 50%;
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transform-origin: center center;
   }
-  main .skill .circle-container .icon-list .item:nth-child(1) {
-    transform: rotate(0deg) translate(300px) rotate(0deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(2) {
-    transform: rotate(36deg) translate(300px) rotate(-36deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(3) {
-    transform: rotate(72deg) translate(300px) rotate(-72deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(4) {
-    transform: rotate(108deg) translate(300px) rotate(-108deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(5) {
-    transform: rotate(144deg) translate(300px) rotate(-144deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(6) {
-    transform: rotate(180deg) translate(300px) rotate(-180deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(7) {
-    transform: rotate(216deg) translate(300px) rotate(-216deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(8) {
-    transform: rotate(252deg) translate(300px) rotate(-252deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(9) {
-    transform: rotate(288deg) translate(300px) rotate(-288deg);
-  }
-  main .skill .circle-container .icon-list .item:nth-child(10) {
-    transform: rotate(324deg) translate(300px) rotate(-324deg);
-  }
 }
-main .skill .circle-container .icon-list .item .icon {
+main .skill .circle-container .icon-list li .item .icon {
   width: 50px;
   height: 50px;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item .icon {
+  main .skill .circle-container .icon-list li .item .icon {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1167,17 +1196,17 @@ main .skill .circle-container .icon-list .item .icon {
     z-index: 3;
   }
 }
-main .skill .circle-container .icon-list .item p {
+main .skill .circle-container .icon-list li .item p {
   font-size: 14px;
   color: #FEF3DB;
   border-radius: 5px;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item p {
+  main .skill .circle-container .icon-list li .item p {
     display: none;
   }
 }
-main .skill .circle-container .icon-list .item .gauge {
+main .skill .circle-container .icon-list li .item .gauge {
   position: relative;
   width: 100%;
   height: 14px;
@@ -1185,7 +1214,7 @@ main .skill .circle-container .icon-list .item .gauge {
   border-radius: 7px;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item .gauge {
+  main .skill .circle-container .icon-list li .item .gauge {
     width: 165px;
     height: 165px;
     display: flex;
@@ -1195,7 +1224,7 @@ main .skill .circle-container .icon-list .item .gauge {
     z-index: 0;
   }
 }
-main .skill .circle-container .icon-list .item .gauge .gauge-txt {
+main .skill .circle-container .icon-list li .item .gauge .gauge-txt {
   position: absolute;
   left: 0;
   top: -2px;
@@ -1210,16 +1239,16 @@ main .skill .circle-container .icon-list .item .gauge .gauge-txt {
   transition: width 0.5s ease-in;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item .gauge .gauge-txt {
+  main .skill .circle-container .icon-list li .item .gauge .gauge-txt {
     background: none;
     display: none;
   }
 }
-main .skill .circle-container .icon-list .item .progress-circle {
+main .skill .circle-container .icon-list li .item .progress-circle {
   display: none;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item .progress-circle {
+  main .skill .circle-container .icon-list li .item .progress-circle {
     position: absolute;
     top: -3px;
     left: -3px;
@@ -1232,13 +1261,13 @@ main .skill .circle-container .icon-list .item .progress-circle {
   }
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item .progress-circle svg {
+  main .skill .circle-container .icon-list li .item .progress-circle svg {
     width: 100%;
     height: 100%;
   }
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item .progress-circle svg circle {
+  main .skill .circle-container .icon-list li .item .progress-circle svg circle {
     fill: none;
     stroke: url(#gradient);
     stroke-width: 5;
@@ -1247,16 +1276,16 @@ main .skill .circle-container .icon-list .item .progress-circle {
     transition: stroke-dashoffset 0.5s ease-in;
   }
 }
-main .skill .circle-container .icon-list .item:last-child {
+main .skill .circle-container .icon-list li .item:last-child {
   margin-bottom: 0;
   padding-bottom: 50px;
 }
-main .skill .circle-container .icon-list .item-hover {
+main .skill .circle-container .icon-list li .item-hover {
   background-color: rgba(220, 232, 239, 0.1);
   transition: background-color 0.3s ease;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list .item-style span.item-data {
+  main .skill .circle-container .icon-list li .item-style span.item-data {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -1288,7 +1317,7 @@ main .portfolio {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: url(../images/star7.png) repeat center, linear-gradient(#3D3344, #896EA1 50%, #262626);
+  background: url(../images/star7.png) repeat center, linear-gradient(to bottom, #141c2e 0%, #2d2c47 50%, #3b3552 85%, #1a1a2d 100%);
 }
 main .portfolio::before {
   content: "";

@@ -1012,7 +1012,7 @@ main {
                     }
                 }
 
-                .circle-style {
+                .circle-style { 
                     position: relative;
 
                     p {
@@ -1030,164 +1030,225 @@ main {
                 }
             }
 
+            @keyframes rotate-circle {
+                0%   { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              };
+            @keyframes counter-rotate {
+                0%   { transform: rotate(0deg); }
+                100% { transform: rotate(-360deg); }
+              };
+            
             .icon-list {
                 padding: 0 50px;
 
-                .item {
-                    position: relative; 
-                    display: grid;
-                    grid-template-columns: auto 1fr; 
-                    grid-template-rows: auto auto;
-                    grid-gap: 10px 10px;
-                    align-items: center;
-                    margin-bottom: 25px;
-                    border-radius: 14px;
-                    z-index: 1;
-                    cursor: pointer;
+                li {
+                    position: relative;
 
                     @include responsive(large-screens) {
-                        position: absolute;
-                        left: calc(50% - 75px);
-                        top: 42.5%;
-                        transform: translateX(-50%);
-                        width: 150px; height: 150px;
-                        border-radius: 50%;      
-                        transform-origin: center center; 
+                        // animation: rotate-circle 20s linear infinite;
 
-                            &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
-                            &:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); }
-                            &:nth-child(3) { transform: rotate(72deg) translate(300px) rotate(-72deg); }
-                            &:nth-child(4) { transform: rotate(108deg) translate(300px) rotate(-108deg); }
-                            &:nth-child(5) { transform: rotate(144deg) translate(300px) rotate(-144deg); }
-                            &:nth-child(6) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
-                            &:nth-child(7) { transform: rotate(216deg) translate(300px) rotate(-216deg); }
-                            &:nth-child(8) { transform: rotate(252deg) translate(300px) rotate(-252deg); }
-                            &:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); }
-                            &:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); }
+                        left: -4.5%;
+                        top: 240px;
+                        background-color: yellow;
                     }
 
-                    .icon {
-                        width: 50px; height: 50px;
-                        
+                    @for $i from 1 through 10 {
+                        &:nth-child(#{$i}) {
+                          $angle: ($i - 1) * 36deg;
+                          transform: rotate($angle) translate(300px) rotate(-$angle);
+                        }
+                      }; 
+                    
+
+                    .item {
+                        position: relative; 
+                        display: grid;
+                        grid-template-columns: auto 1fr; 
+                        grid-template-rows: auto auto;
+                        grid-gap: 10px 10px;
+                        align-items: center;
+                        margin-bottom: 25px;
+                        border-radius: 14px;
+                        z-index: 1;
+                        cursor: pointer;
+    
                         @include responsive(large-screens) {
                             position: absolute;
-                            left: 50%; top: 50%;
-                            transform: translate(-50%, -50%);
-                            width: 90px; height: 90px;
-                            z-index: 3;
+        left: 50%;
+        top: 50%;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform-origin: center center;
+        // padding: 10px;
+
+        
+
+            //   animation: counter-rotate 20s linear infinite;
+
+                            // position: absolute;
+                            // left: calc(50% - 75px);
+                            // top: 42.5%;
+                            // transform: translateX(-50%);
+                            // width: 150px; height: 150px;
+                            // border-radius: 50%;      
+                            // transform-origin: center center; 
+    
+                            
+    
+                            // @for $i from 1 through 10 {
+                            //     &:nth-child(#{$i}) {
+                            //       $angle: ($i - 1) * 36deg;
+                            //       transform: rotate($angle) translate(300px) rotate(-$angle);
+                            //     }
+                            //   }; 
+    
+                            //   animation: counter-rotate 20s linear infinite;
+    
+                              
+    
+    
+                                // &:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); }
+                                // &:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); }
+                                // &:nth-child(3) { transform: rotate(72deg) translate(300px) rotate(-72deg); }
+                                // &:nth-child(4) { transform: rotate(108deg) translate(300px) rotate(-108deg); }
+                                // &:nth-child(5) { transform: rotate(144deg) translate(300px) rotate(-144deg); }
+                                // &:nth-child(6) { transform: rotate(180deg) translate(300px) rotate(-180deg); }
+                                // &:nth-child(7) { transform: rotate(216deg) translate(300px) rotate(-216deg); }
+                                // &:nth-child(8) { transform: rotate(252deg) translate(300px) rotate(-252deg); }
+                                // &:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); }
+                                // &:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); }
                         }
-                    }
-
-                    p {
-                        font-size: 14px;
-                        color: $font-color-sub3;
-                        border-radius: 5px;
-
-                        @include responsive(large-screens) {
-                            display: none;  
+    
+                        .icon {
+                            width: 50px; height: 50px;
+                            
+                            @include responsive(large-screens) {
+                                position: absolute;
+                                left: 50%; top: 50%;
+                                transform: translate(-50%, -50%);
+                                width: 90px; height: 90px;
+                                z-index: 3;
+                            }
                         }
-                    }
-
-                    .gauge {
-                        position: relative;
-                        width: $width-wide;
-                        height: 14px;
-                        grid-column: 1 / -1; 
-                        border-radius: 7px;
-
-                        @include responsive(large-screens) {
-                            width: 165px; height: 165px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            border-radius: 50%;  
-                            z-index: 0;
+    
+                        p {
+                            font-size: 14px;
+                            color: $font-color-sub3;
+                            border-radius: 5px;
+    
+                            @include responsive(large-screens) {
+                                display: none;  
+                            }
                         }
-
-                        .gauge-txt {
-                            position: absolute;
-                            left: 0; top: -2px;
-                            height: 100%;
-                            font-size: 12px;
-                            font-weight: bold;
-                            line-height: 14px;
-                            padding-left: 15px;
+    
+                        .gauge {
+                            position: relative;
+                            width: $width-wide;
+                            height: 14px;
+                            grid-column: 1 / -1; 
                             border-radius: 7px;
-                            opacity: 0;
-                            background: linear-gradient(to right, #FFF200 20%, #FBB92F 50%, #FA9F45);
-                            transition: width 0.5s ease-in;
-
+    
                             @include responsive(large-screens) {
-                                background: none;
-                                display: none;
+                                width: 165px; height: 165px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border-radius: 50%;  
+                                z-index: 0;
                             }
-                        }
-                    }
-
-                    .progress-circle {
-                        display: none;
-
-                        @include responsive(large-screens) {                            
-                            position: absolute;
-                            top: -3px; 
-                            left: -3px; 
-                            width: calc($width-wide + 6px); 
-                            height: calc($width-wide + 6px); 
-                            display: block; 
-                            border-radius: 50%;
-                            overflow: hidden;
-                            z-index: 0; 
-                        }
-
-                        svg {
-                            @include responsive(large-screens) {
-                                width: 100%;
-                                height: 100%;                            
-                            }
-
-                            circle {
-
-                                @include responsive(large-screens) {                            
-                                    fill: none;
-                                    stroke: url(#gradient);
-                                    stroke-width: 5;
-                                    stroke-dasharray: 283; 
-                                    stroke-dashoffset: 283; 
-                                    transition: stroke-dashoffset 0.5s ease-in; 
+    
+                            .gauge-txt {
+                                position: absolute;
+                                left: 0; top: -2px;
+                                height: 100%;
+                                font-size: 12px;
+                                font-weight: bold;
+                                line-height: 14px;
+                                padding-left: 15px;
+                                border-radius: 7px;
+                                opacity: 0;
+                                background: linear-gradient(to right, #FFF200 20%, #FBB92F 50%, #FA9F45);
+                                transition: width 0.5s ease-in;
+    
+                                @include responsive(large-screens) {
+                                    background: none;
+                                    display: none;
                                 }
                             }
                         }
+    
+                        .progress-circle {
+                            display: none;
+    
+                            @include responsive(large-screens) {                            
+                                position: absolute;
+                                top: -3px; 
+                                left: -3px; 
+                                width: calc($width-wide + 6px); 
+                                height: calc($width-wide + 6px); 
+                                display: block; 
+                                border-radius: 50%;
+                                overflow: hidden;
+                                z-index: 0; 
+                            }
+    
+                            svg {
+                                @include responsive(large-screens) {
+                                    width: 100%;
+                                    height: 100%;                            
+                                }
+    
+                                circle {
+    
+                                    @include responsive(large-screens) {                            
+                                        fill: none;
+                                        stroke: url(#gradient);
+                                        stroke-width: 5;
+                                        stroke-dasharray: 283; 
+                                        stroke-dashoffset: 283; 
+                                        transition: stroke-dashoffset 0.5s ease-in; 
+                                    }
+                                }
+                            }
+                        }
+    
+                        &:last-child {
+                            margin-bottom: 0;
+                            padding-bottom: 50px;
+                        }
                     }
-
-                    &:last-child {
-                        margin-bottom: 0;
-                        padding-bottom: 50px;
+    
+                    .item-hover { // 이벤트시 적용할 스타일 
+                        background-color: rgba(220, 232, 239, 0.1); 
+                        transition: background-color 0.3s ease; 
+                    }
+    
+                    .item-style { // 이벤트시 적용할 스타일 
+    
+                        span.item-data {
+    
+                            @include responsive(large-screens) {                            
+                                position: absolute;
+                                left: 10px; top: 10px;
+                                width: 130px; height: 130px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 35px;
+                                border-radius: 50%;  
+                                color: $font-color-sub3;
+                                background-color: rgba($color: #3D3344, $alpha: 0.9);
+                            }                        
+                        }
                     }
                 }
 
-                .item-hover { // 이벤트시 적용할 스타일 
-                    background-color: rgba(220, 232, 239, 0.1); 
-                    transition: background-color 0.3s ease; 
-                }
-
-                .item-style { // 이벤트시 적용할 스타일 
-
-                    span.item-data {
-
-                        @include responsive(large-screens) {                            
-                            position: absolute;
-                            left: 10px; top: 10px;
-                            width: 130px; height: 130px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 35px;
-                            border-radius: 50%;  
-                            color: $font-color-sub3;
-                            background-color: rgba($color: #3D3344, $alpha: 0.9);
-                        }                        
-                    }
-                }
             }
 
             .progress-svg {
@@ -1214,7 +1275,14 @@ main {
         // background: linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
 
         background: url(../images/star7.png)repeat center,
-        linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
+        linear-gradient(to bottom, 
+    #141c2e 0%,         
+    #2d2c47 50%,        
+    #3b3552 85%,        
+    #1a1a2d 100%        );
+        // linear-gradient(to bottom, #141c2e 0%, #2d2c47 50%, #4b4565 100%);
+        // linear-gradient(to bottom, #1a0836 0%, #3e275d 50%, #574170 100%);
+        // linear-gradient($portfolio-bg-color1, $portfolio-bg-color2 50%, $portfolio-bg-color3);
 
         // background-size: cover;
 
