@@ -625,9 +625,9 @@ main .about-me::after {
   position: absolute;
   bottom: -2px;
   left: 0;
-  height: 100px; /* 부드럽게 넘어가는 높이 */
+  height: 100px;
   width: 100%;
-  background: linear-gradient(to bottom, transparent, #1b0025); /* Skill 배경색 or 톤 맞추기 */
+  background: linear-gradient(to bottom, transparent, #1b0025);
   z-index: 1;
   pointer-events: none;
 }
@@ -1055,46 +1055,6 @@ main .skill .skill-title {
     font-size: 48px;
   }
 }
-main .skill .circle-container .circle-wrapper {
-  display: none;
-}
-@media (min-width: 1440px) {
-  main .skill .circle-container .circle-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    height: 400px;
-    display: block;
-  }
-}
-@media (min-width: 1440px) {
-  main .skill .circle-container .circle-wrapper .circle {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border-radius: 200px;
-    background-color: #DCE8EF;
-  }
-}
-main .skill .circle-container .circle-wrapper .circle-style {
-  position: relative;
-}
-main .skill .circle-container .circle-wrapper .circle-style p {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 350px;
-  height: 350px;
-  border-radius: 170px;
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  padding: 20px;
-  color: #262626;
-}
 @keyframes rotate-circle {
   0% {
     transform: rotate(0deg);
@@ -1111,66 +1071,145 @@ main .skill .circle-container .circle-wrapper .circle-style p {
     transform: rotate(-360deg);
   }
 }
-main .skill .circle-container .icon-list {
-  padding: 0 50px;
-}
-main .skill .circle-container .icon-list li {
-  position: relative;
-}
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li {
-    left: -4.5%;
-    top: 240px;
-    background-color: yellow;
+  main .skill .circle-container .circle-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    display: block;
   }
 }
-main .skill .circle-container .icon-list li:nth-child(1) {
-  transform: rotate(0deg) translate(300px) rotate(0deg);
+@media (min-width: 1440px) {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper {
+    animation: rotate-circle 20s linear infinite;
+    width: 700px;
+    height: 700px;
+  }
 }
-main .skill .circle-container .icon-list li:nth-child(2) {
-  transform: rotate(36deg) translate(300px) rotate(-36deg);
+@media (min-width: 1440px) {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .circle-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+  }
 }
-main .skill .circle-container .icon-list li:nth-child(3) {
-  transform: rotate(72deg) translate(300px) rotate(-72deg);
+@media (min-width: 1440px) {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .circle-box .circle {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 200px;
+    background-color: #DCE8EF;
+    animation: counter-rotate 20s linear infinite;
+  }
 }
-main .skill .circle-container .icon-list li:nth-child(4) {
-  transform: rotate(108deg) translate(300px) rotate(-108deg);
+main .skill .circle-container .circle-wrapper .rotate-wrapper .circle-box .circle-style {
+  position: relative;
 }
-main .skill .circle-container .icon-list li:nth-child(5) {
-  transform: rotate(144deg) translate(300px) rotate(-144deg);
+main .skill .circle-container .circle-wrapper .rotate-wrapper .circle-box .circle-style p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  border-radius: 170px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding: 20px;
+  color: #262626;
 }
-main .skill .circle-container .icon-list li:nth-child(6) {
-  transform: rotate(180deg) translate(300px) rotate(-180deg);
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list {
+  padding: 0 50px;
 }
-main .skill .circle-container .icon-list li:nth-child(7) {
-  transform: rotate(216deg) translate(300px) rotate(-216deg);
+@media (min-width: 1440px) {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    padding: 0;
+    overflow: visible;
+    transform-origin: center center;
+  }
 }
-main .skill .circle-container .icon-list li:nth-child(8) {
-  transform: rotate(252deg) translate(300px) rotate(-252deg);
+@media (min-width: 1440px) {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li {
+    position: absolute;
+    left: 36%;
+    top: 35%;
+    width: 200px;
+    height: 200px;
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(1) {
+    transform: rotate(0deg) translate(300px) rotate(0deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(2) {
+    transform: rotate(36deg) translate(300px) rotate(-36deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(3) {
+    transform: rotate(72deg) translate(300px) rotate(-72deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(4) {
+    transform: rotate(108deg) translate(300px) rotate(-108deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(5) {
+    transform: rotate(144deg) translate(300px) rotate(-144deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(6) {
+    transform: rotate(180deg) translate(300px) rotate(-180deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(7) {
+    transform: rotate(216deg) translate(300px) rotate(-216deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(8) {
+    transform: rotate(252deg) translate(300px) rotate(-252deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(9) {
+    transform: rotate(288deg) translate(300px) rotate(-288deg);
+  }
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:nth-child(10) {
+    transform: rotate(324deg) translate(300px) rotate(-324deg);
+  }
 }
-main .skill .circle-container .icon-list li:nth-child(9) {
-  transform: rotate(288deg) translate(300px) rotate(-288deg);
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 50px;
 }
-main .skill .circle-container .icon-list li:nth-child(10) {
-  transform: rotate(324deg) translate(300px) rotate(-324deg);
+@media (min-width: 1440px) {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box {
+    width: 200px;
+    height: 200px;
+    animation: counter-rotate 20s linear infinite;
+  }
 }
-main .skill .circle-container .icon-list li .item {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
-  grid-gap: 10px 10px;
+  grid-gap: 15px 10px;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-radius: 14px;
   z-index: 1;
   cursor: pointer;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item {
     position: absolute;
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -1178,15 +1217,14 @@ main .skill .circle-container .icon-list li .item {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform-origin: center center;
   }
 }
-main .skill .circle-container .icon-list li .item .icon {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .icon {
   width: 50px;
   height: 50px;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item .icon {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .icon {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -1196,17 +1234,17 @@ main .skill .circle-container .icon-list li .item .icon {
     z-index: 3;
   }
 }
-main .skill .circle-container .icon-list li .item p {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item p {
   font-size: 14px;
   color: #FEF3DB;
   border-radius: 5px;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item p {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item p {
     display: none;
   }
 }
-main .skill .circle-container .icon-list li .item .gauge {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .gauge {
   position: relative;
   width: 100%;
   height: 14px;
@@ -1214,7 +1252,7 @@ main .skill .circle-container .icon-list li .item .gauge {
   border-radius: 7px;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item .gauge {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .gauge {
     width: 165px;
     height: 165px;
     display: flex;
@@ -1224,7 +1262,7 @@ main .skill .circle-container .icon-list li .item .gauge {
     z-index: 0;
   }
 }
-main .skill .circle-container .icon-list li .item .gauge .gauge-txt {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .gauge .gauge-txt {
   position: absolute;
   left: 0;
   top: -2px;
@@ -1239,16 +1277,16 @@ main .skill .circle-container .icon-list li .item .gauge .gauge-txt {
   transition: width 0.5s ease-in;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item .gauge .gauge-txt {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .gauge .gauge-txt {
     background: none;
     display: none;
   }
 }
-main .skill .circle-container .icon-list li .item .progress-circle {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .progress-circle {
   display: none;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item .progress-circle {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .progress-circle {
     position: absolute;
     top: -3px;
     left: -3px;
@@ -1261,13 +1299,13 @@ main .skill .circle-container .icon-list li .item .progress-circle {
   }
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item .progress-circle svg {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .progress-circle svg {
     width: 100%;
     height: 100%;
   }
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item .progress-circle svg circle {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item .progress-circle svg circle {
     fill: none;
     stroke: url(#gradient);
     stroke-width: 5;
@@ -1276,16 +1314,12 @@ main .skill .circle-container .icon-list li .item .progress-circle {
     transition: stroke-dashoffset 0.5s ease-in;
   }
 }
-main .skill .circle-container .icon-list li .item:last-child {
-  margin-bottom: 0;
-  padding-bottom: 50px;
-}
-main .skill .circle-container .icon-list li .item-hover {
+main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item-hover {
   background-color: rgba(220, 232, 239, 0.1);
   transition: background-color 0.3s ease;
 }
 @media (min-width: 1440px) {
-  main .skill .circle-container .icon-list li .item-style span.item-data {
+  main .skill .circle-container .circle-wrapper .rotate-wrapper .icon-list li .item-box .item-style span.item-data {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -1313,11 +1347,20 @@ main .skill .circle-container .progress-svg {
     z-index: 0;
   }
 }
+@keyframes scroll-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1000px 0;
+  }
+}
 main .portfolio {
   position: relative;
   width: 100%;
   overflow: hidden;
   background: url(../images/star7.png) repeat center, linear-gradient(to bottom, #141c2e 0%, #2d2c47 50%, #3b3552 85%, #1a1a2d 100%);
+  animation: scroll-bg 30s linear infinite;
 }
 main .portfolio::before {
   content: "";
@@ -1525,6 +1568,7 @@ main .portfolio .portfolio-slider .portfolio-web-pages {
 }
 main .portfolio .portfolio-slider .portfolio-web-pages .portfolio-box {
   flex-shrink: 0;
+  margin-right: 0;
   background-color: rgba(220, 232, 239, 0.1);
   border: 1px solid #FEF3DB;
 }
@@ -1863,6 +1907,62 @@ footer .contact .contact-box .contact-txt .mail-thanks-box strong {
   footer .contact .contact-box .contact-txt .mail-thanks-box strong {
     font-size: 50px;
     margin-top: 15px;
+  }
+}
+footer .contact .shooting-star-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+footer .contact .shooting-star-container .shooting-star-line {
+  position: absolute;
+  width: 0.5px;
+  height: 100px;
+  opacity: 0;
+  transform: rotate(45deg);
+  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  background-color: white;
+  animation: shooting 4s linear;
+}
+footer .contact .shooting-star-container .shooting-star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  background-color: #fff;
+}
+@keyframes shooting {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-120vw, 120vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+@keyframes shootingStar {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-100vw);
+    opacity: 0;
   }
 }
 footer #top-btn {

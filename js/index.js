@@ -165,7 +165,18 @@ window.onload = function() {
     });
 
     // skill부분 이벤트
+    const rotateWrapper = document.querySelector('.rotate-wrapper');
     const items = document.querySelectorAll('.item');
+
+    const setAnimationPlayState = (state) => { // 호버시 애니메이션 퍼즈/러닝 이벤트 
+        const itemBoxes = rotateWrapper.querySelectorAll('.item-box');
+        const circles = rotateWrapper.querySelectorAll('.circle');  
+        const rotateElements = [rotateWrapper, ...itemBoxes, ...circles];
+    
+        rotateElements.forEach(element => {
+            element.style.animationPlayState = state; 
+        });
+    };
 
     items.forEach((item) => {
         const spans = item.querySelectorAll('.gauge > span');
@@ -178,6 +189,8 @@ window.onload = function() {
         const circleContainer = document.getElementsByClassName('circle')[0];
 
         item.addEventListener('mouseover', () => {
+            setAnimationPlayState('paused');
+
             spans.forEach((span) => {
                 span.style.width = '0%';
                 setTimeout(() => {
@@ -214,6 +227,8 @@ window.onload = function() {
         });
         
         item.addEventListener('mouseout', () => {
+            setAnimationPlayState('running');
+
             spans.forEach((span) => {
                 span.style.opacity = 0;
                 span.style.width = '0%';
@@ -246,11 +261,12 @@ window.onload = function() {
     // 웹페이지 슬라이드 이벤트
     const slider1 = document.querySelector(".portfolio-web-pages");
     const dots = document.querySelectorAll(".dot");
+    const slides = slider1.querySelectorAll(".port1");
 
     dots.forEach(dot => {
         dot.addEventListener("click", () => {
         const slideIndex = parseInt(dot.dataset.slide);
-        const slideWidth = window.innerWidth;
+        const slideWidth = slides[0].offsetWidth;
         slider1.style.transform = `translateX(-${slideIndex * slideWidth}px)`;
 
         dots.forEach(d => d.classList.remove("active"));
@@ -357,8 +373,14 @@ window.onload = function() {
                 modalContainer.addEventListener('click', (e) => {
                     if (e.target === modalContainer) {
                         modalContainer.classList.remove('modal-container-show');
+                        
+                        const onTransitionEnd = () => {
+                            startAutoSlide();
+                            modalContainer.removeEventListener('transitionend', onTransitionEnd);
+                        };
+                
+                        modalContainer.addEventListener('transitionend', onTransitionEnd);
                     }
-                    startAutoSlide();
                 });
                 
                 modalContainer.style.cursor = 'pointer';
@@ -415,3 +437,110 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.shooting-star-container');
+    
+    if (!container) {
+      console.error("shooting-star-container not found!");
+      return;
+    }
+  
+    // 별똥별을 만드는 함수
+    function createShootingStar() {
+      const star = document.createElement('div');
+      star.classList.add('shooting-star');
+  
+      // 랜덤 시작 위치 (화면 너비 중 오른쪽 일부에서 시작)
+      const startX = Math.random() * window.innerWidth;
+      const startY = Math.random() * window.innerHeight * 0.2; // 상단 20%
+  
+      // 랜덤 속도 (0.5초에서 2초 사이)
+      const duration = (Math.random() * 0.5 + 2) + 's';
+  
+      // 랜덤 사선 각도 (45도~135도)
+      const angle = (Math.random() * 90 + 45); // 45도~135도
+  
+      // CSS 스타일로 위치와 애니메이션 설정
+      star.style.left = `${startX}px`;
+      star.style.top = `${startY}px`;
+      star.style.animation = `shootingStar ${duration} linear forwards`;
+  
+      // 별똥별 애니메이션 경로 설정
+      star.style.transform = `rotate(${angle}deg)`; // 회전시켜서 사선 경로로 설정
+  
+      // 별을 컨테이너에 추가
+      container.appendChild(star);
+  
+      // 애니메이션 끝나면 별을 제거
+      star.addEventListener('animationend', () => {
+        star.remove();
+      });
+    }
+  
+    // 주기적으로 별똥별을 생성 (랜덤 간격)
+    setInterval(() => {
+      createShootingStar();
+    }, 1000); // 약 0.8초 간격으로 생성 (원하는 대로 조정 가능)
+
+
+    // 선을 만드는 함수
+    function createShootingStarLine() {
+        const line = document.createElement('div');
+        line.classList.add('shooting-star-line');
+
+        // 랜덤 시작 위치 (화면 너비 중 오른쪽 일부에서 시작)
+        const startX = Math.random() * window.innerWidth;  // 랜덤 X 위치
+        const startY = Math.random() * window.innerHeight * 0.2; // 상단 20%에서 시작
+
+        // 랜덤 속도 (1.5초에서 3초 사이)
+        const duration = (Math.random() * 1 + 2.5) + 's';
+
+        // CSS 스타일로 위치와 애니메이션 설정
+        line.style.left = `${startX}px`;
+        line.style.top = `${startY}px`;
+        line.style.animationDuration = duration;  // 랜덤 속도
+
+        // 선을 컨테이너에 추가
+        container.appendChild(line);
+
+        // 애니메이션 끝나면 선을 제거
+        line.addEventListener('animationend', () => {
+            line.remove();
+        });
+    }
+
+    // 주기적으로 선을 생성 (랜덤 간격)
+    setInterval(() => {
+        createShootingStarLine();
+    }, 1000);  // 약 0.8초 간격으로 생성 (원하는 대로 조정 가능)
+  });
+// document.addEventListener('DOMContentLoaded', () => {
+//     const container = document.querySelector('.shooting-star-container');
+    
+//     function createShootingStar() {
+//       const star = document.createElement('div');
+//       star.classList.add('shooting-star');
+    
+//       // 랜덤 시작 위치 (화면 너비 중 오른쪽 일부에서 시작)
+//       const startX = window.innerWidth * (0.6 + Math.random() * 0.4); // 60%~100%
+//       const startY = window.innerHeight * Math.random() * 0.3; // 상단 30%
+    
+//       star.style.left = `${startX}px`;
+//       star.style.top = `${startY}px`;
+    
+//       container.appendChild(star);
+    
+//       // 애니메이션 끝나면 제거
+//       star.addEventListener('animationend', () => {
+//         star.remove();
+//       });
+//     }
+    
+//     // 주기적으로 별똥별 생성 (랜덤 간격)
+//     setInterval(() => {
+//       if (Math.random() < 0.6) { // 60% 확률로 생성
+//         createShootingStar();
+//       }
+//     }, 800); // 약 0.8초 간격 시도
+// });
