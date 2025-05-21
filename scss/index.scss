@@ -1266,7 +1266,7 @@ main {
         background-position: 0 0;
         }
         to {
-        background-position: -1000px 0; // 원하는 거리만큼 이동 (수정 가능)
+        background-position: -1000px 0; 
         }
     }
 
@@ -1503,31 +1503,7 @@ main {
 
     
                     .img-desc-box {
-                        // position: relative;
                         
-                        // display: flex;
-                        // flex-direction: column; // 기본은 모바일 기준, 세로 배치
-                        // gap: 20px;
-    
-                        // @include responsive(large-screens) {
-                        //     flex-direction: row; // 데스크탑에서는 가로 배치
-                        //     // justify-content: space-between;
-                        //     // align-items: flex-start;
-                        // }
-    
-                        .img-box {
-                            // height: 500px;
-                            // background-color: red;
-                            // display: flex;
-                            // flex-direction: column;
-    
-                            .mobile-img {
-                                display: none;
-                            }
-    
-    
-                        }
-    
                         .desc-btn-box {
                             
                             .txt-box {
@@ -1807,7 +1783,6 @@ footer {
     .contact {
         position: relative;
         height: 640px;
-        // background-color: #353434;
         background: url(../images/Reflection_bg.png) no-repeat center top;
         background-size: cover;
 
@@ -1822,7 +1797,7 @@ footer {
             left: 0;
             width: 100%;
             height: 100px;
-            background: linear-gradient(to top, transparent, #080a20); // 포트폴리오 배경
+            background: linear-gradient(to top, transparent, #080a20); 
             z-index: 1;
             pointer-events: none;
         }
@@ -1837,35 +1812,13 @@ footer {
 
             border-radius: 50%;
             box-shadow:  
-                0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
-                0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
-                0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
+                0px 4px 25px 20px rgba(180, 210, 255, 0.12),   
+                0px 4px 55px 30px rgba(105, 167, 192, 0.2),   
+                0px 3px 60px 45px rgba(255, 255, 255, 0.045);  
 
             @include responsive(large-screens) {
                 width: 385px
             }
-
-            // img {
-            //     position: relative;
-            //     top: 120px; left: 50%;
-            //     transform: translateX(-50%);
-            //     width: 32.77777777777778%;
-            //     border-radius: 50%;
-    
-            //     // box-shadow:  
-            //     // 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
-            //     // 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
-            //     // 0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
-
-            //     box-shadow:  
-            //     0px 4px 25px 20px rgba(180, 210, 255, 0.12),   /* 연한 블루그레이 빛 */
-            //     0px 4px 55px 30px rgba(105, 167, 192, 0.2),   /* 푸른 아우라 강조 */
-            //     0px 3px 60px 45px rgba(255, 255, 255, 0.045);   /* 흰 빛은 최소화 */
-
-            //     @include responsive(large-screens) {
-            //         width: 27.77777777777778%;
-            //     }
-            // }
         }
 
         .contact-box {
@@ -1913,12 +1866,6 @@ footer {
 
                     img {
                         border-radius: 50%;
-
-                        // box-shadow:  
-                        // 0px 4px 10px 20px rgba(255, 255, 255, 0.1), 
-                        // 0px 3px 15px 5px rgba(239, 202, 123, 0.25), 
-                        // 0px 5px 14px 5px rgba(102, 167, 198, 0.25); 
-
                         box-shadow:  
                         0px 4px 10px 20px rgba(180, 210, 255, 0.12),  
                         0px 3px 15px 10px rgba(105, 167, 192, 0.2),
@@ -1926,11 +1873,6 @@ footer {
                         opacity: 0.5;
 
                         @include responsive(large-screens) {
-                            box-shadow:  
-                            0px 4px 20px 40px rgba(255, 255, 255, 0.1), 
-                            0px 3px 30px 10px rgba(239, 202, 123, 0.25), 
-                            0px 5px 27px 10px rgba(102, 167, 198, 0.25); 
-
                             box-shadow:  
                             0px 4px 20px 30px rgba(180, 210, 255, 0.12),  
                             0px 3px 30px 18px rgba(105, 167, 192, 0.2),
@@ -1979,17 +1921,17 @@ footer {
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; // 클릭 안 걸리게
+            pointer-events: none; 
             overflow: hidden;
             z-index: 10;
 
             .shooting-star-line {
                 position: absolute;
                 width: 0.5px;
-                height: 100px;
+                height: 125px;
                 opacity: 0;
                 transform: rotate(45deg);
-                box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8);
+                box-shadow: 0 0 0.5px 0.5px rgba(255, 255, 255, 0.7);
                 pointer-events: none;
                 background-color: white;
                 animation: shooting 4s linear ;
@@ -2025,14 +1967,14 @@ footer {
 
         @keyframes shootingStar {
             0% {
-              transform: translateY(0) translateX(0);
-              opacity: 1;
+            transform: translateY(0) translateX(0);
+            opacity: 1;
             }
             100% {
               transform: translateY(100vh) translateX(-100vw);  // 화면 밖으로 떨어짐
-              opacity: 0;
+            opacity: 0;
             }
-          }
+        }
     } // contact
 
     #top-btn {

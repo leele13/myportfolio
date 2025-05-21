@@ -10,11 +10,11 @@ window.onload = function() {
                 menuBox.classList.remove('active');
                 setTimeout(() => {
                     menuBox.style.display = 'none'; 
-                    body.classList.remove('no-scroll');  // 메뉴가 닫힐 때 no-scroll 제거
+                    body.classList.remove('no-scroll');  
                 }, 300); 
             } else {
                 menuBox.style.display = 'block';
-                body.classList.add('no-scroll');  // 메뉴가 열릴 때 no-scroll 추가
+                body.classList.add('no-scroll');  
                 setTimeout(() => {
                     menuBox.classList.add('active'); 
                 }, 10); 
@@ -25,10 +25,10 @@ window.onload = function() {
         links.forEach(link => {
             link.addEventListener('click', function() {
                 const menuBox = document.getElementsByClassName('mainmenu')[0];
-                if (window.innerWidth < 1440) {  // 모바일에서만 메뉴 닫기
+                if (window.innerWidth < 1440) {  
                     menuBox.classList.remove('active');
                     menuBox.style.display = 'none'; 
-                    document.body.classList.remove('no-scroll');  // 메뉴가 닫힐 때 no-scroll 제거
+                    document.body.classList.remove('no-scroll'); 
                 }
     
                 const closeSpan = document.querySelector('.close');
@@ -45,7 +45,7 @@ window.onload = function() {
         const menuBox = document.getElementsByClassName('mainmenu')[0];
         // PC 화면 크기일 경우 메뉴가 항상 보이도록 설정
         if (window.innerWidth >= 1440) { 
-            menuBox.style.display = 'block'; // 메뉴가 항상 보이도록 설정
+            menuBox.style.display = 'block'; 
             menuBox.classList.remove('active');
             mobileBtn.classList.remove('close');
         } else {
@@ -139,23 +139,17 @@ window.onload = function() {
 
         // 탑버튼 이미지와 텍스트 색상 변경
         const scrollPosition = window.scrollY;
-        const documentHeight = document.documentElement.scrollHeight;  // 문서 전체 높이
-        
-        // 콘솔에 스크롤 위치 및 윈도우 높이 찍기
-        // console.log(window.scrollY + ' 윈도우 스크롤 위치');
-        // console.log(scrollPosition + ' 윈도우 스크롤 위치');
-        // console.log(documentHeight + ' 문서 전체 높이');
+        const documentHeight = document.documentElement.scrollHeight;  
         
         // 문서 높이의 절반을 초과하면 두 번째 이미지로 변경
         if (scrollPosition > documentHeight / 2) {
-            // topImage.src = '../images/Moon.svg'; // 두 번째 이미지로 변경
-            topImage.src = '../images/Mooon.png'; // 두 번째 이미지로 변경
+            topImage.src = '../images/Mooon.png'; 
             topImage.classList.add('moon-style');
-            topText.style.color = '#262626'; // 글자 색을 두 번째 이미지에 맞게 변경 (어두운 색)
+            topText.style.color = '#262626'; 
         } else {
-            topImage.src = '../images/top_btn_sun.png'; // 첫 번째 이미지로 변경
+            topImage.src = '../images/top_btn_sun.png'; 
             topImage.classList.remove('moon-style');
-            topText.style.color = '#FFFFFF'; // 글자 색을 첫 번째 이미지에 맞게 변경 (흰색)
+            topText.style.color = '#FFFFFF'; 
         }
     });
 
@@ -362,7 +356,7 @@ window.onload = function() {
                 const modalPosition = portfolioBox.getBoundingClientRect().left - slideOffset;
 
                 // 모달을 슬라이드에 맞게 위치하도록 수정
-                modalContainer.style.left = `${modalPosition}px`; // 현재 슬라이드의 위치에 맞춰 모달의 left를 설정
+                modalContainer.style.left = `${modalPosition}px`; 
 
                 // 모달을 보이게 하기 위해 'modal-container-show' 클래스 추가
                 modalContainer.classList.add('modal-container-show');
@@ -394,13 +388,13 @@ window.onload = function() {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();  
             
-            const targetId = this.getAttribute('href').substring(1); // #about -> about
-            const targetElement = document.getElementById(targetId); // 해당 ID를 가진 요소 찾기
+            const targetId = this.getAttribute('href').substring(1); 
+            const targetElement = document.getElementById(targetId); 
             
             if (targetElement) {
                 targetElement.scrollIntoView({
-                    behavior: 'smooth',  // 부드럽게 스크롤
-                    block: 'start'       // 스크롤 후 해당 요소가 화면 상단에 위치하도록
+                    behavior: 'smooth',  
+                    block: 'start'     
                 });
             }
         });
@@ -418,19 +412,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach(button => {
         button.addEventListener('click', (event) => {
-            const categoryClass = event.target.classList[1];  // 버튼의 두 번째 클래스 (웹페이지, js, design 등)
+            const categoryClass = event.target.classList[1];  
             let targetIndex = -1;
     
-            // 해당 카테고리의 첫 번째 포트폴리오 박스를 찾음
             portfolioBoxes.forEach((box, index) => {
-                if (box.classList.contains(categoryClass)) {  // 해당 클래스가 포함된 박스를 찾음
+                if (box.classList.contains(categoryClass)) {
                 targetIndex = index;
-                return; // 첫 번째로 맞는 박스 찾으면 종료
+                return;
                 }
             });
     
             if (targetIndex >= 0) {
-                // 슬라이드로 해당 포트폴리오 박스로 이동 (예시: transform을 이용한 이동)
                 portfolioContainer.style.transform = `translateX(-${targetIndex * 100}%)`;
             }
         });
@@ -442,46 +434,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.shooting-star-container');
     
     if (!container) {
-      console.error("shooting-star-container not found!");
-      return;
+    console.error("shooting-star-container not found!");
+    return;
     }
-  
+
     // 별똥별을 만드는 함수
     function createShootingStar() {
-      const star = document.createElement('div');
-      star.classList.add('shooting-star');
-  
-      // 랜덤 시작 위치 (화면 너비 중 오른쪽 일부에서 시작)
-      const startX = Math.random() * window.innerWidth;
-      const startY = Math.random() * window.innerHeight * 0.2; // 상단 20%
-  
-      // 랜덤 속도 (0.5초에서 2초 사이)
-      const duration = (Math.random() * 0.5 + 2) + 's';
-  
-      // 랜덤 사선 각도 (45도~135도)
-      const angle = (Math.random() * 90 + 45); // 45도~135도
-  
-      // CSS 스타일로 위치와 애니메이션 설정
-      star.style.left = `${startX}px`;
-      star.style.top = `${startY}px`;
-      star.style.animation = `shootingStar ${duration} linear forwards`;
-  
-      // 별똥별 애니메이션 경로 설정
-      star.style.transform = `rotate(${angle}deg)`; // 회전시켜서 사선 경로로 설정
-  
-      // 별을 컨테이너에 추가
-      container.appendChild(star);
-  
-      // 애니메이션 끝나면 별을 제거
-      star.addEventListener('animationend', () => {
-        star.remove();
-      });
+    const star = document.createElement('div');
+    star.classList.add('shooting-star');
+
+    // 랜덤 시작 위치 
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight * 0.2; 
+
+    // 랜덤 속도 
+    const duration = (Math.random() * 0.5 + 2) + 's';
+
+    // 랜덤 사선 각도 
+    const angle = (Math.random() * 90 + 45); 
+
+    // CSS 스타일로 위치와 애니메이션 설정
+    star.style.left = `${startX}px`;
+    star.style.top = `${startY}px`;
+    star.style.animation = `shootingStar ${duration} linear forwards`;
+
+    // 별똥별 애니메이션 경로 설정
+    star.style.transform = `rotate(${angle}deg)`; 
+
+    // 별을 컨테이너에 추가
+    container.appendChild(star);
+
+    // 애니메이션 끝나면 별을 제거
+    star.addEventListener('animationend', () => {
+    star.remove();
+    });
     }
-  
+
     // 주기적으로 별똥별을 생성 (랜덤 간격)
     setInterval(() => {
-      createShootingStar();
-    }, 1000); // 약 0.8초 간격으로 생성 (원하는 대로 조정 가능)
+    createShootingStar();
+    }, 1000); 
 
 
     // 선을 만드는 함수
@@ -489,17 +481,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const line = document.createElement('div');
         line.classList.add('shooting-star-line');
 
-        // 랜덤 시작 위치 (화면 너비 중 오른쪽 일부에서 시작)
-        const startX = Math.random() * window.innerWidth;  // 랜덤 X 위치
-        const startY = Math.random() * window.innerHeight * 0.2; // 상단 20%에서 시작
+        // 랜덤 시작 위치 
+        const startX = Math.random() * window.innerWidth;  
+        const startY = Math.random() * window.innerHeight * 0.2; 
 
-        // 랜덤 속도 (1.5초에서 3초 사이)
+        // 랜덤 속도 
         const duration = (Math.random() * 1 + 2.5) + 's';
 
         // CSS 스타일로 위치와 애니메이션 설정
         line.style.left = `${startX}px`;
         line.style.top = `${startY}px`;
-        line.style.animationDuration = duration;  // 랜덤 속도
+        line.style.animationDuration = duration; 
 
         // 선을 컨테이너에 추가
         container.appendChild(line);
@@ -513,34 +505,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // 주기적으로 선을 생성 (랜덤 간격)
     setInterval(() => {
         createShootingStarLine();
-    }, 1000);  // 약 0.8초 간격으로 생성 (원하는 대로 조정 가능)
-  });
-// document.addEventListener('DOMContentLoaded', () => {
-//     const container = document.querySelector('.shooting-star-container');
-    
-//     function createShootingStar() {
-//       const star = document.createElement('div');
-//       star.classList.add('shooting-star');
-    
-//       // 랜덤 시작 위치 (화면 너비 중 오른쪽 일부에서 시작)
-//       const startX = window.innerWidth * (0.6 + Math.random() * 0.4); // 60%~100%
-//       const startY = window.innerHeight * Math.random() * 0.3; // 상단 30%
-    
-//       star.style.left = `${startX}px`;
-//       star.style.top = `${startY}px`;
-    
-//       container.appendChild(star);
-    
-//       // 애니메이션 끝나면 제거
-//       star.addEventListener('animationend', () => {
-//         star.remove();
-//       });
-//     }
-    
-//     // 주기적으로 별똥별 생성 (랜덤 간격)
-//     setInterval(() => {
-//       if (Math.random() < 0.6) { // 60% 확률로 생성
-//         createShootingStar();
-//       }
-//     }, 800); // 약 0.8초 간격 시도
-// });
+    }, 1000);  
+});

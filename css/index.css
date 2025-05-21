@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Gaegu&family=Noto+Sans+KR:wght@100..900&display=swap");
 * {
   margin: 0;
@@ -1572,9 +1571,6 @@ main .portfolio .portfolio-slider .portfolio-web-pages .portfolio-box {
   background-color: rgba(220, 232, 239, 0.1);
   border: 1px solid #FEF3DB;
 }
-main .portfolio .portfolio-slider .portfolio-web-pages .portfolio-box .img-desc-box .img-box .mobile-img {
-  display: none;
-}
 main .portfolio .portfolio-slider .portfolio-web-pages .portfolio-box .img-desc-box .desc-btn-box .txt-box {
   color: #FEF3DB;
 }
@@ -1810,7 +1806,7 @@ footer .contact .moon {
   width: 33.3333333333%;
   margin: 0 auto;
   border-radius: 50%;
-  box-shadow: 0px 4px 25px 20px rgba(180, 210, 255, 0.12), 0px 4px 55px 30px rgba(105, 167, 192, 0.2), 0px 3px 60px 45px rgba(255, 255, 255, 0.045); /* 흰 빛은 최소화 */
+  box-shadow: 0px 4px 25px 20px rgba(180, 210, 255, 0.12), 0px 4px 55px 30px rgba(105, 167, 192, 0.2), 0px 3px 60px 45px rgba(255, 255, 255, 0.045);
 }
 @media (min-width: 1440px) {
   footer .contact .moon {
@@ -1874,7 +1870,6 @@ footer .contact .contact-box .contact-txt .reverse-moon img {
 }
 @media (min-width: 1440px) {
   footer .contact .contact-box .contact-txt .reverse-moon img {
-    box-shadow: 0px 4px 20px 40px rgba(255, 255, 255, 0.1), 0px 3px 30px 10px rgba(239, 202, 123, 0.25), 0px 5px 27px 10px rgba(102, 167, 198, 0.25);
     box-shadow: 0px 4px 20px 30px rgba(180, 210, 255, 0.12), 0px 3px 30px 18px rgba(105, 167, 192, 0.2), 0px 5px 27px 17px rgba(255, 255, 255, 0.045);
   }
 }
@@ -1922,10 +1917,10 @@ footer .contact .shooting-star-container {
 footer .contact .shooting-star-container .shooting-star-line {
   position: absolute;
   width: 0.5px;
-  height: 100px;
+  height: 125px;
   opacity: 0;
   transform: rotate(45deg);
-  box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0.5px 0.5px rgba(255, 255, 255, 0.7);
   pointer-events: none;
   background-color: white;
   animation: shooting 4s linear;
